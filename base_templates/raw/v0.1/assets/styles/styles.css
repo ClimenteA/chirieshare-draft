@@ -1,0 +1,593 @@
+/* Custom CSS on top of Materialize */
+
+
+/* Stiky footer */
+body, .body {
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+min-height: 100vh;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+    -ms-flex-direction: column;
+        flex-direction: column;
+min-width: 250px;
+}
+
+main {
+-webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+        flex: 1 0 auto;
+
+-webkit-touch-callout: none; /* iOS Safari */
+-webkit-user-select: none; /* Safari */
+-khtml-user-select: none; /* Konqueror HTML */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* Internet Explorer/Edge */
+user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+
+/* Overwriting default form input colors */
+
+.input-field input[type=text] + label, 
+.input-field input[type=tel] + label,  
+.input-field input[type=password] + label,  
+.materialize-textarea:focus:not([readonly]) + label {
+color: #78909c !important;
+font-weight: bold;
+}
+
+.input-field input[type=text], 
+.input-field input[type=tel], 
+.input-field input[type=password],  
+.materialize-textarea:focus:not([readonly]) {
+border-bottom: 1px solid #78909c !important;
+-webkit-box-shadow: 0 1px 0 0 #78909c !important;
+        box-shadow: 0 1px 0 0 #78909c !important;
+font-weight: bold;
+}
+
+/* Input Focus */
+.input-field input[type=text]:focus + label, 
+.input-field input[type=tel]:focus + label, 
+.input-field input[type=password]:focus + label,  
+.materialize-textarea:focus:not([readonly]) + label {
+color: #465861 !important;
+font-weight: bold;
+}
+
+.input-field input[type=text]:focus, 
+.input-field input[type=tel]:focus, 
+.input-field input[type=password]:focus,  
+.materialize-textarea:focus:not([readonly]) {
+border-bottom: 1px solid #465861 !important;
+-webkit-box-shadow: 0 1px 0 0 #465861 !important;
+        box-shadow: 0 1px 0 0 #465861 !important;
+font-weight: bold;
+}
+
+
+label {
+    color: #78909c;
+    font-weight: bold;
+}
+
+
+input[type="radio"], input[type="checkbox"] {
+    background-color: #465861;
+    color: #465861;
+}
+
+
+/* Radio Buttons
+========================================================================== */
+
+[type="radio"]:not(:checked) + span:before,
+[type="radio"]:not(:checked) + span:after {
+    border: 2px solid #5a5a5a;
+}
+
+
+/* Checked styles */
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:before,
+[type="radio"].with-gap:checked + span:after {
+    border: 2px solid #465861;
+}
+
+[type="radio"]:checked + span:after,
+[type="radio"].with-gap:checked + span:after {
+    background-color: #465861;
+}
+
+/* Checkboxes
+    ========================================================================== */
+
+[type="checkbox"] + span:not(.lever):before,
+[type="checkbox"]:not(.filled-in) + span:not(.lever):after {
+    border: 2px solid #5a5a5a;
+}
+
+[type="checkbox"]:not(:checked):disabled + span:not(.lever):before {
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+[type="checkbox"].tabbed:focus + span:not(.lever):after {
+    -webkit-box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+[type="checkbox"]:checked + span:not(.lever):before {
+    border-right: 2px solid #78909c;
+    border-bottom: 2px solid #78909c;
+}
+
+[type="checkbox"]:checked:disabled + span:before {
+    border-right: 2px solid rgba(0, 0, 0, 0.42);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.42);
+}
+
+/* Indeterminate checkbox */
+[type="checkbox"]:indeterminate + span:not(.lever):before {
+    border-right: 2px solid #78909c;
+}
+
+[type="checkbox"]:indeterminate:disabled + span:not(.lever):before {
+    border-right: 2px solid rgba(0, 0, 0, 0.42);
+}
+
+
+[type="checkbox"].filled-in:not(:checked) + span:not(.lever):after {
+    border: 2px solid #5a5a5a;
+}
+
+[type="checkbox"].filled-in:checked + span:not(.lever):before {
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+}
+
+[type="checkbox"].filled-in:checked + span:not(.lever):after {
+    border: 2px solid #78909c;
+    background-color: #78909c;
+}
+
+[type="checkbox"].filled-in.tabbed:focus + span:not(.lever):after {
+    border-color: #5a5a5a;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+[type="checkbox"].filled-in.tabbed:checked:focus + span:not(.lever):after {
+    background-color: #78909c;
+    border-color: #78909c;
+}
+
+[type="checkbox"].filled-in:disabled:not(:checked) + span:not(.lever):after {
+    background-color: #949494;
+}
+
+[type="checkbox"].filled-in:disabled:checked + span:not(.lever):after {
+    background-color: #949494;
+    border-color: #949494;
+}
+
+
+/* Dropdown */
+
+.dropdown-content li > a, .dropdown-content li > span {
+    font-size: 16px;
+    color: #78909c !important;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+    font-weight: bold;
+}
+
+
+.select-wrapper + label {
+    position: absolute;
+    top: -29px;
+    color: #78909c !important;
+}
+
+.input-field > label {
+    color: #78909c !important;
+}
+
+
+.btn, .btn-large, .btn-small {
+    background-color: #78909c !important;
+}
+
+/* Must use SASS to modify primary colors from up  */
+
+
+.city {
+    margin: 0;
+    /* Full height */
+    height: 100%;
+    width: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("../img/oras.jpg") !important;
+}
+
+
+
+#loading {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+
+.range-width-35 {
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.range-width-374 {
+    min-width: 300px;
+    max-width: 740px;
+}
+
+
+.none {display: none;}
+.block {display: block;}
+.inline {display: inline;}
+.bold {font-weight: bold;}
+.radius {border-radius: 0.3rem;position: relative;}
+.cpointer {cursor: pointer;}
+
+.mtop-2 {margin-top: 2rem;}
+.mbot-2 {margin-bottom: 2rem;}
+
+.padv-2 {padding-top: 2rem;padding-bottom: 2rem;}
+.padh-2 {padding-left: 2rem;padding-right: 2rem;}
+.pada-2 {padding: 2rem;}
+.padr-2 {padding-right: 2rem;}
+.padl-2 {padding-left: 2rem;}
+.padr-1 {padding-right: 1rem;}
+.padl-1 {padding-left: 1rem;}
+
+.btn-xs {
+    padding-top: 0.4rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+    border: none;
+    border-radius: 0.2rem;
+    font-weight: bold;
+}
+
+ul li {
+    padding-bottom: 0.5rem;
+}
+
+
+@supports ((display: -ms-grid) or (display: grid)) {
+.listings {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-column-gap: 2rem;
+    margin: 2rem;
+    margin-top: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
+} 
+}
+
+
+.filters {
+    display: block;
+    position: relative;
+    z-index: 2;
+    margin-top: 2rem;
+    overflow-x: hidden;
+}
+
+
+.flex-center { 
+    display: -webkit-box; 
+    display: -ms-flexbox; 
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+
+.btm-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1rem;
+}
+
+
+
+#up {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+    opacity: .4;
+}
+
+#up:hover {
+    opacity: 100;
+}
+
+
+.listing {
+position: relative;
+width: 100%;
+max-width: 640px;
+min-width: 300px;
+height: 320px;
+border-radius: 0.3rem;
+/* For dear IE */
+margin: 0 auto; 
+margin-bottom: 2rem;
+}
+
+
+.listing > a > img {
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    -o-object-fit: cover;
+        object-fit: cover;
+    position: relative;
+    border-radius: 0.3rem;
+}
+        
+
+.listing-title {
+position: absolute;
+bottom: 0;
+left: 0;
+padding: 1.5rem;
+border-radius: 0.3rem;
+margin-bottom: 0; 
+width: inherit;
+}
+
+.price {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 1;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    border-radius: 0.3rem;
+}
+
+.price::after {content: "\20AC";}
+.euro::after {content: "\20AC";}
+
+.fav {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    z-index: 1;
+    border-radius: 0.3rem;
+}
+
+
+.image-carousel {
+    display: block;
+    width: auto;
+    min-width: 300px;
+    height: 420px;
+    position: relative;
+    margin: 2rem auto;
+}
+
+.image-carousel img {
+    max-width: 90vw;
+    max-height: 60vh;
+    min-width: inherit;
+    height: inherit;
+    object-fit: contain;
+    position: relative;
+    margin: 2rem auto;
+    border-radius: 0.3rem;
+}
+
+
+.controls {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+
+.controls button:first-child {
+    width: 20%;
+    min-width: 140px;
+}
+
+
+.controls button:nth-last-child(1) {
+    width: 20%;
+    min-width: 140px;
+}
+
+
+.profile-pic {
+    height: 220px;
+    width: 220px;
+    border-radius: 30%;
+}
+
+.modify {
+    position: absolute;
+    top:0;
+    right:0;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 0.3rem;
+}
+
+
+.underline:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.card-panel.blue-grey.darken-2.radius i {
+    display: none;
+}
+
+.card-panel.blue-grey.darken-2.radius:hover i {
+    display: block;
+}
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+.listings {
+grid-template-columns: repeat(auto-fit, minmax(415px, 1fr));
+}
+.listing {
+    height: 290px;
+}
+
+.card-image > img {
+    height: 290px;
+}
+
+
+}
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+}
+.listing {
+    height: 280px;
+}
+
+.card-image > img {
+    height: 280px;
+}
+
+
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+}
+.listing {
+    height: 280px;
+}
+
+.card-image > img {
+    height: 280px;
+}
+
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+}
+.listing {
+    height: 260px;
+}
+
+.card-image > img { height: 260px;}
+
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+}
+.listing {
+    height: 240px;
+}
+
+.card-image > img {height: 240px;}
+
+}
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 0;
+    margin: 0;
+}
+
+.listing {
+    height: 200px;
+}
+
+.listing-title {
+    padding: 1.2rem;
+}
+
+
+.right, .left {float: none;}
+.hide-overflow {overflow-x: hidden;}
+
+.mtop {margin-top:1rem;}
+
+}
+

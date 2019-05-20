@@ -3,7 +3,7 @@
 
 
 let el_body = document.getElementsByTagName("body")[0];
-el_body.className += " city grey lighten-4";
+el_body.classList.add("city");
 
 let el_main = document.getElementsByTagName("main")[0];
 el_main.className += "container grey lighten-5";

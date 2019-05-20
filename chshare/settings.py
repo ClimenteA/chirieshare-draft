@@ -8,6 +8,10 @@ https://docs.djangoproject.com/en/2.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
+
+GIT commands
+http://rogerdudler.github.io/git-guide/
+
 """
 
 import os

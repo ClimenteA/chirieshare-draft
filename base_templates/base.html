@@ -96,6 +96,23 @@
 </header>
 
 
+<div id="loading" class="grey lighten-5 flex-center">
+<div class="preloader-wrapper active">
+<div class="spinner-layer spinner-green-only">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div><div class="gap-patch">
+<div class="circle"></div>
+</div>
+<div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
 <main>
 {% block content %}
 
@@ -138,23 +155,6 @@
 <script src="{% static 'materialize.js' %}"></script>
 <script src="{% static 'mithril.js' %}"></script>
 <script src="{% static 'scripts.js' %}"></script>
-
-<!-- Save user info to session storage
-{% if user.is_authenticated %}
-<script>
-    m.request(
-        {
-            method: "GET",
-            url: "",
-            data: {"email": ""}
-        }
-    )
-
-</script>
-{% endif %} -->
-
-
-
 
 <!-- Show a toast for the requested info -->
 {% if messages %}

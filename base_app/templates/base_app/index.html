@@ -3,197 +3,167 @@
 {% block content %}
 
 
-<div class="content">
 
-    <aside class="white z-depth-2">
-        
-        <h6 title="scoate filtrele" class="clickable">Alege localitatea si pretul:</h6>
-        <div class="divider"></div>
-        <div style="margin:2rem;"></div>
+<div id="filtre" class="container filters grey lighten-5">
 
-        <div class="input-field">
-            <input id="oras" type="text" class="validate" placeholder=" ">
-            <label for="oras"><span class="flow-text">Localitate</span></label>
-        </div>
-       
-        <div style="margin:1rem;"></div>
 
-        <div class="input-field">
-            <input id="buget" type="tel" class="validate" placeholder=" ">
-            <label for="buget"><span class="flow-text">Buget</span></label>
-        </div>
+<form class="white radius pada-2" action="">
 
-        <label style="margin-right:2rem;">
-            <input class="with-gap" name="caut" type="radio" checked/>
-            <span class="blue-grey-text text-darken-2 flow-text">caut camere</span>
-        </label>
+<div class="row">
+    <div class="input-field col s12 m6">
+        <input placeholder="Iasi, Bucuresti, Timisoara..." id="oras" type="text" class="validate">
+        <label for="oras">Localitate</label>
+    </div>
+    
+    <div class="input-field col s12 m6">
+        <input placeholder="ex: 200 euro" id="oras" type="tel" class="validate">
+        <label for="oras">Buget &euro;</label>
+    </div>
 
+    <div class="col">
         <label>
-            <input class="with-gap" name="caut" type="radio"/>
-            <span class="blue-grey-text text-darken-2 flow-text">caut apartament</span>
+            <input class="with-gap" name="group3" type="radio" checked />
+            <span>caut camere</span>
         </label>
 
-        
-        <div style="margin:2rem;"></div>
+    </div>
 
-        <h6 title="scoate filtrele" class="clickable">Alte filtre:</h6>
+    <div class="col">
+        <label>
+            <input class="with-gap" name="group3" type="radio"/>
+            <span>caut colegi</span>
+        </label>
+    </div>
+    </div>
+
+
+
+    <!-- More filters -->
+
+    <span id="morefilters" class="mtop-2 waves-effect waves-grey btn-flat btm-right grey-text underline">MAI MULT</span>
+
+    <div id="showmorefilters" class="row none">
+
+        <div class="mtop-2"></div>
         <div class="divider"></div>
+        <div class="mtop-2"></div>
 
-        <section class="column">
-            
-            <label>
-                <input type="checkbox" class="filled-in"/>
-                <span>ap. decomandat</span>
-            </label>
+    <div class="col s12 m6">
+        <div class="row">
 
-            <label>
-                <input type="checkbox" class="filled-in"/>
-                <span>ap. semidecomandat</span>
-            </label>
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>decomandat</span>
+                </label>         
+            </div>
+                
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>accepta fumatori</span>
+                </label>         
+            </div>
+                
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>accepta animale de companie</span>
+                </label>     
+            </div>
+        </div>
+    </div>
 
-            <label>
-                <input type="checkbox" class="filled-in"/>
-                <span>cu balcon</span>
-            </label>
 
-            <label>
-                <input type="checkbox" class="filled-in"/>
-                <span>utilat complet</span>
-            </label>
-
-
-        </section>
-       
-    </aside>
-
-    <section class="listings">
+    <div class="col s12 m6">
+        <div class="row">
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>doar fete</span>
+                </label>     
+            </div>
         
-        <article id="00123121">
-            <a href="templates/anunt.html">
-                <img src="img/1.jpg" onerror="this.src='http://placeskull.com/150/150/607d8b'">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>doar baieti</span>
+                </label>     
+            </div>
+        
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>fete/baieti</span>
+                </label>     
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="col s12 m6">
+        <div class="row">
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>între 18-35 ani</span>
+                </label>     
+            </div>
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>între 35-45 ani</span>
+                </label>     
+            </div>
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>între 45-XX ani</span>
+                </label>     
+            </div>
+        </div>
+    </div>
 
-        <article id="00123121">
-            <a href="">
-                <img src="img/2.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
+    <div class="col s12 m6">
+        <div class="row">
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>studenţi / altceva</span>
+                </label>     
+            </div>
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>lucrează in 2/3/n schimburi</span>
+                </label>     
+            </div>
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>lucrează un singur schimb</span>
+                </label>     
+            </div>
+        </div>
+    </div>
 
+</div>
 
-        <article id="00123121">
-            <a href="">
-                <img src="img/3.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-        <article id="00123121">
-            <a href="">
-                <img src="img/4.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-        <article id="00123121">
-            <a href="">
-                <img src="img/1.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-        <article id="00123121">
-            <a href="">
-                <img src="img/2.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-        <article id="00123121">
-            <a href="">
-                <img src="img/1.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-
-        <article id="00123121">
-            <a href="">
-                <img src="img/2.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-
-        <article id="00123121">
-            <a href="">
-                <img src="img/3.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-        <article id="00123121">
-            <a href="">
-                <img src="img/4.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-        <article id="00123121">
-            <a href="">
-                <img src="img/1.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-        <article id="00123121">
-            <a href="">
-                <img src="img/2.jpg">
-                <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
-                <span class="green white-text bold flow-text">200 </span>
-                <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
-            </a>
-        </article>
-
-    </section>
+</form>
 
 
 </div>
 
-<div style="margin-bottom:4rem;"></div>
-<ul class="pagination center-align">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-</ul>
-<div style="margin-bottom:4rem;"></div>
 
+<div class="flex-center">
+    <span id="filtertoggletext" class="bold blue-grey-text text-darken-2 cpointer">Ascunde filtrele</span>
+    <i id="filtertogglearrow" class="medium material-icons blue-grey-text cpointer">arrow_drop_up</i>
+</div>
 
 
 

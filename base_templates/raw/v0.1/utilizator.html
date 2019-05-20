@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/materialize/css/materialize.css">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <title>utilizator</title>
+</head>
+<body class="grey lighten-5">
+<div id="loading" class="grey lighten-5 flex-center">
+<div class="preloader-wrapper active">
+<div class="spinner-layer spinner-green-only">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div><div class="gap-patch">
+<div class="circle"></div>
+</div>
+<div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+</div>
+</div>
+                
+
+
+<header>
+
+<nav>
+    <div class="nav-wrapper blue-grey">
+        <a href="index.html" class="brand-logo bold">chirieshare</a>
+        <!-- Dropdown trigger -->
+        <a class="dropdown-trigger right show-on-medium-and-down hide-on-med-and-up" href="#!" data-target="more"><i class="material-icons">more_vert</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="tip_anunt.html" class="bold">Adauga anunt</a></li>
+            <li><a href="intra_in_cont.html" class="bold">Intra in cont</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id="more" class="dropdown-content">
+<li><a href="tip_anunt.html">Adauga anunt</a></li>
+<li><a href="intra_in_cont.html">Intra in cont</a></li>
+</ul>
+    
+</header>
+
+        
+<main>
+     
+ <!-- Modal Trigger 
+ <a href="#suntinteresat" class="btn-small green lighten-1 bold waves-effect waves-light modal-trigger">Sunt interesat</a> 
+ Modal Structure 
+<div id="suntinteresat" class="modal">
+<div class="modal-content">
+
+    <h6 class="blue-grey-text text-darken-1 bold">Trimite un mesaj sau adauga la favorite</h6>
+    
+    <div class="input-field">
+        <textarea class="materialize-textarea" placeholder="Sunt interesat!"></textarea>
+    </div>     
+</div>
+
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-light btn-flat bold hide-on-small-only">Inchide</a>
+        <a href="#!" class="btn-small lighten-1 bold waves-effect waves-light">Adauga la favorite</a>
+        <a href="#!" class="btn-small green lighten-1 bold waves-effect waves-light">Trimite</a>       
+    </div>
+</div>
+</div>
+
+-->
+
+
+<div class="container">
+
+    <div class="row padv-2">
+
+        <div class="col s12">
+            <div class="block center-align  waves-effect waves-light">
+                <a href="utilizator.html"><img class="profile-pic z-depth-2" src="https://picsum.photos/852/753/?image=1012"></a>
+                <!-- Male: &#9794; Female: &#9792; -->
+                <!-- <h5 class="blue-grey-text text-darken-2 bold">Dan Razvan &#9794;, 27 ani</h5>  -->
+                <h5 class="blue-grey-text text-darken-2 bold">Dan Razvan</h5>
+                <i title="modifica" id="profil" class="material-icons waves-effect waves-green blue-grey-text text-darken-2 modify">create</i>
+            </div>
+        </div>
+
+
+        <div class="col s12">
+            <div class="card-panel blue-grey darken-2 radius">
+                <h5 class="white-text">Interese</h5>
+                <p id="interese-content" class="white-text block">
+                    Nu sunt specificate.
+                </p>
+
+                <div id="interese-field"  class="input-field none">
+                    <textarea id="interese-text" class="materialize-textarea white-text"></textarea>
+                </div>
+        
+                <i title="modifica" id="interese" class="material-icons waves-effect waves-light white-text modify">create</i>
+            </div>
+        </div>
+
+
+        <div class="col s12">
+            <div class="card-panel blue-grey darken-2 radius">
+                <h5 class="white-text">Anunturi postate</h5>
+                <ul id="postate-content">
+                    <li class="white-text"><button title="sterge" class="none btn-xs white-text red lighten-1 waves-effect waves-light">X</button><a href="anunt.html" class="white-text underline">Ofer 2 camere - Iasi, Pd.Ros</a></li>
+                    <li class="white-text"><button title="sterge" class="none btn-xs white-text red lighten-1 waves-effect waves-light">X</button><a href="anunt.html" class="white-text underline">Ofer 1 camera - Iasi, Nicolina</a></li>
+                    <li class="white-text"><button title="sterge" class="none btn-xs white-text red lighten-1 waves-effect waves-light">X</button><a href="anunt.html" class="white-text underline">Ofer 1 camera - Iasi, Canta</a></li>
+                    <li class="white-text"><button title="sterge" class="none btn-xs white-text red lighten-1 waves-effect waves-light">X</button><a href="anunt.html" class="white-text underline">Ofer 1 camera - Iasi, Pd.Ros</a></li>
+                </ul>                    
+                <i title="modifica" id="postate" class="material-icons waves-effect waves-light white-text modify">create</i>
+            </div>
+        </div>
+
+
+        <div class="col s12 ">
+            <div class="card-panel blue-grey darken-2 radius">
+                <h5 class="white-text">Anunturi salvate</h5>
+                <ul>
+                    <li class="white-text"><a href="anunt.html" class="white-text underline">Ofer 1 camera - Iasi, Nicolina</a></li>
+                </ul>                    
+                <i title="modifica" id="salvate" class="material-icons waves-effect waves-light white-text modify">create</i>
+            </div>
+        </div>
+
+
+        <div class="col s12">
+            <div class="card-panel blue-grey darken-2 radius">
+                <h5 class="white-text">Mesaje primite</h5>
+                <ul>
+                    <li class="white-text"><button title="sterge" class="none btn-xs white-text red lighten-1 waves-effect waves-light">X</button> <span class="underline padl-1">Claudiu - aveti masina de spalat?</span></li>
+                    <li class="white-text"><button title="sterge" class="btn-xs white-text red lighten-1 waves-effect waves-light">X</button> <span class="underline padl-1">Andrei - cu balcon?</span></li>
+                </ul>                    
+                <i title="modifica" id="mesaje" class="material-icons waves-effect waves-light white-text modify">create</i>
+            </div>
+        </div>
+    
+    
+
+
+    </div>
+            
+</div>
+
+
+
+</main>
+
+
+
+
+
+
+
+
+
+<footer class="page-footer blue-grey">
+<div class="container">
+<div class="row">
+<div class="col l6 s12">
+<h5 class="white-text">Footer Content</h5>
+<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+</div>
+<div class="col l4 offset-l2 s12">
+<h5 class="white-text">Links</h5>
+<ul>
+<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer-copyright">
+<div class="container">
+© 2019 Copyright Climente Alin
+<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+</div>
+</div>
+</footer>  
+
+
+
+<script src="assets/materialize/js/materialize.js"></script>
+<script src="assets/styles/styles.js"></script>
+
+</body>
+</html>

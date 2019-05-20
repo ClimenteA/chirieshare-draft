@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="assets/materialize/css/materialize.css">
+    <link rel="stylesheet" href="assets/styles/styles.css">
+    <title>chirieshare</title>
+</head>
+
+
+<body class="grey lighten-5">
+<!-- Put preloader only on each image listing instead of the body maybe.. -->
+<div id="loading" class="grey lighten-5 flex-center">
+<div class="preloader-wrapper active">
+<div class="spinner-layer spinner-green-only">
+<div class="circle-clipper left">
+<div class="circle"></div>
+</div><div class="gap-patch">
+<div class="circle"></div>
+</div>
+<div class="circle-clipper right">
+<div class="circle"></div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<header>
+
+<nav>
+    <div class="nav-wrapper blue-grey">
+        <a href="index.html" class="brand-logo bold">chirieshare</a>
+        <!-- Dropdown trigger -->
+        <a class="dropdown-trigger right show-on-medium-and-down hide-on-med-and-up" href="#!" data-target="more"><i class="material-icons">more_vert</i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="tip_anunt.html" class="bold">Adauga anunt</a></li>
+            <li><a href="intra_in_cont.html" class="bold">Intra in cont</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Dropdown Structure -->
+<ul id="more" class="dropdown-content">
+<li><a href="tip_anunt.html">Adauga anunt</a></li>
+<li><a href="intra_in_cont.html">Intra in cont</a></li>
+</ul>
+    
+
+</header>
+   
+
+
+<div id="filtre" class="container filters grey lighten-5">
+
+
+<form class="white radius pada-2" action="">
+
+<div class="row">
+    <div class="input-field col s12 m6">
+        <input placeholder="Iasi, Bucuresti, Timisoara..." id="oras" type="text" class="validate">
+        <label for="oras">Localitate</label>
+    </div>
+    
+    <div class="input-field col s12 m6">
+        <input placeholder="ex: 200 euro" id="oras" type="tel" class="validate">
+        <label for="oras">Buget &euro;</label>
+    </div>
+
+    <div class="col">
+        <label>
+            <input class="with-gap" name="group3" type="radio" checked />
+            <span>caut camere</span>
+        </label>
+
+    </div>
+
+    <div class="col">
+        <label>
+            <input class="with-gap" name="group3" type="radio"/>
+            <span>caut colegi</span>
+        </label>
+    </div>
+    </div>
+
+
+
+    <!-- More filters -->
+
+    <span id="morefilters" class="mtop-2 waves-effect waves-grey btn-flat btm-right grey-text underline">MAI MULT</span>
+
+    <div id="showmorefilters" class="row none">
+
+        <div class="mtop-2"></div>
+        <div class="divider"></div>
+        <div class="mtop-2"></div>
+
+    <div class="col s12 m6">
+        <div class="row">
+
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>decomandat</span>
+                </label>         
+            </div>
+                
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>accepta fumatori</span>
+                </label>         
+            </div>
+               
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>accepta animale de companie</span>
+                </label>     
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col s12 m6">
+        <div class="row">
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>doar fete</span>
+                </label>     
+            </div>
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>doar baieti</span>
+                </label>     
+            </div>
+        
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>fete/baieti</span>
+                </label>     
+            </div>
+        </div>
+    </div>
+    
+   
+    <div class="col s12 m6">
+        <div class="row">
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>între 18-35 ani</span>
+                </label>     
+            </div>
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>între 35-45 ani</span>
+                </label>     
+            </div>
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>între 45-XX ani</span>
+                </label>     
+            </div>
+        </div>
+    </div>
+
+    <div class="col s12 m6">
+        <div class="row">
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>studenţi / altceva</span>
+                </label>     
+            </div>
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>lucrează in 2/3/n schimburi</span>
+                </label>     
+            </div>
+        
+            <div class="col s12">
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>lucrează un singur schimb</span>
+                </label>     
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</form>
+
+
+</div>
+
+
+<div class="flex-center">
+    <span id="filtertoggletext" class="bold blue-grey-text text-darken-2 cpointer">Ascunde filtrele</span>
+    <i id="filtertogglearrow" class="medium material-icons blue-grey-text cpointer">arrow_drop_up</i>
+</div>
+
+
+
+
+<main>
+
+<div class="listings">
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/852/753/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+    
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/852/553/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+    
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/552/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+        
+    
+    
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/452/143/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+        
+
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/752/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+
+        
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/452/143/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+        
+
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/752/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/452/143/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+        
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/752/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/752/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/452/143/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+        
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/752/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/752/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/752/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/452/143/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+        
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/752/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/452/143/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+        
+    <div class="listing z-depth-2">
+        <a href="anunt.html"><img src="https://picsum.photos/752/543/?random"> 
+        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">Ofer 3 camere. Iasi, Nicolina</h6>
+        </a>
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        <span class="price green lighten-1 white-text bold">200 </span>      
+    </div>
+
+</div>
+
+
+<ul class="pagination flex-center padv-2">
+    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="active blue-grey"><a href="#!">1</a></li>
+    <li class="waves-effect"><a href="#!">2</a></li>
+    <li class="waves-effect"><a href="#!">3</a></li>
+    <li class="waves-effect"><a href="#!">4</a></li>
+    <li class="waves-effect"><a href="#!">5</a></li>
+    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+</ul>
+
+
+<a id="up" class="btn-floating btn-large waves-effect waves-light blue-grey"><i class="material-icons">arrow_upward</i></a>
+
+</main>
+
+
+
+
+
+
+<footer class="page-footer blue-grey">
+<div class="container">
+<div class="row">
+<div class="col l6 s12">
+<h5 class="white-text">Footer Content</h5>
+<p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+</div>
+<div class="col l4 offset-l2 s12">
+<h5 class="white-text">Links</h5>
+<ul>
+<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer-copyright">
+<div class="container">
+© 2019 Copyright Climente Alin
+<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+</div>
+</div>
+</footer>  
+
+
+
+<script src="assets/materialize/js/materialize.js"></script>
+<script src="assets/styles/styles.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.7/dist/vue.js"></script>
+
+</body>
+</html>
