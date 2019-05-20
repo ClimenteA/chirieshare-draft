@@ -10,7 +10,7 @@
         <div class="card-tabs">
             <ul class="tabs" style="overflow: hidden;">
             <li class="tab"><a href="#login"class="active blue-grey-text bold">Intra in cont</a></li>
-            <li class="tab"><a href="#signin" class="blue-grey-text bold">Creeaza un cont</a></li>
+            <li class="tab"><a href="#signin" id="modifpass" class="blue-grey-text bold">Creeaza un cont</a></li>
             </ul>
         </div>
         <div class="card-content"> 
@@ -33,7 +33,7 @@
                         <div class="block center-align">
                             <button id="log" type="submit" class="btn-large bold">Intră in cont</button>
                             <div class="col s12" style="margin-top:1rem;">
-                            <a href="" class="blue-grey-text underline">Mi-am uitat parola..</a>
+                            <a href="#!" id="lognereusit" class="blue-grey-text underline">Nu reusesc sa ma loghez...</a>
                             </div>
                         </div>
                         
@@ -55,12 +55,12 @@
 
                         <div class="input-field col s12">
                             {{ form.password }}
-                            <label>Parola (minim 8 caractere)</label>
+                            <label id="pass">Parola (minim 8 caractere)</label>
                         </div>  
                                     
                         <div class="input-field col s12">
                             <input type="password"  class="validate" placeholder="">
-                            <label>Confirma parola</label>
+                            <label id="confpass">Confirma parola</label>
                         </div>
 
                         <div class="block center-align">

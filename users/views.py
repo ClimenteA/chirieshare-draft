@@ -76,9 +76,10 @@ def delogare(request):
 
 
 
-@login_required
+
 def resetare(request):
-    pass
+    if request.method == "POST":
+        pass
 
 
 @login_required
