@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/m-bluegrey-green.css">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>Anunturi</title>
+</head>
+<body> 
+
+<!-- Not logged in -->
+<header>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo bold">chirieshare</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="templates/login.html" class="btn green waves-effect waves-light bold">Intra in cont</a></li>
+                    <li><a href="" class="btn blue waves-effect waves-light darken-1 bold">Intra cu Facebook</a></li>
+                </ul>
+            </div>
+        </nav>
+<ul class="sidenav blue-grey darken-2" id="mobile-demo">
+    <div class="sidenav-content">    
+        <i class="sidenav-close material-icons right white-text waves-effect waves-light clickable">close</i>
+        <div style="margin-bottom:4rem;"></div>
+        <h6 class="blue-grey-text text-lighten-4 bold">Pentru a putea <span class="white-text">ADAUGA UN ANUNT</span> trebuie sa ai un cont de utilizator</h6>
+        <div style="margin-bottom:4rem;"></div>
+        <div class="flex-center">
+            <a href="templates/login.html" class="btn-large green waves-effect waves-light bold">Intra in cont</a>
+            <div style="margin-bottom:2rem;"></div>
+            <a href="" class="btn waves-effect waves-light blue darken-1 bold">INTRA CU FACEBOOK</a>
+        </div>
+
+    </div>
+</ul>
+</header>
+
+
+
+<!-- Logged in without notifications -->
+<!-- <header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo bold">chirieshare</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down bold">
+                <li><a class="waves-effect waves-light"><i class="material-icons left">add_circle</i> ADAUGA ANUNT</a></li>
+                <li><a class="waves-effect waves-light"><i class="material-icons left">message</i> MESAJE</a></li>
+                <li><a class="waves-effect waves-light"><i class="material-icons left">remove_red_eye</i> VIZUALIZARI</a></li>
+                <li><a class="waves-effect waves-light"><i class="material-icons left">account_circle</i> Climente Alin</a></li>
+                <li><a class="waves-effect waves-light"><i class="material-icons left">exit_to_app</i> LOGOUT</a></li>
+            </ul>
+        </div>
+    </nav>
+<ul class="sidenav blue-grey darken-2" id="mobile-demo">
+    <div class="sidenav-content">   
+        <i class="sidenav-close material-icons right white-text waves-effect waves-light clickable">close</i>
+        
+        <div class="user-view">
+            <a href="#user"><img class="circle" src="img/alin.jpg"></a>
+            <a href="#name"><h6 class="white-text bold">Climente Alin</h6></a>
+            <a href="#email"><span class="blue-grey-text text-lighten-4">Barbat, 28 ani</span></a>
+        </div>
+        
+        <div style="margin-bottom:2rem;"></div>
+        <ul class="bold">
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">add_circle</i><span class="white-text bold">ADAUGA ANUNT</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">message</i><span class="white-text bold">MESAJE</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">remove_red_eye</i><span class="white-text bold">VIZUALIZARI</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">exit_to_app</i> <span class="white-text bold">LOGOUT</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+        </ul>
+    </div>
+</ul>
+</header> -->
+
+
+
+<!-- Logged in with notifications-->
+<!-- <header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo bold">chirieshare</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down bold">
+                <li><a href="templates/adauga-anunt.html" class="waves-effect waves-light"><i class="material-icons left">add_circle</i> ADAUGA ANUNT</a></li>
+                <li><a href="#!" class="waves-effect waves-light"><i class="material-icons left">message</i> MESAJE <span class="new badge green">4</span></a></li>
+                <li><a href="#!" class="waves-effect waves-light"><i class="material-icons left">remove_red_eye</i> VIZUALIZARI</a></li>
+                <li><a href="#!" class="waves-effect waves-light"><img class="circle" src="img/alin.jpg"> Climente Alin</a></li>
+                <li><a href="#!" class="waves-effect waves-light"><i class="material-icons left">exit_to_app</i> LOGOUT</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+<ul class="sidenav blue-grey darken-2" id="mobile-demo">
+
+    <div class="sidenav-content">   
+
+        <i class="sidenav-close material-icons right white-text waves-effect waves-light clickable">close</i>
+        
+        <div class="user-view">
+            <a href="#user"><img class="circle" src="img/alin.jpg"></a>
+            <a href="#name"><h6 class="white-text bold">Climente Alin</h6></a>
+            <a href="#email"><span class="blue-grey-text text-lighten-4">Barbat, 28 ani</span></a>
+        </div>
+
+        
+        <div style="margin-bottom:2rem;"></div>
+
+        <ul class="bold">
+            <div class="line blue-grey lighten-4"></div>
+            <li><a href="templates/adauga-anunt.html" class="waves-effect waves-light"><i class="material-icons left white-text">add_circle</i><span class="white-text bold">ADAUGA ANUNT</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a href="templates/utilizator.html" class="waves-effect waves-light"><i class="material-icons left white-text">message</i><span class="white-text bold">MESAJE <span class="new badge default green">4</span></a></span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a href="templates/utilizator.html" class="waves-effect waves-light"><i class="material-icons left white-text">remove_red_eye</i><span class="white-text bold">VIZUALIZARI</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a href="#!" class="waves-effect waves-light"><i class="material-icons left white-text">exit_to_app</i> <span class="white-text bold">LOGOUT</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+        </ul>
+
+    </div>
+
+</ul>
+
+</header> -->
+
+
+
+
+
+<main>
+    <div class="content">
+
+        <aside class="white z-depth-2">
+            
+            <h6 title="scoate filtrele" class="clickable">Alege localitatea si pretul:</h6>
+            <div class="divider"></div>
+            <div style="margin:2rem;"></div>
+
+            <div class="input-field">
+                <input id="oras" type="text" class="validate" placeholder=" ">
+                <label for="oras"><span class="flow-text">Localitate</span></label>
+            </div>
+           
+            <div style="margin:1rem;"></div>
+
+            <div class="input-field">
+                <input id="buget" type="tel" class="validate" placeholder=" ">
+                <label for="buget"><span class="flow-text">Buget</span></label>
+            </div>
+
+            <label style="margin-right:2rem;">
+                <input class="with-gap" name="caut" type="radio" checked/>
+                <span class="blue-grey-text text-darken-2 flow-text">caut camere</span>
+            </label>
+    
+            <label>
+                <input class="with-gap" name="caut" type="radio"/>
+                <span class="blue-grey-text text-darken-2 flow-text">caut apartament</span>
+            </label>
+
+            
+            <div style="margin:2rem;"></div>
+
+            <h6 title="scoate filtrele" class="clickable">Alte filtre:</h6>
+            <div class="divider"></div>
+
+            <section class="column">
+                
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>ap. decomandat</span>
+                </label>
+    
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>ap. semidecomandat</span>
+                </label>
+    
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>cu balcon</span>
+                </label>
+    
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>utilat complet</span>
+                </label>
+
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>pet friendly</span>
+                </label>
+
+
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>doar fete</span>
+                </label>
+
+                
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>doar baieti</span>
+                </label>
+
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>fete/baieti</span>
+                </label>
+
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>studenti/altceva</span>
+                </label>
+
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>lucreaza in schimburi</span>
+                </label>
+
+                <label>
+                    <input type="checkbox" class="filled-in"/>
+                    <span>lucreaza un schimb</span>
+                </label>
+
+            </section>
+           
+        </aside>
+    
+        <section class="listings">
+            
+            <article id="00123121">
+                <a href="templates/anunt.html">
+                    <img src="img/1.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/2.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/3.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/4.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/1.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/2.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+
+            <article id="00123121">
+                <a href="">
+                    <img src="img/1.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/2.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/3.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/4.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/1.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+    
+            <article id="00123121">
+                <a href="">
+                    <img src="img/2.jpg">
+                    <i class="material-icons waves-effect waves-light white-text">favorite_border</i>
+                    <span class="green white-text bold flow-text">200 </span>
+                    <h6 class="flow-text blue-grey lighten-4 bold">Ofer 3 camere. Iasi, Nicolina</h6>
+                </a>
+            </article>
+
+        </section>
+
+
+    </div>
+    
+    <div style="margin-bottom:4rem;"></div>
+    <ul class="pagination center-align">
+        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        <li class="active"><a href="#!">1</a></li>
+        <li class="waves-effect"><a href="#!">2</a></li>
+        <li class="waves-effect"><a href="#!">3</a></li>
+        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    </ul>
+    <div style="margin-bottom:4rem;"></div>
+    
+</main>
+
+
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+        <div class="col l6 s12">
+            <h5 class="white-text">chirieshare.ro</h5>
+            <p class="grey-text text-lighten-4">Gaseste camere de inchiriat sau apartamente acolo unde iti doresti.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+            <!-- <h5 class="white-text">Link-uri utile</h5> -->
+            <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Politica Cookies</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Politica de Confidentialitate</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Termeni si Conditii</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Intrebari frecvente</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <span>© 2020 Toate drepturile rezervate chirieshare.ro</span> 
+            <div class="right">
+                <a class="grey-text text-lighten-4" href="#!">Semnaleaza o problema!</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="./assets/materialize.js"></script>
+<script src="./assets/mithril.js"></script>
+<script src="./assets/scripts.js"></script>
+</body>
+</html>

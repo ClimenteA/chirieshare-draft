@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/m-bluegrey-green.css">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Utilizator</title>
+</head>
+<body> 
+
+
+<!-- Logged in with notifications-->
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="../index.html" class="brand-logo bold">chirieshare</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down bold">
+                <li><a class="green waves-effect waves-light"><i class="material-icons left">add_circle</i> ADAUGA ANUNT</a></li>
+                <!-- <li><a class="waves-effect waves-light"><i class="material-icons left">message</i> MESAJE <span class="new badge green">4</span></a></li> -->
+                <!-- <li><a class="waves-effect waves-light"><i class="material-icons left">remove_red_eye</i> VIZUALIZARI</a></li> -->
+                <!-- <li><a class="waves-effect waves-light"><img class="circle" src="../img/alin.jpg"> Climente Alin</a></li> -->
+                <li><a class="waves-effect waves-light"><i class="material-icons left">exit_to_app</i> LOGOUT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<ul class="sidenav blue-grey darken-2" id="mobile-demo">
+
+    <div class="sidenav-content">   
+
+        <i class="sidenav-close material-icons right white-text waves-effect waves-light clickable">close</i>
+        
+        <div class="user-view">
+            <a href="#user"><img class="circle" src="../img/alin.jpg"></a>
+            <a href="#name"><h6 class="white-text bold">Climente Alin</h6></a>
+            <a href="#email"><span class="blue-grey-text text-lighten-4">Barbat, 28 ani</span></a>
+        </div>
+
+        
+        <div style="margin-bottom:2rem;"></div>
+
+        <ul class="bold">
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">add_circle</i><span class="white-text bold">ADAUGA ANUNT</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">message</i><span class="white-text bold">MESAJE <span class="new badge default green">4</span></a></span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">remove_red_eye</i><span class="white-text bold">VIZUALIZARI</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">exit_to_app</i> <span class="white-text bold">LOGOUT</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+        </ul>
+
+    </div>
+
+</ul>
+
+</header>
+
+
+<main>
+
+    <div class="flex-center">
+
+    <div id="contact-info" class="blue-grey lighten-5 z-depth-2" style="max-width:100vw;width:450px;">
+        <h5 class="grey-text text-darken-4 bold">Adauga modificarile</h5>
+        <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
+        <div id="contact">
+
+            <div class="input-field">
+                <input placeholder="" id="nume" type="text" class="validate">
+                <label for="nume">Nume</label>
+            </div>
+
+            <div class="input-field">
+                <select>
+                    <option value="m">Masculin</option>
+                    <option value="f">Feminin</option>
+                </select>
+                <label>Gen</label>
+            </div>
+
+            <div class="input-field">
+                <select>
+                    <option value="student-altceva">Student/Altceva</option>
+                    <option value="lucru-in-schimburi">Lucrez in schimburi</option>
+                    <option value="lucru-un-singur-schimb">Lucrez un schimb</option>
+                </select>
+                <label>Ocupatia</label>
+            </div>
+
+            <div class="input-field">
+                <input placeholder="" id="tel" type="tel" class="validate">
+                <label for="tel">Varsta</label>
+            </div>
+
+            <div class="input-field">
+                <input placeholder="" id="tel" type="tel" class="validate">
+                <label for="tel">Telefon</label>
+            </div>
+
+            <div class="input-field">
+                <input placeholder="" id="email" type="email" class="validate">
+                <label for="email">Email</label>
+            </div>
+
+            <div class="file-field input-field">
+                <div class="btn-small blue-grey lighten-1">
+                    <span><i class="material-icons">portrait</i></span>
+                    <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+
+        <a href="utilizator.html" class="btn green waves-effect waves-light right"  style="margin-top:2rem;margin-bottom:1rem;"><span class="bold">Aplica modificarile</span></a>    
+        
+
+        </div>
+    </div>
+
+
+    <button class="opa btn-small red lighten-1 waves-effect waves-light right" style="margin-right:1rem;margin-bottom:1rem;">STERGE CONTUL</button>
+    
+</main>
+
+
+
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+        <div class="col l6 s12">
+            <h5 class="white-text">chirieshare.ro</h5>
+            <p class="grey-text text-lighten-4">Gaseste camere de inchiriat sau apartamente acolo unde iti doresti.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+            <!-- <h5 class="white-text">Link-uri utile</h5> -->
+            <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Politica Cookies</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Politica de Confidentialitate</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Termeni si Conditii</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Intrebari frecvente</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <span>© 2020 Toate drepturile rezervate chirieshare.ro</span> 
+            <div class="right">
+                <a class="grey-text text-lighten-4" href="#!">Semnaleaza o problema!</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="../assets/materialize.js"></script>
+<script src="../assets/mithril.js"></script>
+<script src="../assets/scripts.js"></script>
+
+</body>
+</html>

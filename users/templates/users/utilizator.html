@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="flex-center">
+
+<div id="contact-info" class="blue-grey lighten-5 z-depth-2">
+    <a href="{% url 'utilizator' %}"><img class="circle waves-effect waves-light" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/150/150/4caf50'"> 
+    <h5 class="grey-text text-darken-4 bold">{% if user.first_name %}{{ user.first_name }}{% else %} Seteaza nume {% endif %}</h5>
+    <span class="grey-text text-darken-1">{% if user.sex %}{{ user.sex }}{% else %} M/F {% endif %}, {% if user.varsta %}{{ user.varsta }}{% else %} xx {% endif %} ani</span>
+    </a>
+    <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
+    <div id="contact">
+        <button class="btn waves-effect waves-light"><i class="material-icons">local_phone</i><span class="btn-text">{% if user.telefon %}{{ user.telefon }}{% else %} Seteaza numar {% endif %}</span></button>
+        <button class="btn waves-effect waves-light bold"><i class="material-icons">email</i><span class="btn-text">{{ user.email }}</span></button>
+    </div>
+</div>
+
+<div id="anunturi-postate" >
+
+        <ul class="collection with-header z-depth-2">
+            <li class="collection-header blue-grey lighten-4">
+                <h6 class="bold">
+                    <a href="" class="underline">Ofer 3 camere. Iasi, Nicolina (200&euro;)</a>
+                    <span class="badge green default">120 de vizualizari</span>
+                </h6>
+            </li>
+            
+            <li class="collection-item blue-grey lighten-5">
+                
+                <a href="#">Aveti masina de spalat?  </a>
+
+                <a href="utilizator.html">
+                    <div class="chip blue-grey darken-2 white-text">
+                        <img src="../img/alin.jpg" onerror="this.src='http://placeskull.com/150/150/4caf50'">Cosmin Tana
+                    </div>
+                </a>
+            </li>
+
+
+            <li class="collection-item blue-grey lighten-5">
+                
+                <a href="#">Mai ieftin nu dai?  </a>
+
+                <a href="utilizator.html">
+                    <div class="chip blue-grey darken-2 white-text">
+                        <img src="../img/alin.jpg" onerror="this.src='http://placeskull.com/150/150/4caf50'">Tarzan Burtican
+                    </div>
+                </a>
+            </li>
+
+
+            <li class="collection-item blue-grey lighten-5">
+                
+                <a href="#">Vreau sa impart chiria pentru acest imobil  </a>
+
+                <a href="utilizator.html">
+                    <div class="chip blue-grey darken-2 white-text">
+                        <img src="../img/alin.jpg" onerror="this.src='http://placeskull.com/150/150/4caf50'">Vasile Cioata
+                    </div>
+                </a>
+            </li>
+
+            <li class="collection-header blue-grey lighten-4">
+                <h6 class="bold">Cei care ar vrea sa imparta chiria pentru acest imobil</h6>
+            </li>
+                   
+            <li class="collection-item blue-grey lighten-5">
+
+                <div class="chip blue-grey darken-2">
+                    <img src="../img/alin.jpg" onerror="this.src='http://placeskull.com/150/150/4caf50'">
+                    <a href="utilizator.html" class="white-text">George Tanga</a> 
+                </div>
+
+                <div class="chip blue-grey darken-2">
+                    <img src="../img/alin.jpg" onerror="this.src='http://placeskull.com/150/150/4caf50'">
+                    <a href="utilizator.html" class="white-text">Radu Rudimen</a> 
+                </div>
+
+                <div class="chip blue-grey darken-2">
+                    <img src="../img/alin.jpg" onerror="this.src='http://placeskull.com/150/150/4caf50'">
+                    <a href="utilizator.html" class="white-text">Elena Fulfescu</a> 
+                </div>
+
+
+                <div class="chip blue-grey darken-2">
+                    <img src="../img/alin.jpg" onerror="this.src='http://placeskull.com/150/150/4caf50'">
+                    <a href="utilizator.html" class="white-text">George Tanga</a> 
+                </div>
+
+                <div class="chip blue-grey darken-2">
+                    <img src="../img/alin.jpg" onerror="this.src='http://placeskull.com/150/150/4caf50'">
+                    <a href="utilizator.html" class="white-text">Radu Rudimen</a> 
+                </div>
+
+                <div class="chip blue-grey darken-2">
+                    <img src="../img/alin.jpg" onerror="this.src='http://placeskull.com/150/150/4caf50'">
+                    <a href="utilizator.html" class="white-text">Elena Fulfescu</a> 
+                </div>
+
+            </li>
+
+            <div class="blue-grey lighten-5" style="padding-top:2rem;"></div>
+            <button class="btn-small right red lighten-1 waves-effect waves-light">sterge anuntul</button>
+       
+        </ul>
+
+</div>
+    
+
+<a href="{% url 'actualizare' %}" class="btn-small blue-grey lighten-1 waves-effect waves-light right" style="margin-right:1rem;margin-bottom:1rem;"><span class="btn-text">ACTUALIZARE CONT</span></a>    
+
+</div>
+
+
+
+<script src="{% static 'users/user.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="flex-center">
+
+<div id="contact-info" class="blue-grey lighten-5 z-depth-2" style="max-width:100vw;width:450px;">
+    <h5 class="grey-text text-darken-4 bold">Adauga modificarile</h5>
+    <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
+    <div id="contact">
+
+        <form method="POST" enctype="multipart/form-data" action="{% url 'actualizare' %}">
+            {% csrf_token %}
+
+            <div class="input-field">
+                {{ form.first_name }}
+                <label>Prenume Nume</label>
+            </div>
+
+            <div class="input-field">
+                {{ form.sex }}
+                <label>Sex</label>
+            </div>
+
+            <div class="input-field">
+                {{ form.ocupatie }}
+                <label>Ocupatie</label>
+            </div>
+
+            <div class="input-field">
+                {{ form.varsta }}
+                <label>Varsta</label>
+            </div>
+
+            <div class="input-field">
+                {{ form.telefon }}
+                <label>Telefon</label>
+            </div>
+
+            <div class="file-field input-field">
+                <div class="btn-small blue-grey lighten-1">
+                    <span><i class="material-icons">portrait</i></span>
+                    {{ form.imagine }}
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+
+            <button type="submit" class="btn green waves-effect waves-light right"  style="margin-top:2rem;margin-bottom:1rem;">Actualizeaza cont</button>
+
+        </form>
+
+    </div>
+</div>
+
+
+
+<button class="btn-small red lighten-1 waves-effect waves-light right" style="margin-right:1rem;margin-bottom:1rem;">STERGE CONTUL</button>
+
+
+
+
+
+
+<link rel="stylesheet" href="{% static 'users/styles.css' %}">
+<script src="{% static 'users/modifuser.js' %}"></script>
+{% endblock %}

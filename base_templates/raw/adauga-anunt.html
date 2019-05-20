@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/m-bluegrey-green.css">
+    <link rel="stylesheet" href="../assets/styles.css">
+    <title>Anunturi</title>
+</head>
+<body> 
+
+<!-- Logged in with notifications-->
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo bold">chirieshare</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down bold">
+                <!-- <li><a href="templates/adauga-anunt.html" class="waves-effect waves-light"><i class="material-icons left">add_circle</i> ADAUGA ANUNT</a></li> -->
+                <!-- <li><a href="#!" class="waves-effect waves-light"><i class="material-icons left">message</i> MESAJE <span class="new badge green">4</span></a></li> -->
+                <!-- <li><a href="#!" class="waves-effect waves-light"><i class="material-icons left">remove_red_eye</i> VIZUALIZARI</a></li> -->
+                <li><a href="#!" class="waves-effect waves-light"><img class="circle" src="img/alin.jpg"> Climente Alin</a></li>
+                <li><a href="#!" class="waves-effect waves-light"><i class="material-icons left">exit_to_app</i> LOGOUT</a></li>
+
+            </ul>
+        </div>
+    </nav>
+
+<ul class="sidenav blue-grey darken-2" id="mobile-demo">
+
+    <div class="sidenav-content">   
+
+        <i class="sidenav-close material-icons right white-text waves-effect waves-light clickable">close</i>
+        
+        <div class="user-view">
+            <a href="#user"><img class="circle" src="../img/alin.jpg"></a>
+            <a href="#name"><h6 class="white-text bold">Climente Alin</h6></a>
+            <a href="#email"><span class="blue-grey-text text-lighten-4">Barbat, 28 ani</span></a>
+        </div>
+
+        
+        <div style="margin-bottom:2rem;"></div>
+
+        <ul class="bold">
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">add_circle</i><span class="white-text bold">ADAUGA ANUNT</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">message</i><span class="white-text bold">MESAJE <span class="new badge default green">4</span></a></span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">remove_red_eye</i><span class="white-text bold">VIZUALIZARI</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+            <li><a class="waves-effect waves-light"><i class="material-icons left white-text">exit_to_app</i> <span class="white-text bold">LOGOUT</span></a></li>
+            <div class="line blue-grey lighten-4"></div>
+        </ul>
+
+    </div>
+
+</ul>
+
+</header>
+
+
+
+<main class="container">
+
+    <h5 class="blue-grey-text text-darken-1 bold">Descriere imobil</h5>
+
+    <div class="divider"></div>
+
+    <div class="row">
+        <div class="input-field col s12 m6">
+            <label>
+                <input class="with-gap" name="caut" type="radio" checked/>
+                <span class="blue-grey-text text-darken-2 flow-text bold">ofer camere in imobil</span>
+            </label>
+        </div>
+    
+        <div class="input-field col s12 m6">
+            <label>
+                <input class="with-gap" name="caut" type="radio"/>
+                <span class="blue-grey-text text-darken-2 flow-text bold">ofer un imobil intreg</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="divider" style="margin-top:3rem;margin-bottom:2rem;"></div>
+    
+    <div class="row">
+        <div class="input-field col s12 m4">
+            <input id="oras" type="text" class="validate" placeholder="">
+            <label for="oras">Localitate</label>
+        </div>
+        
+        <div class="input-field col s12 m4">
+            <input id="zona" type="text" class="validate" placeholder="">
+            <label for="zona">Zonă</label>
+        </div>    
+        
+        <div class="input-field col s12 m4">
+            <input id="lunar" type="tel" class="validate" placeholder="">
+            <label for="lunar">Preţ &euro;/ Lunar</label>
+        </div>          
+    </div>
+
+
+    <div class="row">
+        <div class="input-field col s12 m4">
+            <select>
+                <option value="" selected disabled>Tip imobil</option>
+                <option value="apartament">Apartament</option>
+                <option value="casa-vila">Casa/Vila</option>
+            </select>
+            <label>Tip imobil/locuinta</label>
+        </div>
+
+        <div class="input-field col s12 m4">
+            <select>
+                <option value="" selected disabled>Camere libere</option>
+                <option value="1cam">1 cameră</option>
+                <option value="2cam">2 camere</option>
+                <option value="3cam">3 camere</option>
+                <option value="4cam">4 camere</option>
+                <option value="5cam">5+ camere</option>
+            </select>
+            <label>Camere libere</label>
+        </div>
+
+
+        <div class="input-field col s12 m4">
+            <select>
+                <option value="" selected disabled>Camere ocupate</option>
+                <option value="1cam">1 cameră</option>
+                <option value="2cam">2 camere</option>
+                <option value="3cam">3 camere</option>
+                <option value="4cam">4 camere</option>
+                <option value="5cam">5+ camere</option>
+            </select>
+            <label>Camere ocupate</label>
+        </div>
+
+        <div class="input-field col s12 m4">
+            <select>
+                <option value="" selected disabled>Compartimentare</option>
+                <option value="decomandat">Decomandat</option>
+                <option value="semidecomandat">Semidecomandat</option>
+                <option value="nedecomandat">Nedecomandat</option>
+                <option value="circular">Circular</option>
+                <option value="altceva">Altceva</option>
+            </select>
+            <label>Compartimentare</label>
+        </div>
+
+        
+        <div class="input-field col s12 m8">
+            <select multiple>
+                <option value="" selected disabled>Facilitati</option>
+                <option value="cubalcon">Cu balcon</option>
+                <option value="mobilatcomplet">Mobilat complet</option>
+                <option value="centralatermica">Centrală termică</option>
+                <option value="frigider">Frigider</option>
+                <option value="aragaz">Aragaz</option>
+                <option value="masinadespalat">Maşină de spălat</option>
+            </select>
+            <label>Facilitati</label>
+        </div>
+
+        <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea" placeholder=""></textarea>
+            <label for="textarea1">Descriere anunt</label>
+        </div>
+
+        <div class="input-field col s12">
+            <label>Alte facilitati/detalii?</label>
+            <div style="margin-top:3rem;" class="chips chips-autocomplete">
+                <div class="chip">
+                    <span>Bloc nou, supermarchet langa, etc..</span> 
+                    <i class="close material-icons">close</i>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="file-field input-field col s12">
+            <div class="btn">
+                <span><i class="material-icons">image</i></span>
+                <input type="file" multiple>
+            </div>
+            <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="Adauga imagini">
+            </div>
+        </div>
+    </div>
+
+    <div class="block center-align flex-center">
+        <div style="margin-bottom:3rem;"></div>
+        <button class="btn-large waves-effect waves-light green lighten-1 mbot-2 bold">Postează anunţul</button>
+        <div style="margin-bottom:1rem;"></div>
+        <label>
+            <input type="checkbox" class="filled-in"/>
+            <span>Sunt de acord cu <a href="" class="blue-grey-text underline">Termenii şi Condiţiile</span>
+        </label>         
+    </div>
+    <div style="margin-bottom:3rem;"></div>
+</main>
+
+
+
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+        <div class="col l6 s12">
+            <h5 class="white-text">chirieshare.ro</h5>
+            <p class="grey-text text-lighten-4">Gaseste camere de inchiriat sau apartamente acolo unde iti doresti.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+            <!-- <h5 class="white-text">Link-uri utile</h5> -->
+            <ul>
+            <li><a class="grey-text text-lighten-3" href="#!">Politica Cookies</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Politica de Confidentialitate</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Termeni si Conditii</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Intrebari frecvente</a></li>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container">
+            <span>© 2020 Toate drepturile rezervate chirieshare.ro</span> 
+            <div class="right">
+                <a class="grey-text text-lighten-4" href="#!">Semnaleaza o problema!</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script src="../assets/materialize.js"></script>
+<script src="../assets/mithril.js"></script>
+<script src="../assets/scripts.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

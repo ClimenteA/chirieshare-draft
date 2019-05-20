@@ -1,0 +1,8 @@
+/* 
+Specific css styles for this app
+*/
+
+main {
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
