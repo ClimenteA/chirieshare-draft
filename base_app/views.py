@@ -3,7 +3,9 @@ from anunturi.models import Anunturi
 
 
 def index(request):
-    
+
+    # anunturi_publicate = Anunturi.objects.all()
+
     return render(request, template_name="base_app/index.html", context={"title": "ChirieShare"})
 
 
