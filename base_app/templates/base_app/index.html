@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -7,7 +8,7 @@
 <div id="filtre" class="container filters grey lighten-5">
 
 
-<form class="white radius pada-2" action="">
+<div class="white radius pada-2">
 
 <div class="row">
     <div class="input-field col s12 m6">
@@ -31,7 +32,7 @@
     <div class="col">
         <label>
             <input class="with-gap" name="group3" type="radio"/>
-            <span>caut colegi</span>
+            <span>caut apartament</span>
         </label>
     </div>
     </div>
@@ -154,15 +155,15 @@
 
 </div>
 
-</form>
+</div>
 
 
 </div>
 
 
 <div class="flex-center">
-    <span id="filtertoggletext" class="bold blue-grey-text text-darken-2 cpointer">Ascunde filtrele</span>
-    <i id="filtertogglearrow" class="medium material-icons blue-grey-text cpointer">arrow_drop_up</i>
+    <span id="filtertoggletext" class="bold blue-grey-text text-darken-2 clickable">Ascunde filtrele</span>
+    <i id="filtertogglearrow" class="medium material-icons blue-grey-text clickable">arrow_drop_up</i>
 </div>
 
 
@@ -171,5 +172,7 @@
 
 
 
+<script src="{% static 'base_app/scripts.js' %}"></script>
+<link rel="stylesheet" href="{% static 'base_app/styles.css' %}">
 
 {% endblock %}

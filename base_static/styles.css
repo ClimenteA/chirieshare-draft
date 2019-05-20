@@ -237,3 +237,52 @@ span.badge.new::after{content: " noi";}
 
 
 
+/* Listings main tag */
+
+.filters {
+    display: block;
+    position: relative;
+    z-index: 2;
+    margin-top: 2rem;
+    overflow-x: hidden;
+}
+
+.radius {border-radius: 0.3rem;position: relative;}
+.pada-2 {padding: 2rem;}
+
+
+label {
+    font-weight: bold;
+}
+
+.btm-right {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 1rem;
+}
+
+.underline:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.mtop-2 {margin-top: 2rem;}
+
+
+/* Back to top */
+
+#up {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 99;
+    cursor: pointer;
+    opacity: .4;
+}
+
+#up:hover {
+    opacity: 100;
+}
+
