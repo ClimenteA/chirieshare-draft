@@ -53,7 +53,7 @@ class Anunturi(models.Model):
         ("MS", "Masina de spalat")
     )
 
-    facilitati = MultiSelectField(max_length=250, choices=facil)
+    facilitati = MultiSelectField(max_length=250, choices=facil, default="")
 
     descriere_anunt = models.TextField(max_length=250)
     
@@ -63,6 +63,10 @@ class Anunturi(models.Model):
     img4 = models.ImageField(upload_to="anunturi/", blank=True)
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+
+    published_date = models.DateTimeField(auto_now_add=True)
+
+
 
 
 

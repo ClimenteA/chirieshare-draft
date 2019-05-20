@@ -1,8 +1,9 @@
 from django.shortcuts import render
+from anunturi.models import Anunturi
 
 
 def index(request):
-    #incarca anunturi
+    
     return render(request, template_name="base_app/index.html", context={"title": "ChirieShare"})
 
 
