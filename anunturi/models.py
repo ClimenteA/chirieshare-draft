@@ -18,8 +18,8 @@ class Anunturi(models.Model):
     pret = models.PositiveIntegerField()
 
     imobil = (
-        ("apartament", "Apartament"),
-        ("casa", "Casa/Vila")
+        ("Ap.", "Apartament"),
+        ("Casa", "Casa/Vila")
     )
 
     tip_imobil = models.CharField(max_length=20, choices=imobil, default=None)
