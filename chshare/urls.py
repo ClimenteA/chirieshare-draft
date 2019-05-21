@@ -28,6 +28,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('autentificare/', include('users.urls')),
     path('anunturi/', include('anunturi.urls')),
+    path('detalii-anunt/', include('base_app.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) #this line makes images from media folder available via url media/imgname.png
 

@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 GIT commands
 http://rogerdudler.github.io/git-guide/
 
+Custom error pages
+https://stackoverflow.com/questions/17662928/django-creating-a-custom-500-404-error-page
+
 """
 
 import os
@@ -132,9 +135,9 @@ TIME_ZONE = 'Europe/Bucharest'
 
 USE_I18N = True
 
-USE_L10N = True
+USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)

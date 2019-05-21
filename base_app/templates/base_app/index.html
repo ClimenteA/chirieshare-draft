@@ -3,8 +3,6 @@
 
 {% block content %}
 
-
-
 <div id="filtre" class="container filters grey lighten-5">
 
 
@@ -172,7 +170,7 @@
 
     {% for anunt in anunturi %}
     <div class="listing z-depth-2">
-        <a href=""><img src="/media/{{ anunt.img1 }}"> 
+        <a href="/detalii-anunt/{{ anunt.id }}"><img src="/media/{{ anunt.img1 }}"> 
         <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">{{anunt.tip_imobil}} {% if anunt.camere_libere == '1' %}{{ anunt.camere_libere }} camera. {% else %}{{ anunt.camere_libere }} camere.  {% endif %}{{ anunt.localitate }}, {{ anunt.zona }}</h6>
         </a>
         <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
@@ -209,20 +207,6 @@
 
 
 {% endif %}
-
-
-<!-- <ul class="pagination padv-2">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!">3</a></li>
-    <li class="waves-effect"><a href="#!">4</a></li>
-    <li class="waves-effect"><a href="#!">5</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-</ul> -->
-
-
-
 
 <script src="{% static 'base_app/scripts.js' %}"></script>
 <link rel="stylesheet" href="{% static 'base_app/styles.css' %}">

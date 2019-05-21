@@ -4,7 +4,82 @@
 {% block content %}
 
 
-<h1>Detalii anunt</h1>
+<div id="listing-info">
+        
+    <div class="image-carousel">
+        <h6 class="flow-text bold">
+                {{anunt.tip_imobil}} {% if anunt.camere_libere == '1' %}{{ anunt.camere_libere }} camera. {% else %}{{ anunt.camere_libere }} camere.  {% endif %}{{ anunt.localitate }}, {{ anunt.zona }}
+            <span class="blue-grey-text text-darken-2 badge default right">Postat la {{ anunt.published_date }}</span>
+        </h6>
+
+        <img src="/media/{{ anunt.img1 }}">
+        <img src="/media/{{ anunt.img2 }}" onerror="this.remove();">
+        <img src="/media/{{ anunt.img3 }}" onerror="this.remove();">
+        <img src="/media/{{ anunt.img4 }}" onerror="this.remove();">   
+        
+        <span class="next"></span>
+        <span class="previous"></span>
+
+    </div>
+
+
+
+    <div id="contact-info" class="blue-grey lighten-5">
+        <a href="utilizator.html"><img class="circle waves-effect waves-light" src="../img/alin.jpg">
+        <h6 class="grey-text text-darken-4 bold">Razvan Dan</h6>
+        </a>
+        <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
+        <div id="contact">
+            <button class="btn waves-effect waves-light"><i class="material-icons">local_phone</i><span class="btn-text">0723XXXXXX</span></button>
+            <button class="btn waves-effect waves-light"><i class="material-icons">email</i><span class="btn-text">razvan.fronteanu@gmail.com</span></button>
+            <button class="btn waves-effect waves-light"><i class="material-icons">message</i><span class="btn-text">Trimite mesaj</span></button>
+        </div>
+    </div>
+
+
+    <div id="description" class="blue-grey lighten-5">
+        <h6 class="bold">Descriere</h6>
+        <div class="line blue-grey darken-2"></div>
+        <h6>
+            Particular ofer garsoniera in zona berceni la 10 minute distanta de statia de metrou 
+            aparatorii patriei. Utilata si mobilata cu tot ce-i trebuie pentru o singura persoana nefumatoare. 
+            Intrare separata, baie si bucatarie proprie, libera , disponibila in orice moment ! 
+            Contract minim 12 luni, garantie 200 euro. 
+        </h6>
+    </div>
+
+
+
+    <div id="other-details" class="blue-grey lighten-5">
+        <h6 class="bold">Alte detalii</h6>
+        <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
+        <div class="chip blue-grey darken-2 white-text">decomandat</div>
+        <div class="chip blue-grey darken-2 white-text">utilat complet</div>
+        <div class="chip blue-grey darken-2 white-text">fara animale de companie</div>
+        <div class="chip blue-grey darken-2 white-text">1 camera libera</div>
+        <div class="chip blue-grey darken-2 white-text">aproape de mijloacele de transport</div>
+        <div class="chip blue-grey darken-2 white-text">supermarchet aproape</div>
+    </div>
+
+
+    <div id="colegi-de-share" class="blue-grey lighten-5">
+        <h6 class="bold">Colegi de share*</h6>
+        <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
+        <a href="utilizator.html"><div class="chip blue-grey darken-2 white-text"><img src="../img/alin.jpg">Cosmin Tana</div></a>
+        <a href="utilizator.html"><div class="chip blue-grey darken-2 white-text"><img src="../img/alin.jpg">Robert Bucur</div></a>
+        <a title="vreau si eu sa impart chiria pentru acest imobil" class="btn-floating btn waves-effect waves-light green"><i class="material-icons">add</i></a>
+        <div style="margin-top:3rem;"></div>
+        <span class="grey-text text-darken-1">*cei care ar vrea sa imparta chiria pentru acest imobil</span>
+    </div>
+
+    </div>
+
+
+
+
+
+
+
 
 
 

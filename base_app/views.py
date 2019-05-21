@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from anunturi.models import Anunturi
-
+from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from anunturi.models import Anunturi
 
 
 def index(request):
@@ -21,10 +20,9 @@ def index(request):
     return render(request, template_name="base_app/index.html", context={"title": "ChirieShare", "anunturi": anunturi_pub})
 
 
-def anunt(request):
-    
-    return render(request, "base_app/index.html", context={"title": "Anunt"})
-
+def anunt(request, id_anunt):
+    anunt = get_object_or_404(Anunturi, pk=id_anunt)
+    return render(request, "base_app/anunt.html", context={"title": "Anunt", 'anunt': anunt})
 
 
 
