@@ -39,41 +39,6 @@
     <div id="description" class="blue-grey lighten-5">
         <h6 class="bold">Descriere</h6>
         <div class="line blue-grey darken-2"></div>
-        <h6>
-            {% ifequal anunt.tip_imobil 'Ap.' %} 
-                Apartamentul este situat
-            {% else %}
-                Casa/Vila este situata
-            {% endifequal %}
-            
-            in localitatea {{ anunt.localitate }}, zona {{ anunt.zona }}.<br>
-            
-            {% ifequal anunt.tip_inchiriere "camere" %} 
-                Se inchiriaza camer(a)e in
-                {% ifequal anunt.tip_imobil 'Ap.' %} 
-                    apartament
-                {% else %}
-                    casa/vila 
-                {% endifequal %}
-
-                , in prezent sunt {{ anunt.camere_libere }} camere libere si {{ anunt.camere_ocupate }} camere ocupate.
-                
-            {% else %}
-
-                {% ifequal anunt.tip_imobil 'Ap.' %} 
-                    Apartamentul 
-                {% else %}
-                    Casa/Vila  
-                {% endifequal %}
-                apartamentul are {{ anunt.camere_libere }} camere libere.
-    
-            {% endifequal %}
-
-
-
-
-        </h6>
-
         <h6>{{ anunt.descriere_anunt }}</h6>
     </div>
 
