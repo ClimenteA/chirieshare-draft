@@ -3,12 +3,11 @@
 
 {% block content %}
 
-
 <div id="listing-info">
         
     <div class="image-carousel">
         <h6 class="flow-text bold">
-                {{anunt.tip_imobil}} {% if anunt.camere_libere == '1' %}{{ anunt.camere_libere }} camera. {% else %}{{ anunt.camere_libere }} camere.  {% endif %}{{ anunt.localitate }}, {{ anunt.zona }}
+                {{anunt.tip_imobil}} {% if anunt.camere_libere == '1' %}{{ anunt.camere_libere }} camera. {% else %}{{ anunt.camere_libere }} camere.  {% endif %}{{ anunt.localitate }}, {{ anunt.zona }} <span class="euro green-text">/{{ anunt.pret }} </span>
             <span class="blue-grey-text text-darken-2 badge default right">Postat la {{ anunt.published_date }}</span>
         </h6>
 
@@ -25,13 +24,13 @@
 
 
     <div id="contact-info" class="blue-grey lighten-5">
-        <a href="utilizator.html"><img class="circle waves-effect waves-light" src="../img/alin.jpg">
-        <h6 class="grey-text text-darken-4 bold">Razvan Dan</h6>
+        <a href="utilizator.html"><img class="circle waves-effect waves-light" src="/media/{{ utilizator.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+        <h6 class="grey-text text-darken-4 bold">{{ utilizator.first_name }}</h6>
         </a>
         <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
         <div id="contact">
-            <button class="btn waves-effect waves-light"><i class="material-icons">local_phone</i><span class="btn-text">0723XXXXXX</span></button>
-            <button class="btn waves-effect waves-light"><i class="material-icons">email</i><span class="btn-text">razvan.fronteanu@gmail.com</span></button>
+            <button class="btn waves-effect waves-light"><i class="material-icons">local_phone</i><span class="btn-text">{{ utilizator.telefon }}</span></button>
+            <button class="btn waves-effect waves-light"><i class="material-icons">email</i><span class="btn-text">{{ utilizator.email }}</span></button>
             <button class="btn waves-effect waves-light"><i class="material-icons">message</i><span class="btn-text">Trimite mesaj</span></button>
         </div>
     </div>
@@ -41,24 +40,52 @@
         <h6 class="bold">Descriere</h6>
         <div class="line blue-grey darken-2"></div>
         <h6>
-            Particular ofer garsoniera in zona berceni la 10 minute distanta de statia de metrou 
-            aparatorii patriei. Utilata si mobilata cu tot ce-i trebuie pentru o singura persoana nefumatoare. 
-            Intrare separata, baie si bucatarie proprie, libera , disponibila in orice moment ! 
-            Contract minim 12 luni, garantie 200 euro. 
+            {% ifequal anunt.tip_imobil 'Ap.' %} 
+                Apartamentul este situat
+            {% else %}
+                Casa/Vila este situata
+            {% endifequal %}
+            
+            in localitatea {{ anunt.localitate }}, zona {{ anunt.zona }}.<br>
+            
+            {% ifequal anunt.tip_inchiriere "camere" %} 
+                Se inchiriaza camer(a)e in
+                {% ifequal anunt.tip_imobil 'Ap.' %} 
+                    apartament
+                {% else %}
+                    casa/vila 
+                {% endifequal %}
+
+                , in prezent sunt {{ anunt.camere_libere }} camere libere si {{ anunt.camere_ocupate }} camere ocupate.
+                
+            {% else %}
+
+                {% ifequal anunt.tip_imobil 'Ap.' %} 
+                    Apartamentul 
+                {% else %}
+                    Casa/Vila  
+                {% endifequal %}
+                apartamentul are {{ anunt.camere_libere }} camere libere.
+    
+            {% endifequal %}
+
+
+
+
         </h6>
+
+        <h6>{{ anunt.descriere_anunt }}</h6>
     </div>
 
-
-
+    <!-- JS info highlights extracts -->
     <div id="other-details" class="blue-grey lighten-5">
         <h6 class="bold">Alte detalii</h6>
         <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
-        <div class="chip blue-grey darken-2 white-text">decomandat</div>
-        <div class="chip blue-grey darken-2 white-text">utilat complet</div>
-        <div class="chip blue-grey darken-2 white-text">fara animale de companie</div>
-        <div class="chip blue-grey darken-2 white-text">1 camera libera</div>
-        <div class="chip blue-grey darken-2 white-text">aproape de mijloacele de transport</div>
-        <div class="chip blue-grey darken-2 white-text">supermarchet aproape</div>
+        <div class="chip blue-grey darken-2 white-text">{{ anunt.get_tip_imobil_display }}</div>
+        <div class="chip blue-grey darken-2 white-text">{{ anunt.get_compartimentare_display }}</div>
+        <div class="chip blue-grey darken-2 white-text">{{ anunt.camere_libere }} {% ifequal anunt.camere_libere "1"  %} camera libera {% else %} camere libere {% endifequal %}</div>
+        <div class="chip blue-grey darken-2 white-text">{{ anunt.camere_ocupate }} {% ifequal anunt.camere_ocupate "1"  %} camera ocupata {% else %} camere ocupate {% endifequal %}</div>
+        <div class="chip blue-grey darken-2 white-text" id="facilitati">{{ anunt.facilitati }}</div>
     </div>
 
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from anunturi.models import Anunturi
-
+from users.models import User
 
 def index(request):
     anunturi_publicate = Anunturi.objects.all()
@@ -22,7 +22,13 @@ def index(request):
 
 def anunt(request, id_anunt):
     anunt = get_object_or_404(Anunturi, pk=id_anunt)
-    return render(request, "base_app/anunt.html", context={"title": "Anunt", 'anunt': anunt})
+    utilizator = get_object_or_404(User, pk=anunt.user_id)
+    context = {
+        "title": "Anunt", 
+        'anunt': anunt, 
+        'utilizator': utilizator
+    }
+    return render(request, template_name="base_app/anunt.html", context=context)
 
 
 

@@ -42,7 +42,7 @@ class Anunturi(models.Model):
         ("A", "Altceva")
     )
 
-    compartimentare = models.CharField(max_length=20, choices=compart, default=None)
+    compartimentare = models.CharField(max_length=20, choices=compart, default="A")
 
     facil = (
         ("BA", "Cu balcon"),
@@ -53,9 +53,9 @@ class Anunturi(models.Model):
         ("MS", "Masina de spalat")
     )
 
-    facilitati = MultiSelectField(max_length=250, choices=facil, default="")
+    facilitati = MultiSelectField(max_length=250, choices=facil, blank=True, null=True)
 
-    descriere_anunt = models.TextField(max_length=250)
+    descriere_anunt = models.TextField(max_length=250, blank=True, null=True)
     
     img1 = models.ImageField(upload_to="anunturi/")
     img2 = models.ImageField(upload_to="anunturi/", blank=True)
