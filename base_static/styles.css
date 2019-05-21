@@ -296,3 +296,184 @@ label {
     flex-direction: row;
     place-content: center center;
 }
+
+
+/* Listings */
+
+
+
+@supports ((display: -ms-grid) or (display: grid)) {
+.listings {
+    display: -ms-grid;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-column-gap: 2rem;
+    margin: 2rem;
+    margin-top: 0;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: center;
+} 
+}
+
+
+.listing {
+position: relative;
+width: 100%;
+max-width: 640px;
+min-width: 300px;
+height: 320px;
+border-radius: 0.3rem;
+/* For dear IE */
+margin: 0 auto; 
+margin-bottom: 2rem;
+}
+
+
+.listing > a > img {
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    -o-object-fit: cover;
+        object-fit: cover;
+    position: relative;
+    border-radius: 0.3rem;
+}
+        
+
+.listing-title {
+position: absolute;
+bottom: 0;
+left: 0;
+padding: 1.5rem;
+border-radius: 0.3rem;
+margin-bottom: 0; 
+width: inherit;
+}
+
+.price {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 1;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    border-radius: 0.3rem;
+}
+
+.price::after {content: "\20AC";}
+.euro::after {content: "\20AC";}
+
+.fav {
+    position: absolute;
+    top: 0rem;
+    left: 0rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    z-index: 1;
+    border-radius: 0.3rem;
+}
+
+
+
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+.listings {
+grid-template-columns: repeat(auto-fit, minmax(415px, 1fr));
+}
+.listing {
+    height: 290px;
+}
+
+}
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+}
+.listing {
+    height: 280px;
+}
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+}
+.listing {
+    height: 280px;
+}
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+}
+.listing {
+    height: 260px;
+}
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media (min-width: 481px) and (max-width: 767px) {
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+}
+.listing {
+    height: 240px;
+}
+}
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+.listings {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 0;
+    margin: 0;
+}
+
+.listing {
+    height: 200px;
+}
+
+.listing-title {
+    padding: 1.2rem;
+}
+
+}
+
+
