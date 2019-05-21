@@ -286,3 +286,13 @@ label {
     opacity: 100;
 }
 
+
+/* Pagination */
+
+.padv-2 {padding-top: 2rem;padding-bottom: 2rem;}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    place-content: center center;
+}
