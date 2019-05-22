@@ -29,10 +29,34 @@
         </a>
         <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
         <div id="contact">
-            {% if utilizator.telefon %}
-                <button class="btn waves-effect waves-light"><i class="material-icons">local_phone</i><span class="btn-text">{{ utilizator.telefon }}</span></button>
+            {% if user.is_authenticated %}
+
+                <form method="POST" action="{% url 'mesaje' %}"> 
+                    {% csrf_token %}
+                    <div>
+                        <label>Scrie mesaj</label>
+                        {{ form.mesaj_trimis }}
+                    </div>
+                    <button type="submit" class="btn" style="margin-top:1rem;">Trimite mesaj</button>
+                </form>
+
+                <div class="row">
+                    {% if utilizator.telefon %}
+                        <div class="col s12">
+                            <span class="bold"><i class="tiny material-icons">phone</i> {{ utilizator.telefon }}</span>
+                        </div>
+                    {% endif %}
+                        
+                    <div style="margin-top: 1rem;" class="col s12">
+                        <span class="bold"><i class="tiny material-icons">email</i> {{ utilizator.email }}</span>
+                    </div>
+                </div>
+
+            {% else %}
+                <a href="{% url 'autentificare' %}" class="btn green waves-effect waves-light bold">Intra in cont</a>
+                <label>Logheaza-te pentru a putea vedea datele de contact</label>
             {% endif %}
-            <button class="btn waves-effect waves-light"><i class="material-icons">email</i><span class="btn-text">{{ utilizator.email }}</span></button>
+
         </div>
     </div>
 
