@@ -25,7 +25,7 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down bold">
             <li><a href="{% url 'adauga' %}" class="waves-effect waves-light"><i class="material-icons left">add_circle</i> ADAUGA ANUNT</a></li>
             <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><i class="material-icons left">message</i> MESAJE <span class="new badge green">4</span></a></li>
-            <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><i class="material-icons left">remove_red_eye</i> VIZUALIZARI</a></li>
+            <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><i class="material-icons left">favorite</i> FAVORITE</a></li>
             <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/150/150/4caf50'"> {{ user.first_name }}</a></li>
             <li><a href="{% url 'delogare' %}" class="waves-effect waves-light"><i class="material-icons left">exit_to_app</i> LOGOUT</a></li>
         </ul>
@@ -53,7 +53,7 @@
         <div class="line blue-grey lighten-4"></div>
         <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><i class="material-icons left white-text">message</i><span class="white-text bold">MESAJE <span class="new badge default green">4</span></a></span></a></li>
         <div class="line blue-grey lighten-4"></div>
-        <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><i class="material-icons left white-text">remove_red_eye</i><span class="white-text bold">VIZUALIZARI</span></a></li>
+        <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><i class="material-icons left white-text">favorite</i><span class="white-text bold">FAVORITE</span></a></li>
         <div class="line blue-grey lighten-4"></div>
         <li><a href="{% url 'delogare' %}" class="waves-effect waves-light"><i class="material-icons left white-text">exit_to_app</i> <span class="white-text bold">LOGOUT</span></a></li>
         <div class="line blue-grey lighten-4"></div>
