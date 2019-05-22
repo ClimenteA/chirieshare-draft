@@ -1,7 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from anunturi.models import Anunturi
-from anunturi.forms import MesajeForm
 from users.models import User
 
 
@@ -29,8 +28,7 @@ def anunt(request, id_anunt):
     context = {
         "title": "Anunt", 
         'anunt': anunt, 
-        'utilizator': utilizator,
-        'form': MesajeForm()
+        'utilizator': utilizator
     }
 
     return render(request, template_name="anunturi/anunt.html", context=context)

@@ -40,18 +40,20 @@
         </h6>
 
         <span style="display: block;">
-            {% ifequal utilizator.sex "" %}
-                ?
-            {% else %} 
+            {% if utilizator.sex %}
                 {{ utilizator.sex }} 
-            {% endifequal %}, 
-            {% ifequal utilizator.varsta "" %}
-                ? ani 
             {% else %} 
+               ?
+            {% endif %}, 
+            
+            {% if utilizator.varsta %}
                 {{ utilizator.varsta }} ani 
-            {% endifequal %}
+            {% else %} 
+                ? ani 
+            {% endif %}
         </span>
         </a>
+
         <div class="line blue-grey darken-2" style="margin-top:0.5rem;width:100%;"></div>  
         
         <div class="row">
@@ -69,14 +71,9 @@
         <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
         <div id="contact">
             {% if user.is_authenticated %}
-                <form method="POST" action="{% url 'mesaje' %}"> 
-                    {% csrf_token %}
-                    <div>
-                        <label>Scrie mesaj</label>
-                        {{ form.mesaj_primit }}
-                    </div>
-                    <button type="submit" class="btn bold" style="margin-top:1rem;">Trimite mesaj<i class="material-icons right">send</i></button>
-                </form>
+                <label>Scrie mesaj</label>
+                <input type="text" name="mesaj_client" id="id_mesaj_client">
+                <button type="submit" class="btn bold" style="margin-top:1rem;">Trimite mesaj<i class="material-icons right">send</i></button>
             {% else %}
                 <a href="{% url 'autentificare' %}" class="btn green waves-effect waves-light bold">Intra in cont</a>
                 <label>Logheaza-te pentru a-i putea trimite un mesaj</label>

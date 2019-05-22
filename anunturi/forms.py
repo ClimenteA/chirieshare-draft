@@ -24,13 +24,13 @@ class AnunturiForm(ModelForm):
         }
 
     
-class MesajeForm(ModelForm):
+# class MesajeForm(ModelForm):
 
-     class Meta:
-        model = Mesaje
-        fields = "__all__"
+#      class Meta:
+#         model = Mesaje
+#         fields = "__all__"
 
-        widgets = {'mesaj_primit': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
-                   'mesaj_trimis': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
-        }
+#         widgets = {'mesaj_primit': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
+#                    'mesaj_trimis': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
+#         }
 

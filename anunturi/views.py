@@ -7,20 +7,16 @@ from django.contrib import messages
 from django.shortcuts import redirect
 from django.http import JsonResponse
 
-from .forms import AnunturiForm, MesajeForm
+from .forms import AnunturiForm
 
 from .models import Mesaje, Colegi
 
 
 @login_required
 def adauga(request):
-    
-    if request.method == "POST":
-        form = AnunturiForm(request.POST, request.FILES)
-        if form.is_valid():
-            instance = form.save(commit=False)
-            instance.user = request.user
-            form.save()
+    if request.is_ajax():
+        if request.method == "POST":
+            
             messages.success(request, 'Anuntul tau a fost adaugat!')
             return redirect("/")
         else:
@@ -30,8 +26,7 @@ def adauga(request):
         form = AnunturiForm()
 
     context = {
-        "title": "Adauga anunt",
-        "form": form
+        "title": "Adauga anunt"
         }
     return render(request, template_name='anunturi/adauga_anunt.html', context=context)
 
@@ -45,9 +40,8 @@ def mesaje(request):
         print(form)
         if form.is_valid():
             instance = form.save(commit=False)
-            # instance.user = request.user
-            
-            
+            instance.user = request.user
+            instance.anunt = form.cleaned_data["anunt"]
             form.save()
             messages.success(request, 'Mesajul tau a fost trimis!')
             return redirect("/")
