@@ -24,42 +24,66 @@
 
 
     <div id="contact-info" class="blue-grey lighten-5">
-        <a href="utilizator.html"><img class="circle waves-effect waves-light" src="/media/{{ utilizator.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
-        <h6 class="grey-text text-darken-4 bold">{{ utilizator.first_name }}</h6>
+        <a href="#!"><img class="circle waves-effect waves-light" src="/media/{{ utilizator.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+        <h6 class="grey-text text-darken-4 bold">
+            {% if utilizator.first_name  %} 
+                {{ utilizator.first_name }}
+            {% else %}
+                <span id="fname">{{ utilizator.email }}</span>
+
+                <script>
+                    let fname = document.getElementById("fname");
+                    let name = fname.innerText.split("@")[0];
+                    fname.innerText = name;
+                </script>
+            {% endif %}
+        </h6>
+
+        <span style="display: block;">
+            {% ifequal utilizator.sex "" %}
+                ?
+            {% else %} 
+                {{ utilizator.sex }} 
+            {% endifequal %}, 
+            {% ifequal utilizator.varsta "" %}
+                ? ani 
+            {% else %} 
+                {{ utilizator.varsta }} ani 
+            {% endifequal %}
+        </span>
         </a>
+        <div class="line blue-grey darken-2" style="margin-top:0.5rem;width:100%;"></div>  
+        
+        <div class="row">
+            {% if utilizator.telefon %}
+                <div style="margin-top: 1rem;" class="col s12">
+                    <span class="bold"><i class="tiny material-icons">phone</i> {{ utilizator.telefon }}</span>
+                </div>
+            {% endif %}
+                
+            <div style="margin-top: 1rem;" class="col s12">
+                <span class="bold"><i class="tiny material-icons">email</i> {{ utilizator.email }}</span>
+            </div>
+        </div>
+        
         <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
         <div id="contact">
             {% if user.is_authenticated %}
-
                 <form method="POST" action="{% url 'mesaje' %}"> 
                     {% csrf_token %}
                     <div>
                         <label>Scrie mesaj</label>
-                        {{ form.mesaj_trimis }}
+                        {{ form.mesaj_primit }}
                     </div>
-                    <button type="submit" class="btn" style="margin-top:1rem;">Trimite mesaj</button>
+                    <button type="submit" class="btn bold" style="margin-top:1rem;">Trimite mesaj<i class="material-icons right">send</i></button>
                 </form>
-
-                <div class="row">
-                    {% if utilizator.telefon %}
-                        <div class="col s12">
-                            <span class="bold"><i class="tiny material-icons">phone</i> {{ utilizator.telefon }}</span>
-                        </div>
-                    {% endif %}
-                        
-                    <div style="margin-top: 1rem;" class="col s12">
-                        <span class="bold"><i class="tiny material-icons">email</i> {{ utilizator.email }}</span>
-                    </div>
-                </div>
-
             {% else %}
                 <a href="{% url 'autentificare' %}" class="btn green waves-effect waves-light bold">Intra in cont</a>
-                <label>Logheaza-te pentru a putea vedea datele de contact</label>
+                <label>Logheaza-te pentru a-i putea trimite un mesaj</label>
             {% endif %}
 
         </div>
     </div>
-
 
     <div id="description" class="blue-grey lighten-5">
         <h6 class="bold">Descriere</h6>

@@ -30,5 +30,7 @@ class MesajeForm(ModelForm):
         model = Mesaje
         fields = "__all__"
 
-        widgets = {'mesaj_primit': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),}
+        widgets = {'mesaj_primit': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
+                   'mesaj_trimis': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
+        }
 

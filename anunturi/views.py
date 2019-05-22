@@ -42,6 +42,7 @@ def mesaje(request):
 
     if request.method == "POST":
         form = MesajeForm(request.POST)
+        print(form)
         if form.is_valid():
             instance = form.save(commit=False)
             # instance.user = request.user

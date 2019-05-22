@@ -40,8 +40,8 @@
     
     <div class="user-view">
         <a href="{% url 'utilizator' %}"><img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'"></a>
-        <a href="{% url 'utilizator' %}"><h6 class="white-text bold">{% if user.first_name %}{{ user.first_name }}{% else %} Seteaza nume {% endif %}</h6></a>
-        <a href="{% url 'utilizator' %}"><span class="blue-grey-text text-lighten-4">{% if user.sex %}{{ user.sex }}{% else %} M/F {% endif %}, {% if user.varsta %}{{ varsta }}{% else %} xx {% endif %} ani</span></a>
+        <a href="{% url 'utilizator' %}"><h6 class="white-text bold">{% if user.first_name %}{{ user.first_name }}{% else %} Nume nesetat {% endif %}</h6></a>
+        <a href="{% url 'utilizator' %}"><span class="blue-grey-text text-lighten-4">{% if user.sex %}{{ user.sex }}{% else %} ? {% endif %}, {% if user.varsta %}{{ user.varsta }}{% else %} ? {% endif %} ani</span></a>
     </div>
 
     
