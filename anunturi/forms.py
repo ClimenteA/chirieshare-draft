@@ -22,3 +22,5 @@ class AnunturiForm(ModelForm):
             'user': forms.Select(),
             'descriere_anunt': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
         }
+
+    

@@ -24,7 +24,6 @@ for (var i = 0; i < listings.length; i++) {
 }
 
 } catch (error) {
-console.log("warning: ", error);
 }
 
 
@@ -55,7 +54,6 @@ droparrow.addEventListener("click", function(event){
 
 
 } catch (error) {
-console.log("warning: ", error);
 }
 
 // Toggle more filters
@@ -78,7 +76,6 @@ more.addEventListener("click", function(){
 }, false);
 
 } catch (error) {
-console.log("warning: ", error);
 }
 
 //Toggle favourite
@@ -102,7 +99,7 @@ for (var i = 0; i < favs.length; i++) {
 }
     
 } catch (error) {
-console.log("warning: " + error);
+
 }
 
 
@@ -127,7 +124,32 @@ for(let i=0; i < facilitati.length; i++){
 document.getElementById("facilitati").remove();
     
 } catch (error) {
-    console.log(error);
+
 }
 
+
+// Trimite mesaj
+
+try {
+
+let trimite_mesaj = document.getElementById("trimite-mesaj");
+
+trimite_mesaj.addEventListener("click", () => {
+
+    
+    
+    m.request({
+        method: "POST",
+        url: "/update-components/",
+        data: all_data
+    })
+    .then((result) => {
+
+    })
+
+}, false);
+
+} catch (error) {
+    
+}
 

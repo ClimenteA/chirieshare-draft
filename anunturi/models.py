@@ -68,7 +68,14 @@ class Anunturi(models.Model):
 
 
 
+class Mesaje(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
+    mesaj_primit = models.CharField(max_length=250, null=True, blank=True)
+    mesaj_trimis = models.CharField(max_length=250, null=True, blank=True)
+    
 
-
-
+class Colegi(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
 

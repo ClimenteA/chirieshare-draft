@@ -29,9 +29,10 @@
         </a>
         <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
         <div id="contact">
-            <button class="btn waves-effect waves-light"><i class="material-icons">local_phone</i><span class="btn-text">{{ utilizator.telefon }}</span></button>
+            {% if utilizator.telefon %}
+                <button class="btn waves-effect waves-light"><i class="material-icons">local_phone</i><span class="btn-text">{{ utilizator.telefon }}</span></button>
+            {% endif %}
             <button class="btn waves-effect waves-light"><i class="material-icons">email</i><span class="btn-text">{{ utilizator.email }}</span></button>
-            <button class="btn waves-effect waves-light"><i class="material-icons">message</i><span class="btn-text">Trimite mesaj</span></button>
         </div>
     </div>
 
