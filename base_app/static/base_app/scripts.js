@@ -127,29 +127,3 @@ document.getElementById("facilitati").remove();
 
 }
 
-
-// Trimite mesaj
-
-try {
-
-let trimite_mesaj = document.getElementById("trimite-mesaj");
-
-trimite_mesaj.addEventListener("click", () => {
-
-    
-    
-    m.request({
-        method: "POST",
-        url: "/update-components/",
-        data: all_data
-    })
-    .then((result) => {
-
-    })
-
-}, false);
-
-} catch (error) {
-    
-}
-
