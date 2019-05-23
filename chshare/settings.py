@@ -15,6 +15,10 @@ http://rogerdudler.github.io/git-guide/
 Custom error pages
 https://stackoverflow.com/questions/17662928/django-creating-a-custom-500-404-error-page
 
+AJAX
+https://medium.com/@a01701414/how-to-apply-ajax-with-django-2-1-8e9a4943f73
+
+
 """
 
 import os

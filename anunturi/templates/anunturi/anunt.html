@@ -73,22 +73,25 @@
             {% if user.is_authenticated %}
             
                 <label>Scrie mesaj</label>
-                <input type="text" name="mesaj_client" id="mesaj_client">
+                <input type="text" name="mesaj_client" id="mesaj_client"/>
                 <button class="btn bold" id="trimite-mesaj" style="margin-top:1rem;">Trimite mesaj<i class="material-icons right">send</i></button>
                 
                 <script>
 
                     document.getElementById("trimite-mesaj").addEventListener("click", () => {
     
-                        let mesaj = document.getElementById("mesaj_client").innerText;
-                        console.log('{{csrf_token}}');
-
+                        let mesaj = document.getElementById("mesaj_client").value;
+                    
                         m.request({
-                            method: "POST",
+                            method: "GET",
                             url: "/anunturi/mesaj/",
-                            data: {"mesaj": mesaj, csrfmiddlewaretoken: '{{ csrf_token }}'}
+                            data: {"mesaj": mesaj}
                         }).then((response) => {
-                            console.log(response);
+                            if (response.status === 200) {
+                                M.toast({html: 'Mesajul a fost trimis!'});
+                            }else {
+                                M.toast({html: 'Mesajul nu a fost trimis!', classes:"red lighten-1"});
+                            }
                         });
 
                     }, false);

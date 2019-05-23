@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 
 
 from django.http import JsonResponse
-# from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
 
 from .forms import AnunturiForm
@@ -40,14 +40,14 @@ def adauga(request):
     return render(request, template_name='anunturi/adauga_anunt.html', context=context)
 
 
-
-
+#TODO SECURITY CSRF HERE
+@csrf_exempt
 @login_required
 def mesaj(request):
 
-    if request.is_ajax():
-        if request.method == "POST":
-            print(request.body)
+    print(request.GET["mesaj"])
+
+    return JsonResponse({'status': 200})
 
 
     # if request.method == "POST":
