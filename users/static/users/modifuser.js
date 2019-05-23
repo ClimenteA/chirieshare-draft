@@ -1,12 +1,7 @@
 "use strict";
 
-// var el_title = document.getElementsByTagName("title")[0];
-// el_title.innerText = "Update Utilizator";
-
-
 let el_body = document.getElementsByTagName("body")[0];
 el_body.className += " city grey lighten-4";
-
 
 
 // Hide mesaje, vizualizari, din sidenav si topnav

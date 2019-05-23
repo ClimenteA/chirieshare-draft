@@ -79,21 +79,33 @@
                 <script>
 
                     document.getElementById("trimite-mesaj").addEventListener("click", () => {
-    
-                        let mesaj = document.getElementById("mesaj_client").value;
-                    
-                        m.request({
-                            method: "GET",
-                            url: "/anunturi/mesaj/",
-                            data: {"mesaj": mesaj}
-                        }).then((response) => {
-                            if (response.status === 200) {
-                                M.toast({html: 'Mesajul a fost trimis!'});
-                            }else {
-                                M.toast({html: 'Mesajul nu a fost trimis!', classes:"red lighten-1"});
-                            }
-                        });
+                        
+                        let mesaj = document.getElementById("mesaj_client");
+                        let id_anunt = document.location.pathname.split("/")["2"];
+                        let data = {"mesaj": mesaj.value, "id_anunt": id_anunt}
+                        
+                        if (data.mesaj != ""){
 
+                            mesaj.value = "";
+
+                            console.log("Sent: ", data);
+                            
+                            m.request({
+                                method: "GET",
+                                url: "/anunturi/mesaj/",
+                                data: data
+                            }).then((response) => {
+                                if (response.status === 200) {
+                                    M.toast({html: 'Mesajul a fost trimis!'});
+                                }else {
+                                    M.toast({html: 'Mesajul nu a fost trimis!', classes:"red lighten-1"});
+                                }
+                            });
+
+                        }else {
+                            M.toast({html: 'Nu ai scris nimic!'});
+                        }
+                        
                     }, false);
 
 

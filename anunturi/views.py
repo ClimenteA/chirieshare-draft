@@ -10,7 +10,7 @@ from django.shortcuts import redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
-
+from .models import Anunturi
 from .forms import AnunturiForm
 
 from .models import Mesaje, Colegi
@@ -40,39 +40,21 @@ def adauga(request):
     return render(request, template_name='anunturi/adauga_anunt.html', context=context)
 
 
-#TODO SECURITY CSRF HERE
+
+
+#TODO SECURITY CSRF HERE MAKE IT A POST AJAX REQUEST!
 @csrf_exempt
 @login_required
 def mesaj(request):
 
-    print(request.GET["mesaj"])
+    msg = Mesaje()
+    msg.anunt_id = int(request.GET["id_anunt"])
+    msg.client_id = request.user.id
+    msg.mesaj_client = request.GET["mesaj"] 
+
+    msg.save()
 
     return JsonResponse({'status': 200})
-
-
-    # if request.method == "POST":
-    #     form = MesajeForm(request.POST)
-    #     print(form)
-    #     if form.is_valid():
-    #         instance = form.save(commit=False)
-    #         instance.user = request.user
-    #         instance.anunt = form.cleaned_data["anunt"]
-    #         form.save()
-    #         messages.success(request, 'Mesajul tau a fost trimis!')
-    #         return redirect("/")
-    #     else:
-    #         messages.error(request, 'Datele trimise nu sunt valide!')
-    #         return redirect("/")
-    # else:
-    #     form = MesajeForm()
-
-    # context = {
-    #     "title": "Adauga",
-    #     "form": form
-    #     }
-
-    # return render(request, template_name='anunturi/anunt.html', context=context)
-
 
 
 

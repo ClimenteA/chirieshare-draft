@@ -168,15 +168,22 @@
 
 <div class="listings">
 
-    {% for anunt in anunturi %}
-    <div class="listing z-depth-2">
-        <a href="/detalii-anunt/{{ anunt.id }}"><img src="/media/{{ anunt.img1 }}"> 
-        <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">{{anunt.tip_imobil}} {% if anunt.camere_libere == '1' %}{{ anunt.camere_libere }} camera. {% else %}{{ anunt.camere_libere }} camere.  {% endif %}{{ anunt.localitate }}, {{ anunt.zona }}</h6>
-        </a>
-        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
-        <span class="price green lighten-1 white-text bold">{{ anunt.pret }} </span>      
-    </div>
-    {% endfor %}
+    {% if anunturi %}
+        {% for anunt in anunturi %}
+        <div class="listing z-depth-2">
+            <a href="/detalii-anunt/{{ anunt.id }}"><img src="/media/{{ anunt.img1 }}"> 
+            <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">{{anunt.tip_imobil}} {% if anunt.camere_libere == '1' %}{{ anunt.camere_libere }} camera. {% else %}{{ anunt.camere_libere }} camere.  {% endif %}{{ anunt.localitate }}, {{ anunt.zona }}</h6>
+            </a>
+            <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+            <span class="price green lighten-1 white-text bold">{{ anunt.pret }} </span>      
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="flex-center">
+            <h5 style="margin-top:3rem;margin-bottom:2rem;" class="blue-grey-text text-darken-1 bold">Nu este disponibil nici un anunt momentan...</h5>
+            <a href="{% url 'adauga' %}" class=" btn green waves-effect waves-light"><i class="material-icons left white-text">add_circle</i><span class="white-text bold">ADAUGA UN ANUNT</span></a>
+        </div>
+    {% endif %}
     
 </div>
 

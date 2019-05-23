@@ -142,6 +142,35 @@
 
 
 
+<script>
+
+let el_body = document.getElementsByTagName("body")[0];
+el_body.className += " city grey lighten-4";
+
+let el_main = document.getElementsByTagName("main")[0];
+el_main.className += "container grey lighten-5";
+el_main.style.marginTop = "2rem";
+el_main.style.marginBottom = "2rem";
+el_main.style.borderRadius = "0.5rem";
+el_main.style.padding = "2rem";
+
+// Ascunde mesaje, vizualizari, din sidenav si topnav
+
+let nav = document.getElementById("nav-mobile");
+
+nav.children[1].style.display = "none";
+nav.children[2].style.display = "none";
+nav.children[3].style.display = "none"; 
+
+
+let el_ulnav = document.getElementById("snav");
+
+el_ulnav.children[3].style.display = "none";
+el_ulnav.children[4].style.display = "none";
+el_ulnav.children[5].style.display = "none";
+el_ulnav.children[6].style.display = "none";
+
+</script>
 
 
 
@@ -151,140 +180,3 @@
 
 {% endblock %}
 
-
-
-
-
-
-<form method="POST" enctype="multipart/form-data" action="{% url 'adauga' %}">
-{% csrf_token %}
-
-
-<div class="row">
-
-    {% for radio in form.tip_inchiriere %}
-        <div class="input-field col s12 m6">
-            <label>
-                {{ radio.tag }}
-                <span title="ofer camere in imobil" class="blue-grey-text text-darken-2 flow-text bold">{{ radio.choice_label }}</span>
-            </label>
-        </div>
-    {% endfor %}
-</div>
-
-
-<div class="divider" style="margin-top:3rem;margin-bottom:2rem;"></div>
-
-<div class="row">
-    <div class="input-field col s12 m4">
-        {{ form.localitate }}
-        <label for="id_localitate">{{ form.localitate.label }}</label>
-    </div>
-    
-    <div class="input-field col s12 m4">
-        {{ form.zona }}
-        <label for="id_zona">{{ form.zona.label }}</label>
-    </div>    
-    
-    <div class="input-field col s12 m4">
-        {{ form.pret }}
-        <label for="id_pret">{{ form.pret.label }} &euro;/ Lunar</label>
-    </div>          
-</div>
-
-
-<div class="row">
-    <div class="input-field col s12 m4">
-        {{ form.tip_imobil }}
-        <label>Apartament/Casa/Vila</label>
-    </div>
-
-    <div class="input-field col s12 m4">
-        {{ form.camere_libere }}
-        <label>{{ form.camere_libere.label }}</label>
-    </div>
-
-    <div class="input-field col s12 m4">
-        {{ form.camere_ocupate }}
-        <label>{{ form.camere_ocupate.label }}</label>
-    </div>
-
-    <div class="input-field col s12 m4">
-        {{ form.compartimentare }}
-        <label>{{ form.compartimentare.label }}</label>
-    </div>
-
-    <div class="input-field col s12 m8">
-        {{ form.facilitati }}
-        <label>Facilitati</label>
-    </div>
-
-    <div class="input-field col s12">
-        {{ form.descriere_anunt }}
-        <label>{{ form.descriere_anunt.label }}</label>
-    </div>
-
-
-    <div class="file-field input-field col s12 m6">
-        <div class="btn">
-            <span><i class="material-icons">image</i></span>
-            {{ form.img1 }}
-        </div>
-        <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="principala">
-        </div>
-    </div>
-
-
-    <div class="file-field input-field col s12 m6">
-        <div class="btn">
-            <span><i class="material-icons">image</i></span>
-            {{ form.img2 }}
-        </div>
-        <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="aditionala">
-        </div>
-    </div>
-
-
-    <div class="file-field input-field col s12 m6">
-        <div class="btn">
-            <span><i class="material-icons">image</i></span>
-            {{ form.img3 }}
-        </div>
-        <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="aditionala">
-        </div>
-    </div>
-
-
-    <div class="file-field input-field col s12 m6">
-        <div class="btn">
-            <span><i class="material-icons">image</i></span>
-            {{ form.img4 }}
-        </div>
-        <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="aditionala">
-        </div>
-    </div>
-
-</div>
-
-
-<div class="block center-align flex-center">
-    <div style="margin-bottom:3rem;"></div>
-    
-    <button type="submit" class="btn-large waves-effect waves-light green lighten-1 mbot-2 bold">Posteaza anuntul</button>
-    
-    <div style="margin-bottom:1rem;"></div>
-    
-    <label>
-        <input type="checkbox" class="filled-in" checked/>
-        <span>Sunt de acord cu <a href="#" class="blue-grey-text underline">Termenii şi Condiţiile</a></span>
-    </label>         
-</div>
-
-<div style="margin-bottom:3rem;"></div>
-
-
-</form>
