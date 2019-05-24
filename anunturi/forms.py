@@ -1,4 +1,4 @@
-from .models import Anunturi, Mesaje
+from .models import Anunturi
 from django import forms
 from django.forms import ModelForm
 
@@ -22,15 +22,3 @@ class AnunturiForm(ModelForm):
             'user': forms.Select(),
             'descriere_anunt': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
         }
-
-    
-# class MesajeForm(ModelForm):
-
-#      class Meta:
-#         model = Mesaje
-#         fields = "__all__"
-
-#         widgets = {'mesaj_primit': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
-#                    'mesaj_trimis': forms.Textarea(attrs={"class": "materialize-textarea", 'placeholder': ''}),
-#         }
-

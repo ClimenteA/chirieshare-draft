@@ -68,15 +68,18 @@ class Anunturi(models.Model):
 
 
 
-class Mesaje(models.Model):
-    client = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-    proprietar = models.CharField(max_length=250, null=True, blank=True)
-    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
-    mesaj_proprietar = models.CharField(max_length=250, null=True, blank=True)
-    mesaj_client = models.CharField(max_length=250, null=True, blank=True)
-    
-
-class Colegi(models.Model):
+class Proprietar(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
+    mesaj = models.CharField(max_length=250, null=True, blank=True)
+    data_trimiterii = models.DateTimeField(auto_now_add=True)
+    
+
+class Chirias(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
+    mesaj = models.CharField(max_length=250, null=True, blank=True)
+    data_trimiterii = models.DateTimeField(auto_now_add=True)
+    
+
 

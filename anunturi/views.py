@@ -13,7 +13,7 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from .models import Anunturi
 from .forms import AnunturiForm
 
-from .models import Mesaje, Colegi
+from .models import Proprietar, Chirias
 
 
 @login_required
@@ -43,15 +43,15 @@ def adauga(request):
 
 
 #TODO SECURITY CSRF HERE MAKE IT A POST AJAX REQUEST!
+# But since the user must be logged in.. I think a GET request will be good for now
 @csrf_exempt
 @login_required
-def mesaj(request):
+def chirias(request):
 
-    msg = Mesaje()
+    msg = Chirias()
     msg.anunt_id = int(request.GET["id_anunt"])
-    msg.client_id = request.user.id
-    msg.mesaj_client = request.GET["mesaj"] 
-
+    msg.user_id = request.user.id
+    msg.mesaj = request.GET["mesaj"] 
     msg.save()
 
     return JsonResponse({'status': 200})
