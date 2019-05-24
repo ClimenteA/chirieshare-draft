@@ -141,16 +141,68 @@
         <h6 class="bold">Colegi de share*</h6>
         <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
         
-        <!-- <a href="utilizator.html"><div class="chip blue-grey darken-2 white-text"><img src="../img/alin.jpg">Cosmin Tana</div></a>
-        <a href="utilizator.html"><div class="chip blue-grey darken-2 white-text"><img src="../img/alin.jpg">Robert Bucur</div></a> -->
-        <button class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
+        <div id="cshare">
+
+        </div>
+       
+        {% ifequal lashare False %}
+
+            <button id="colegi" class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
+            
+            <script>
+                    let el_colegi = document.getElementById("colegi");
+                    el_colegi.addEventListener("click", () => {
+                
+                        let id_anunt = document.location.pathname.split("/")["2"];
+                        let data = {"id_anunt": id_anunt}
+                        let root = document.getElementById("cshare");
+                
+                        // <a href="utilizator.html"><div class="chip blue-grey darken-2 white-text"><img src="../img/alin.jpg">Robert Bucur</div></a> 
+                        
+                        m.request({
+                            method: "GET",
+                            url: "/anunturi/share/",
+                            data: data
+                        }).then((response) => {
+                            if (response.status === 200) {
+                                let Coleg = {
+                                    view: () => {
+                                        return m("div", [
+                                            m("a", {href: "#!"}, [
+                                                m("div", {class: "chip blue-grey darken-2 white-text"}, [
+                                                    m("span", [
+                                                        m("img", {src: "/media/#!"}),
+                                                        m("span", "Robert Bucur")
+                                                    ])
+                                                ])
+                                            ])
+                                        ]
+                                        )
+                                    }
+                                };
+                
+                                m.mount(root, Coleg);
+                
+                                el_colegi.style.display = "none";
+                
+                                M.toast({html: 'Ai fost adaugat la share!'});
+                
+                
+                            }else {
+                                M.toast({html: 'Mesajul nu a fost trimis!', classes:"red lighten-1"});
+                            }
+                        });
+                
+                    }, false);
+                
+                </script>
+                
+        {% endifequal %}
         <div style="margin-top:3rem;"></div>
         <span class="grey-text text-darken-1">*cei care ar vrea sa imparta chiria pentru acest imobil</span>
     </div>
 
     </div>
-
-
 
 
 

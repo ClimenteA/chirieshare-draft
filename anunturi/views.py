@@ -13,7 +13,7 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 from .models import Anunturi
 from .forms import AnunturiForm
 
-from .models import Proprietar, Chirias
+from .models import Proprietar, Chirias, Share
 
 
 @login_required
@@ -57,11 +57,16 @@ def chirias(request):
     return JsonResponse({'status': 200})
 
 
-
-
-
-
-
+@csrf_exempt
 @login_required
-def colegi(request):
-    pass
+def share(request):
+
+    sh = Share()
+    sh.anunt_id = int(request.GET["id_anunt"])
+    sh.user_id = request.user.id
+    sh.save()
+
+    return JsonResponse({'status': 200})
+
+
+

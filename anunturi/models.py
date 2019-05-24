@@ -69,6 +69,9 @@ class Anunturi(models.Model):
 
 
 class Proprietar(models.Model):
+    """
+        Message from the chirias to proprietar for a specific listing
+    """
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
     mesaj = models.CharField(max_length=250, null=True, blank=True)
@@ -76,6 +79,9 @@ class Proprietar(models.Model):
     
 
 class Chirias(models.Model):
+    """
+        Message from the chirias to proprietar for a specific listing
+    """
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
     mesaj = models.CharField(max_length=250, null=True, blank=True)
@@ -83,3 +89,10 @@ class Chirias(models.Model):
     
 
 
+class Share(models.Model):
+    """
+        Here will be stored people who want to share rent for a listing
+    """
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
+    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
+    data_trimiterii = models.DateTimeField(auto_now_add=True)

@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from anunturi.models import Anunturi
+from anunturi.models import Anunturi, Share
 from users.models import User
 
 
@@ -25,10 +25,12 @@ def index(request):
 def anunt(request, id_anunt):
     anunt = get_object_or_404(Anunturi, pk=id_anunt)
     utilizator = get_object_or_404(User, pk=anunt.user_id)
+    
     context = {
         "title": "Anunt", 
         'anunt': anunt, 
-        'utilizator': utilizator
+        'utilizator': utilizator,
+        'lashare': Share.objects.filter(user_id=request.user.id).exists()
     }
 
     return render(request, template_name="anunturi/anunt.html", context=context)
