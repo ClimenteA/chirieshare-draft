@@ -1,3 +1,5 @@
+import itertools
+
 from django.shortcuts import render, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from anunturi.models import Anunturi, Share
@@ -25,12 +27,15 @@ def index(request):
 def anunt(request, id_anunt):
     anunt = get_object_or_404(Anunturi, pk=id_anunt)
     utilizator = get_object_or_404(User, pk=anunt.user_id)
-    
+    colegideshare_ids = list(set(itertools.chain(*Share.objects.values_list("user_id"))))
+    colegideshare = User.objects.in_bulk(id_list=colegideshare_ids, field_name='id')
+ 
     context = {
         "title": "Anunt", 
         'anunt': anunt, 
         'utilizator': utilizator,
-        'lashare': Share.objects.filter(user_id=request.user.id).exists()
+        'lashare': Share.objects.filter(user_id=request.user.id).exists(),
+        'colegideshare': colegideshare
     }
 
     return render(request, template_name="anunturi/anunt.html", context=context)
