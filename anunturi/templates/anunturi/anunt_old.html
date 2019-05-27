@@ -167,7 +167,9 @@
             {{ colegideshare.first_name }}
             
         {% endif %}
-
+        
+        <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a>
+        
         <div id="cshare">
 
         </div>
@@ -176,6 +178,9 @@
 
             <button id="colegi" class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
             
+            
+            <span id="src" class="none">{% if user.imagine %} "/media/{user.imagine}" {% else %} http://placeskull.com/100/100/4caf50 {% endif %}</span>
+                
             <script>
                     let el_colegi = document.getElementById("colegi");
                     el_colegi.addEventListener("click", () => {
@@ -192,19 +197,16 @@
                             data: data
                         }).then((response) => {
                             if (response.status === 200) {
+                                
+                                
                                 let Coleg = {
                                     view: () => {
-                                        return m("div", [
-                                            m("a", {href: "#contact-info"}, [
+                                        return m("a", {href: "#contact-info"}, [
                                                 m("div", {class: "chip blue-grey darken-2 white-text"}, [
-                                                    m("span", [
-                                                        m("img", {src: "/media/#!"}),
-                                                        m("span", "Robert Bucur")
+                                                    m("img", {src: document.getElementById("src").innerText}),
+                                                    m("span", "Robert Bucur")
                                                     ])
                                                 ])
-                                            ])
-                                        ]
-                                        )
                                     }
                                 };
                 
