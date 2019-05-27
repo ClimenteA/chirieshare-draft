@@ -28,7 +28,17 @@ def anunt(request, id_anunt):
     anunt = get_object_or_404(Anunturi, pk=id_anunt)
     utilizator = get_object_or_404(User, pk=anunt.user_id)
     colegideshare_ids = list(set(itertools.chain(*Share.objects.values_list("user_id"))))
-    colegideshare = User.objects.in_bulk(id_list=colegideshare_ids, field_name='id')
+    
+    colegideshare = []
+    for cid in colegideshare_ids:
+        u = User.objects.get(pk=cid)
+
+        colegideshare.append(u)
+        print(u.id)
+        print(u.email)
+        print(u.first_name)
+
+
  
     context = {
         "title": "Anunt", 

@@ -8,12 +8,12 @@
 
 <div id="contact-info" class="blue-grey lighten-5 z-depth-2">
     <a href="{% url 'utilizator' %}"><img class="circle waves-effect waves-light" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/150/150/4caf50'"> 
-    <h5 class="grey-text text-darken-4 bold">{% if user.first_name %}{{ user.first_name }}{% else %} Seteaza nume {% endif %}</h5>
+    <h5 class="grey-text text-darken-4 bold">{% if user.first_name %}{{ user.first_name }}{% else %} Nume nespecificat {% endif %}</h5>
     <span class="grey-text text-darken-1">{% if user.sex %}{{ user.sex }}{% else %} M/F {% endif %}, {% if user.varsta %}{{ user.varsta }}{% else %} xx {% endif %} ani</span>
     </a>
     <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
     <div id="contact">
-        <button class="btn waves-effect waves-light"><i class="material-icons">local_phone</i><span class="btn-text">{% if user.telefon %}{{ user.telefon }}{% else %} Seteaza numar {% endif %}</span></button>
+        <button class="btn waves-effect waves-light" data-clipboard-text="Just because you can doesn't mean you should — clipboard.js"><i class="material-icons">local_phone</i><span class="btn-text">{% if user.telefon %}{{ user.telefon }}{% else %} Numar telefon lipsa {% endif %}</span></button>
         <button class="btn waves-effect waves-light bold"><i class="material-icons">email</i><span class="btn-text">{{ user.email }}</span></button>
     </div>
 </div>
@@ -111,6 +111,8 @@
     
 
 <a href="{% url 'actualizare' %}" class="btn-small blue-grey lighten-1 waves-effect waves-light right" style="margin-right:1rem;margin-bottom:1rem;"><span class="btn-text">ACTUALIZARE CONT</span></a>    
+
+
 
 </div>
 

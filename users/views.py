@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import User
 from .forms import UserForm, UserUpdateForm
 from django.shortcuts import redirect
@@ -82,11 +82,19 @@ def resetare(request):
         pass
 
 
-@login_required
-def utilizator(request):
-    context = {"title": "Utilizator"}
+
+def utilizator(request, id_user=None):
+
+    if id_user:
+        utilizator = get_object_or_404(User, pk=id_user)
+    else:
+        utilizator = None
+
+    context = {"title": "Utilizator", "utilizator_share": utilizator}
     return render(request, template_name="users/utilizator.html", context=context) 
     
+
+
 @login_required
 def actualizare(request):
     

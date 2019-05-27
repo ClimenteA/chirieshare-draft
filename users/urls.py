@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 
-# autentificare + 
+# cont + 
 
 urlpatterns = [
     path('', views.autentificare, name='autentificare'),
@@ -11,5 +11,6 @@ urlpatterns = [
     path('delogare/', views.delogare, name="delogare"),
     path('resetare/', views.resetare, name="resetare"),
     path('utilizator/', views.utilizator, name="utilizator"),
+    path('utilizator/<int:id_user>/', views.utilizator, name="utilizator"),
     path('actualizare/', views.actualizare, name="actualizare")
 ]

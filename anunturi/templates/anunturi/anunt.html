@@ -59,15 +59,31 @@
         <div class="row">
             {% if utilizator.telefon %}
                 <div style="margin-top: 1rem;" class="col s12">
-                    <span class="bold"><i class="tiny material-icons">phone</i> {{ utilizator.telefon }}</span>
+                    <button data-clipboard-text="{{ utilizator.telefon }}" style="width: 100%;" class="bold btn"><i class="tiny material-icons left">phone</i> {{ utilizator.telefon }}</button>
                 </div>
             {% endif %}
                 
             <div style="margin-top: 1rem;" class="col s12">
-                <span class="bold"><i class="tiny material-icons">email</i> {{ utilizator.email }}</span>
+                <button data-clipboard-text="{{ utilizator.email }}" class="bold btn" style="width: 100%; text-decoration: unset;"><i class="tiny material-icons left">email</i> {{ utilizator.email }}</button>
             </div>
         </div>
         
+
+        <script src="{% static 'clipboard.min.js' %}"></script>
+        <script>
+            var clipboard = new ClipboardJS('.btn');
+
+            clipboard.on('success', () => {
+                M.toast({html: 'Copiat!'});
+            });
+            
+            clipboard.on('error', (e) => {
+                M.toast({html: 'Copiere nereusita!'});
+            });
+
+        </script>
+
+
         <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
         <div id="contact">
             {% if user.is_authenticated %}
@@ -141,7 +157,7 @@
         <h6 class="bold">Colegi de share*</h6>
         <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
         {% if colegideshare %}
-            {{ colegideshare }}
+            {{ colegideshare.first_name }}
             
         {% endif %}
 
