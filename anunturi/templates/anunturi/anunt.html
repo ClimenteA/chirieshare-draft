@@ -7,8 +7,15 @@
         
     <div class="image-carousel">
         <h6 class="flow-text bold">
-                {{anunt.tip_imobil}} {% if anunt.camere_libere == '1' %}{{ anunt.camere_libere }} camera. {% else %}{{ anunt.camere_libere }} camere.  {% endif %}{{ anunt.localitate }}, {{ anunt.zona }} <span class="euro green-text">/{{ anunt.pret }} </span>
-            <span class="blue-grey-text text-darken-2 badge default right">Postat la {{ anunt.published_date }}</span>
+                {{anunt.tip_imobil}} 
+                {% if anunt.camere_libere == '1' %}
+                    {{ anunt.camere_libere }} camera. 
+                {% else %}{{ anunt.camere_libere }} camere.  
+                {% endif %}
+                {{ anunt.localitate }}, {{ anunt.zona }} 
+                <span class="euro green-text">/{{ anunt.pret }} </span>
+            
+                <span class="blue-grey-text text-darken-2 badge default right">Postat la {{ anunt.published_date }}</span>
         </h6>
 
         <img src="/media/{{ anunt.img1 }}">
@@ -59,12 +66,12 @@
         <div class="row">
             {% if utilizator.telefon %}
                 <div style="margin-top: 1rem;" class="col s12">
-                    <button data-clipboard-text="{{ utilizator.telefon }}" style="width: 100%;" class="bold btn"><i class="tiny material-icons left">phone</i> {{ utilizator.telefon }}</button>
+                    <button style="width: 100%" data-clipboard-text="{{ utilizator.telefon }}" class="btn waves-effect waves-light bold"><i class="tiny material-icons left">phone</i> {{ utilizator.telefon }}</button>
                 </div>
             {% endif %}
                 
             <div style="margin-top: 1rem;" class="col s12">
-                <button data-clipboard-text="{{ utilizator.email }}" class="bold btn" style="width: 100%; text-decoration: unset;"><i class="tiny material-icons left">email</i> {{ utilizator.email }}</button>
+                <button style="width: 100%" data-clipboard-text="{{ utilizator.email }}" class="btn waves-effect waves-light bold"><i class="tiny material-icons left">email</i> {{ utilizator.email }}</button>
             </div>
         </div>
         
@@ -76,7 +83,7 @@
             clipboard.on('success', () => {
                 M.toast({html: 'Copiat!'});
             });
-            
+
             clipboard.on('error', (e) => {
                 M.toast({html: 'Copiere nereusita!'});
             });
@@ -90,7 +97,7 @@
             
                 <label>Scrie mesaj</label>
                 <input type="text" name="mesaj_client" id="mesaj_client"/>
-                <button class="btn bold" id="trimite-mesaj" style="margin-top:1rem;">Trimite mesaj<i class="material-icons right">send</i></button>
+                <button class="btn bold  waves-effect waves-light" id="trimite-mesaj" style="margin-top:1rem;">Trimite mesaj<i class="material-icons left">send</i></button>
                 
                 <script>
 
@@ -188,7 +195,7 @@
                                 let Coleg = {
                                     view: () => {
                                         return m("div", [
-                                            m("a", {href: "#!"}, [
+                                            m("a", {href: "#contact-info"}, [
                                                 m("div", {class: "chip blue-grey darken-2 white-text"}, [
                                                     m("span", [
                                                         m("img", {src: "/media/#!"}),

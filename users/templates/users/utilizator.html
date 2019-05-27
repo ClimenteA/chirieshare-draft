@@ -6,16 +6,75 @@
 
 <div class="flex-center">
 
+
 <div id="contact-info" class="blue-grey lighten-5 z-depth-2">
     <a href="{% url 'utilizator' %}"><img class="circle waves-effect waves-light" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/150/150/4caf50'"> 
-    <h5 class="grey-text text-darken-4 bold">{% if user.first_name %}{{ user.first_name }}{% else %} Nume nespecificat {% endif %}</h5>
-    <span class="grey-text text-darken-1">{% if user.sex %}{{ user.sex }}{% else %} M/F {% endif %}, {% if user.varsta %}{{ user.varsta }}{% else %} xx {% endif %} ani</span>
+    <h5 class="grey-text text-darken-4 bold">
+        {% if user.first_name %}{{ user.first_name }}
+        {% else %} Nume nespecificat 
+        {% endif %}
+    </h5>
+    <span class="grey-text text-darken-1">
+        {% if user.sex %}{{ user.sex }}
+        {% else %} M/F {% endif %}, 
+        {% if user.varsta %}{{ user.varsta }}
+        {% else %} xx {% endif %} ani
+    </span>
     </a>
     <div class="line blue-grey darken-2" style="margin-bottom: 1rem;"></div>  
+    
     <div id="contact">
         <button class="btn waves-effect waves-light" data-clipboard-text="Just because you can doesn't mean you should — clipboard.js"><i class="material-icons">local_phone</i><span class="btn-text">{% if user.telefon %}{{ user.telefon }}{% else %} Numar telefon lipsa {% endif %}</span></button>
         <button class="btn waves-effect waves-light bold"><i class="material-icons">email</i><span class="btn-text">{{ user.email }}</span></button>
+        {% if user.is_authenticated %}
+        
+        <label>Scrie mesaj</label>
+        <input type="text" name="mesaj_client" id="mesaj_client"/>
+        <button class="btn bold green waves-effect waves-light" id="trimite-mesaj" style="margin-top:1rem;">Trimite mesaj<i class="material-icons right">send</i></button>
+        
+        <script>
+
+            document.getElementById("trimite-mesaj").addEventListener("click", () => {
+                
+                let mesaj = document.getElementById("mesaj_client");
+                let id_anunt = document.location.pathname.split("/")["2"];
+                let data = {"mesaj": mesaj.value, "id_anunt": id_anunt}
+                
+                if (data.mesaj != ""){
+
+                    mesaj.value = "";
+
+                    console.log("Sent: ", data);
+                    
+                    m.request({
+                        method: "GET",
+                        url: "/anunturi/chirias/",
+                        data: data
+                    }).then((response) => {
+                        if (response.status === 200) {
+                            M.toast({html: 'Mesajul a fost trimis!'});
+                        }else {
+                            M.toast({html: 'Mesajul nu a fost trimis!', classes:"red lighten-1"});
+                        }
+                    });
+
+                }else {
+                    M.toast({html: 'Nu ai scris nimic!'});
+                }
+                
+            }, false);
+
+
+        </script>
+    
+    {% else %}
+        <a href="{% url 'autentificare' %}" class="btn green waves-effect waves-light bold">Intra in cont</a>
+        <label>Logheaza-te pentru a-i putea trimite un mesaj</label>
+    {% endif %}
+
+    
     </div>
+
 </div>
 
 <div id="anunturi-postate" >
