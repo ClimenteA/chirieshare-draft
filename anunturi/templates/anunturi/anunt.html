@@ -107,7 +107,9 @@
         <span class="card-title">Alte detalii</span>
         <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
         <div class="chip blue-grey darken-2 white-text">{{ anunt.get_tip_imobil_display }}</div>
-        <div class="chip blue-grey darken-2 white-text">{{ anunt.get_compartimentare_display }}</div>
+        {% ifnotequal anunt.get_compartimentare_display "Altceva"  %}
+            <div class="chip blue-grey darken-2 white-text">{{ anunt.get_compartimentare_display }}</div>
+        {% endifnotequal %}
         <div class="chip blue-grey darken-2 white-text">{{ anunt.camere_libere }} {% ifequal anunt.camere_libere "1"  %} camera libera {% else %} camere libere {% endifequal %}</div>
         <div class="chip blue-grey darken-2 white-text">{{ anunt.camere_ocupate }} {% ifequal anunt.camere_ocupate "1"  %} camera ocupata {% else %} camere ocupate {% endifequal %}</div>
         <div class="chip blue-grey darken-2 white-text" id="facilitati">{{ anunt.facilitati }}</div>
@@ -115,16 +117,13 @@
 </div>
 
 
-
-    
-
-
-
-
-
+<div class="card blue-grey lighten-5 w640">
+    <div class="card-content">
+        <span class="card-title">Colegi de share*</span>
+        <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
+    </div>
 </div>
-
-
+    
 
 
 
@@ -186,7 +185,7 @@
 
 
 div.card:nth-child(2) {
-    max-width: 400px;
+    max-width: 420px;
 }
 
 .w640 {
