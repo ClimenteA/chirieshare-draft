@@ -122,16 +122,18 @@
     </div>
 </div>
 
-
-<div class="card blue-grey lighten-5 w640">
+<!-- 
+<div id="colegideshare" class="card blue-grey lighten-5 w640">
     <div class="card-content">
         <span class="card-title">Colegi de share*</span>
         <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
-
-
-
+        
+        <div id="colegi">
+            {{ colegideshare }}
+        </div>
+        
     </div>
-</div>
+</div> -->
 
 
 
@@ -194,8 +196,6 @@ main {
     margin-top: 2rem;
 }
 
-
-
 .w640 {
     max-width: 640px;
     min-width: 300px;
@@ -204,7 +204,6 @@ main {
 
 @media (max-width: 639px){
     .w640, #carouselContainer {
-        all: unset;
         width: 100vw;
     }
 }
@@ -273,7 +272,23 @@ clipboard.on('error', (e) => {
     M.toast({html: 'Copiere nereusita!'});
 });
 
+
+// Create colegi de share chips
+
+document.addEventListener("DOMContentLoaded", () => {
+    let colegi = document.getElementById("colegideshare");
+    console.log(colegi)
+
+}, false);
+
+
+
+
+
 </script>
+
+
+
 
 
 

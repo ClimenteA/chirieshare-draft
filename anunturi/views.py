@@ -40,33 +40,39 @@ def adauga(request):
     return render(request, template_name='anunturi/adauga_anunt.html', context=context)
 
 
+def sheriasi(request):
+    return ""
 
 
-#TODO SECURITY CSRF HERE MAKE IT A POST AJAX REQUEST!
-# But since the user must be logged in.. I think a GET request will be good for now
-@csrf_exempt
-@login_required
-def chirias(request):
-
-    msg = Chirias()
-    msg.anunt_id = int(request.GET["id_anunt"])
-    msg.user_id = request.user.id
-    msg.mesaj = request.GET["mesaj"] 
-    msg.save()
-
-    return JsonResponse({'status': 200})
 
 
-@csrf_exempt
-@login_required
-def share(request):
 
-    sh = Share()
-    sh.anunt_id = int(request.GET["id_anunt"])
-    sh.user_id = request.user.id
-    sh.save()
 
-    return JsonResponse({'status': 200})
+# #TODO SECURITY CSRF HERE MAKE IT A POST AJAX REQUEST!
+# # But since the user must be logged in.. I think a GET request will be good for now
+# @csrf_exempt
+# @login_required
+# def chirias(request):
+
+#     msg = Chirias()
+#     msg.anunt_id = int(request.GET["id_anunt"])
+#     msg.user_id = request.user.id
+#     msg.mesaj = request.GET["mesaj"] 
+#     msg.save()
+
+#     return JsonResponse({'status': 200})
+
+
+# @csrf_exempt
+# @login_required
+# def share(request):
+
+#     sh = Share()
+#     sh.anunt_id = int(request.GET["id_anunt"])
+#     sh.user_id = request.user.id
+#     sh.save()
+
+#     return JsonResponse({'status': 200})
 
 
 
