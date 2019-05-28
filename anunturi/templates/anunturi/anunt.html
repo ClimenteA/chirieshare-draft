@@ -198,8 +198,16 @@ main {
 
 .w640 {
     max-width: 640px;
+    min-width: 300px;
 }
 
+
+@media (max-width: 639px){
+    .w640, #carouselContainer {
+        all: unset;
+        width: 100vw;
+    }
+}
 
 
 </style>
