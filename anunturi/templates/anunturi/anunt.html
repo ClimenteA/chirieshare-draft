@@ -39,12 +39,12 @@
 <div class="card blue-grey lighten-5 w640">
     <div class="card-content flex-center">
 
-        <img class="circle" src="/media/{{ utilizator.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+        <img class="circle" src="/media/{{ postat_de.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
         <span class="card-title">
-            {% if utilizator.first_name  %} 
-                {{ utilizator.first_name }}
+            {% if postat_de.first_name  %} 
+                {{ postat_de.first_name }}
             {% else %}
-                <span id="fname">{{ utilizator.email }}</span>
+                <span id="fname">{{ postat_de.email }}</span>
                 <script>
                     let fname = document.getElementById("fname");
                     let name = fname.innerText.split("@")[0];
@@ -53,14 +53,14 @@
             {% endif %}
         </span>
         <span>
-            {% if utilizator.sex %}
-                {{ utilizator.sex }} 
+            {% if postat_de.sex %}
+                {{ postat_de.sex }} 
             {% else %} 
                 ?
             {% endif %}, 
             
-            {% if utilizator.varsta %}
-                {{ utilizator.varsta }} ani 
+            {% if postat_de.varsta %}
+                {{ postat_de.varsta }} ani 
             {% else %} 
                 ? ani 
             {% endif %}
@@ -77,23 +77,23 @@
     </div>
     <div class="card-action">
         <div class="row">
-            {% if utilizator.telefon %}
+            {% if postat_de.telefon %}
                 <div class="col s12 m4">
                     <div style="margin-top: 1rem;">
-                        <button style="width: 100%" data-clipboard-text="{{ utilizator.telefon }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">phone</i></button>
+                        <button style="width: 100%" data-clipboard-text="{{ postat_de.telefon }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">phone</i></button>
                     </div>
                 </div>
             {% else %}
                 <div class="col s12 m4">
                     <div style="margin-top: 1rem;">
-                        <button disabled style="width: 100%" data-clipboard-text="{{ utilizator.telefon }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">phone</i></button>
+                        <button disabled style="width: 100%" data-clipboard-text="{{ postat_de.telefon }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">phone</i></button>
                     </div>
                 </div>
             {% endif %}
 
             <div class="col s12 m4">
                 <div style="margin-top: 1rem;">
-                    <button style="width: 100%" data-clipboard-text="{{ utilizator.email }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">email</i></button>
+                    <button style="width: 100%" data-clipboard-text="{{ postat_de.email }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">email</i></button>
                 </div>                
             </div>
 

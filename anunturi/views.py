@@ -40,8 +40,28 @@ def adauga(request):
     return render(request, template_name='anunturi/adauga_anunt.html', context=context)
 
 
-def sheriasi(request):
-    return ""
+def sheriasi(request, id_anunt):
+    postat_de = get_object_or_404(User, pk=anunt.user_id)
+     # Share.objects.filter() must filter user id by curent anunt not to get all users from share table
+
+    colegideshare_ids = list(set(itertools.chain(*Share.objects.values_list("user_id"))))
+
+    colegideshare = []
+    for cid in colegideshare_ids:
+        u = User.objects.get(pk=cid)
+        u_data = {
+            'first_name': u.first_name,
+            'email': u.email,
+            'imagine': u.imagine,
+            'ocupatie': u.ocupatie,
+            'varsta': u.varsta,
+            'sex': u.sex,
+            'lashare': Share.objects.filter(user_id=request.user.id).exists(),
+        }
+
+    colegideshare.append(u_data)
+
+    return JsonResponse({'colegideshare': colegideshare})
 
 
 
