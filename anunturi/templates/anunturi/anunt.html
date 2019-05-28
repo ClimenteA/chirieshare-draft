@@ -5,6 +5,16 @@
 
 
 <div id="carouselContainer">
+    <h6 class="flow-text bold">
+            {{anunt.tip_imobil}} 
+            {% if anunt.camere_libere == '1' %}
+                {{ anunt.camere_libere }} camera. 
+            {% else %}{{ anunt.camere_libere }} camere.  
+            {% endif %}
+            {{ anunt.localitate }}, {{ anunt.zona }} 
+            <span class="euro green-text">/{{ anunt.pret }} </span>
+    </h6>
+    
     <div class="carousel carousel-slider center">
         <div class="carousel-fixed-item center middle">
             <i id="prev" class="material-icons left">chevron_left</i>
@@ -15,7 +25,44 @@
         <img class="carousel-item" src="https://picsum.photos/700/753/?random">
         <img class="carousel-item" src="https://picsum.photos/900/753/?random">
     </div>
+    <span class="blue-grey-text text-darken-2 badge default right">Postat la {{ anunt.published_date|date:"d M Y" }}, {{ anunt.published_date|time:"H:i" }}</span>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <style>
