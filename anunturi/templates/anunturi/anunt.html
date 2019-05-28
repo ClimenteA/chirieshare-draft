@@ -4,109 +4,47 @@
 {% block content %}
 
 
-<div id="carouselContainer" class="container">
-    <div class="carousel carousel-slider center " data-indicators="true">
-        <div class="carousel-fixed-item center middle-indicator">
-            <div class="left">
-                <a href="#carouselContainer" onclick="movePrevCarousel()" class="middle-indicator-text waves-effect waves-light content-indicator"><i
-                        class="material-icons left  middle-indicator-text">chevron_left</i></a>
-            </div>
-
-            <div class="right">
-                <a href="#carouselContainer" onclick="moveNextCarousel()" class="middle-indicator-text waves-effect waves-light content-indicator"><i
-                        class="material-icons right middle-indicator-text">chevron_right</i></a>
-            </div>
+<div id="carouselContainer">
+    <div class="carousel carousel-slider center">
+        <div class="carousel-fixed-item center middle">
+            <i id="prev" class="material-icons left">chevron_left</i>
+            <i id="next" class="material-icons right">chevron_right</i>
         </div>
-        <div class="carousel-item red white-text" href="#one!">
-            <h2>First Panel</h2>
-            <p class="white-text">This is your first panel</p>
-        </div>
-        <div class="carousel-item amber white-text" href="#two!">
-            <h2>Second Panel</h2>
-            <p class="white-text">This is your second panel</p>
-        </div>
-        <div class="carousel-item green white-text" href="#three!">
-            <h2>Third Panel</h2>
-            <p class="white-text">This is your third panel</p>
-        </div>
-        <div class="carousel-item blue white-text" href="#four!">
-            <h2>Fourth Panel</h2>
-            <p class="white-text">This is your fourth panel</p>
-        </div>
+        <img class="carousel-item" src="https://picsum.photos/650/753/?random">
+        <img class="carousel-item" src="https://picsum.photos/700/753/?random">
+        <img class="carousel-item" src="https://picsum.photos/700/753/?random">
+        <img class="carousel-item" src="https://picsum.photos/900/753/?random">
     </div>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <style>
 
-@font-face {
-    font-family: 'Material Icons';
-    font-style: normal;
-    font-weight: 400;
-    src: local('Material Icons'), local('MaterialIcons-Regular'), url(https://fonts.gstatic.com/s/materialicons/v18/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2');
-}
-
-.material-icons {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -moz-font-feature-settings: 'liga';
-    -moz-osx-font-smoothing: grayscale;
-}
-
-.middle-indicator {
+.middle {
     position: absolute;
-    top: 50%;
+    top: 45%;
 }
 
-.middle-indicator-text {
+.material-icons {cursor: pointer;}
+.carousel-item {object-fit: contain;}
+
+#prev, #next {
     font-size: 4.2rem;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
 }
 
-a.middle-indicator-text {
-    color: white !important;
+#carouselContainer {
+    max-height: 400px;
+    min-height: 180px;
+    min-width: 300px;
+    max-width: 640px;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
 }
-
-.content-indicator {
-    width: 64px;
-    height: 64px;
-    background: none;
-    -moz-border-radius: 50px;
-    -webkit-border-radius: 50px;
-    border-radius: 50px;
-}
-
-.indicators {
-    visibility: hidden;
- }
-
 
 </style>
-
-
-
 
 <script src="{% static 'materialize.js' %}"></script>
 
@@ -116,26 +54,25 @@ a.middle-indicator-text {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    var carouselElems = document.querySelector('.carousel.carousel-slider');
-    var carouselInstance = M.Carousel.init(carouselElems, {
+    let carouselElems = document.querySelector('.carousel.carousel-slider');
+    let carouselInstance = M.Carousel.init(carouselElems, {
             fullWidth: true,
-            indicators: true
+            indicators: false
         });
 }, false);
 
 
-function moveNextCarousel() {
-    var elems = document.querySelector('.carousel.carousel-slider');
-    var moveRight = M.Carousel.getInstance(elems);
-    moveRight.next(1);
-}
+document.getElementById("next").addEventListener("click", () => {
+    let elems = document.querySelector('.carousel.carousel-slider');
+    let moveRight = M.Carousel.getInstance(elems);
+    moveRight.next();
+}, false);
 
-
-function movePrevCarousel() {
-    var elems = document.querySelector('.carousel.carousel-slider');
-    var moveLeft = M.Carousel.getInstance(elems);
-    moveLeft.prev(1);
-}
+document.getElementById("prev").addEventListener("click", () => {
+    let elems = document.querySelector('.carousel.carousel-slider');
+    let moveLeft = M.Carousel.getInstance(elems);
+    moveLeft.prev();
+}, false);
 
 
 // Split facilitati into individual chips
