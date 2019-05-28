@@ -45,7 +45,6 @@
                 {{ utilizator.first_name }}
             {% else %}
                 <span id="fname">{{ utilizator.email }}</span>
-
                 <script>
                     let fname = document.getElementById("fname");
                     let name = fname.innerText.split("@")[0];
@@ -66,24 +65,39 @@
                 ? ani 
             {% endif %}
         </span>
-        
+    
         <div class="line blue-grey darken-2" style="margin-top:0.5rem;width:100%;"></div>  
 
-        {% if utilizator.telefon %}
-            <div style="margin-top: 1rem;" class="col s12">
-                <button style="width: 100%" data-clipboard-text="{{ utilizator.telefon }}" class="btn waves-effect waves-light bold"><i class="tiny material-icons left">phone</i> {{ utilizator.telefon }}</button>
-            </div>
+        {% if anunt.descriere_anunt  %}
+            <h6>{{ anunt.descriere_anunt }}</h6>
+        {% else %}
+            <h6>Utilizatorul nu a pus nici o descriere.</h6>
         {% endif %}
 
-        <div style="margin-top: 1rem;" class="col s12">
-            <button style="width: 100%" data-clipboard-text="{{ utilizator.email }}" class="btn waves-effect waves-light bold"><i class="tiny material-icons left">email</i> {{ utilizator.email }}</button>
-        </div>
-
-    
     </div>
     <div class="card-action">
-        <a href="#">This is a link</a>
-        <a href="#">This is a link</a>
+        <div class="row">
+            {% if utilizator.telefon %}
+            <div class="col s12 m4">
+                <div style="margin-top: 1rem;">
+                    <button style="width: 100%" data-clipboard-text="{{ utilizator.telefon }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">phone</i></button>
+                </div>
+            </div>
+            {% endif %}
+            
+            <div class="col s12 m4">
+                <div style="margin-top: 1rem;">
+                    <button style="width: 100%" data-clipboard-text="{{ utilizator.email }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">email</i></button>
+                </div>                
+            </div>
+
+            <div class="col s12 m4">
+                <div style="margin-top: 1rem;">
+                    <button style="width: 100%" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="trimite un mesaj"><i class="tiny material-icons">message</i></button>
+                </div>                
+            </div>
+
+        </div>
     </div>
 </div>
 
@@ -168,12 +182,12 @@
 
 </style>
 
-<script src="{% static 'materialize.js' %}"></script>
+
+
+<script src="{% static 'clipboard.min.js' %}"></script>
 
 <script>
-// Specific scripts for current app
 "use strict";
-
 
 document.addEventListener('DOMContentLoaded', () => {
     let carouselElems = document.querySelector('.carousel.carousel-slider');
@@ -220,6 +234,21 @@ document.getElementById("facilitati").remove();
 
 }
 
+
+//COPY TO CLIPBOARD
+
+var clipboard = new ClipboardJS('.btn');
+
+clipboard.on('success', () => {
+    M.toast({html: 'Copiat!'});
+});
+
+clipboard.on('error', (e) => {
+    M.toast({html: 'Copiere nereusita!'});
+});
+
 </script>
+
+
 
 {% endblock %}
