@@ -4,34 +4,103 @@
 {% block content %}
 
 
+
 <div id="carouselContainer">
-    <h6 class="flow-text bold">
-            {{anunt.tip_imobil}} 
-            {% if anunt.camere_libere == '1' %}
-                {{ anunt.camere_libere }} camera. 
-            {% else %}{{ anunt.camere_libere }} camere.  
-            {% endif %}
-            {{ anunt.localitate }}, {{ anunt.zona }} 
-            <span class="euro green-text">/{{ anunt.pret }} </span>
+
+    <h6 class="blue-grey-text text-darken-2 flow-text bold">
+        {{anunt.tip_imobil}} 
+        {% if anunt.camere_libere == '1' %}
+            {{ anunt.camere_libere }} camera. 
+        {% else %}{{ anunt.camere_libere }} camere.  
+        {% endif %}
+        {{ anunt.localitate }}, {{ anunt.zona }} 
+        <span class="euro green-text">/{{ anunt.pret }} </span>
     </h6>
-    
+
     <div class="carousel carousel-slider center">
         <div class="carousel-fixed-item center middle">
-            <i id="prev" class="material-icons left">chevron_left</i>
-            <i id="next" class="material-icons right">chevron_right</i>
+            <i id="prev" class="material-icons left">chevron_left</i></a> 
+            <i id="next" class="material-icons right">chevron_right</i></a> 
         </div>
+
         <img class="carousel-item" src="https://picsum.photos/650/753/?random">
         <img class="carousel-item" src="https://picsum.photos/700/753/?random">
         <img class="carousel-item" src="https://picsum.photos/700/753/?random">
         <img class="carousel-item" src="https://picsum.photos/900/753/?random">
+
     </div>
+
     <span class="blue-grey-text text-darken-2 badge default right">Postat la {{ anunt.published_date|date:"d M Y" }}, {{ anunt.published_date|time:"H:i" }}</span>
+    
 </div>
 
 
 
+<div class="card">
+    <div class="card-content flex-center">
+
+        <img class="circle" src="/media/{{ utilizator.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+        <span class="card-title">
+            {% if utilizator.first_name  %} 
+                {{ utilizator.first_name }}
+            {% else %}
+                <span id="fname">{{ utilizator.email }}</span>
+
+                <script>
+                    let fname = document.getElementById("fname");
+                    let name = fname.innerText.split("@")[0];
+                    fname.innerText = name;
+                </script>
+            {% endif %}
+        </span>
+        <span>
+            {% if utilizator.sex %}
+                {{ utilizator.sex }} 
+            {% else %} 
+                ?
+            {% endif %}, 
+            
+            {% if utilizator.varsta %}
+                {{ utilizator.varsta }} ani 
+            {% else %} 
+                ? ani 
+            {% endif %}
+        </span>
+        
+        <div class="line blue-grey darken-2" style="margin-top:0.5rem;width:100%;"></div>  
+
+        {% if utilizator.telefon %}
+            <div style="margin-top: 1rem;" class="col s12">
+                <button style="width: 100%" data-clipboard-text="{{ utilizator.telefon }}" class="btn waves-effect waves-light bold"><i class="tiny material-icons left">phone</i> {{ utilizator.telefon }}</button>
+            </div>
+        {% endif %}
+
+        <div style="margin-top: 1rem;" class="col s12">
+            <button style="width: 100%" data-clipboard-text="{{ utilizator.email }}" class="btn waves-effect waves-light bold"><i class="tiny material-icons left">email</i> {{ utilizator.email }}</button>
+        </div>
+
+    
+    </div>
+    <div class="card-action">
+        <a href="#">This is a link</a>
+        <a href="#">This is a link</a>
+    </div>
+</div>
 
 
+
+      
+        
+        
+        
+
+
+
+
+
+
+
+</div>
 
 
 
@@ -67,6 +136,8 @@
 
 <style>
 
+
+
 .middle {
     position: absolute;
     top: 45%;
@@ -87,8 +158,12 @@
     min-height: 180px;
     min-width: 300px;
     max-width: 640px;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     margin-top: 2rem;
+}
+
+.card {
+    max-width: 400px;
 }
 
 </style>
