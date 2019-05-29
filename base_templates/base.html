@@ -26,7 +26,16 @@
             <li><a href="{% url 'adauga' %}" class="waves-effect waves-light"><i class="material-icons left">add_circle</i> ADAUGA ANUNT</a></li>
             <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><i class="material-icons left">message</i> MESAJE <span class="new badge green">4</span></a></li>
             <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><i class="material-icons left">favorite</i> FAVORITE</a></li>
-            <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/150/150/4caf50'"> {{ user.first_name }}</a></li>
+            <li><a href="{% url 'utilizator' %}" class="waves-effect waves-light"><img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/150/150/4caf50'"> 
+                {% if user.first_name  %} 
+                    {{ user.first_name }}
+                {% else %}
+                    <span id="fname1">{{ user.email }}</span>
+                    <script>
+                        document.getElementById("fname1").innerText = document.getElementById("fname1").innerText.split("@")[0];
+                    </script>
+                {% endif %}
+            </a></li>
             <li><a href="{% url 'delogare' %}" class="waves-effect waves-light"><i class="material-icons left">exit_to_app</i> LOGOUT</a></li>
         </ul>
     </div>
@@ -40,8 +49,29 @@
     
     <div class="user-view">
         <a href="{% url 'utilizator' %}"><img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'"></a>
-        <a href="{% url 'utilizator' %}"><h6 class="white-text bold">{% if user.first_name %}{{ user.first_name }}{% else %} Nume nesetat {% endif %}</h6></a>
-        <a href="{% url 'utilizator' %}"><span class="blue-grey-text text-lighten-4">{% if user.sex %}{{ user.sex }}{% else %} ? {% endif %}, {% if user.varsta %}{{ user.varsta }}{% else %} ? {% endif %} ani</span></a>
+        <a href="{% url 'utilizator' %}"><h6 class="white-text bold">
+            {% if user.first_name  %} 
+                {{ user.first_name }}
+            {% else %}
+                <span id="fname2">{{ user.email }}</span>
+                <script>
+                    document.getElementById("fname2").innerText = fname2.innerText.split("@")[0];
+                </script>
+            {% endif %}
+        </h6></a>
+        <a href="{% url 'utilizator' %}"><span class="blue-grey-text text-lighten-4">
+            {% if user.ocupatie %}
+                {{ user.ocupatie }},   
+            {% endif %}
+
+            {% if user.sex %}
+                {{ user.sex }},
+            {% endif %}
+
+            {% if user.varsta %}
+                {{ user.varsta }} ani 
+            {% endif %}
+        </span></a>
     </div>
 
     
