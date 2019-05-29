@@ -52,6 +52,7 @@ def sheriasi(request, id_anunt):
     for cid in colegideshare_ids:
         u = User.objects.get(pk=cid)
         u_data = {
+            'id': u.id,
             'first_name': u.first_name,
             'email': u.email,
             'imagine': u.imagine if u.imagine else "",

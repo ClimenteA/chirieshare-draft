@@ -140,35 +140,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <style>
 
 main {
@@ -316,15 +287,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 m.mount(root, Add);
                 M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+                let container_sheriasi = document.createElement('div');
+                container_sheriasi.setAttribute("id", "sheriasi") 
+                root.appendChild(container_sheriasi);
             }
 
 
             for(let i=0; i<colegideshare.length; i++) {
                 console.log(colegideshare[i]);
                 // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
+                
+                let root_sheriasi = document.getElementById("sheriasi");
+
                 let Coleg = {
                         view: () => {
-                            return m("a", {href: "#contact-info"}, [
+                            return m("a", {href: "cont/"}, [
                                     m("div", {class: "chip blue-grey darken-2 white-text"}, [
                                         m("img", {src: document.getElementById("src").innerText}),
                                         m("span", "Robert Bucur")
