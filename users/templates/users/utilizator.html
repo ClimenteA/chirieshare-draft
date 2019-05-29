@@ -255,9 +255,10 @@ document.getElementById("mesaj_client").focus();
 
 document.getElementById("mesaj_client").addEventListener("keyup", (event) => {
     
+    // On enter key pressed
     if (event.keyCode === 13) {
         event.preventDefault();
-        
+
         let mesaj = document.getElementById("mesaj_client");
         let id_anunt = document.location.pathname.split("/")["2"];
         let data = {"mesaj": mesaj.value, "id_anunt": id_anunt}
