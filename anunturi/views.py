@@ -65,6 +65,9 @@ def sheriasi(request, id_anunt):
 
     status = 200 if len(colegideshare) > 0 else 204
 
+    # import time
+    # time.sleep(5)
+
     return JsonResponse({'status': status, 'colegideshare': colegideshare, 'current_user_added': current_user_added})
 
 

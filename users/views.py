@@ -91,6 +91,7 @@ def utilizator(request, id_user=None):
         utilizator = None
 
     context = {"title": "Utilizator", "utilizator_share": utilizator}
+    
     return render(request, template_name="users/utilizator.html", context=context) 
     
 

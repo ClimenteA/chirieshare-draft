@@ -6,9 +6,143 @@
 
 
 
+{% if utilizator_share %}
+    
+    {% if user.is_authenticated %}
+
+        <p class="white-text bold">user page from anunt, curent user is auth</p>
+
+    {% else %}
+
+        <p class="white-text bold">user page from anunt, curent user is NOT auth</p>
+
+        <div class="card blue-grey lighten-5 w640">
+            <div class="card-content flex-center">
+
+                <img class="circle" src="/media/{{ utilizator_share.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                <span class="card-title">
+                    {% if utilizator_share.first_name  %} 
+                        {{ utilizator_share.first_name }}
+                    {% else %}
+                        <span id="fname">{{ utilizator_share.email }}</span>
+                        <script>
+                            let fname = document.getElementById("fname");
+                            let name = fname.innerText.split("@")[0];
+                            fname.innerText = name;
+                        </script>
+                    {% endif %}
+                </span>
+                <span>
+                    {% if utilizator_share.ocupatie %}
+                        {{ utilizator_share.ocupatie }},   
+                    {% endif %}
+
+                    {% if utilizator_share.sex %}
+                        {{ utilizator_share.sex }},
+                    {% endif %}
+
+                    {% if utilizator_share.varsta %}
+                        {{ utilizator_share.varsta }} ani 
+                    {% endif %}
+                </span>
+            
+                <div class="line blue-grey darken-2" style="margin-top:0.5rem;width:100%;"></div>  
+
+                {% if anunt.descriere_anunt  %}
+                    <h6>{{ anunt.descriere_anunt }}</h6>
+                {% else %}
+                    <h6>Utilizatorul nu a pus nici o descriere.</h6>
+                {% endif %}
+
+            </div>
+            <div class="card-action">
+                <div class="row">
+                    {% if utilizator_share.telefon %}
+                        <div class="col s12 m4">
+                            <div style="margin-top: 1rem;">
+                                <button style="width: 100%" data-clipboard-text="{{ utilizator_share.telefon }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">phone</i></button>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="col s12 m4">
+                            <div style="margin-top: 1rem;">
+                                <button disabled style="width: 100%" data-clipboard-text="{{ utilizator_share.telefon }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">phone</i></button>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="col s12 m4">
+                        <div style="margin-top: 1rem;">
+                            <button style="width: 100%" data-clipboard-text="{{ utilizator_share.email }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">email</i></button>
+                        </div>                
+                    </div>
+
+                    <div class="col s12 m4">
+                        <div style="margin-top: 1rem;">
+                            <button style="width: 100%" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="trimite un mesaj"><i class="tiny material-icons">message</i></button>
+                        </div>                
+                    </div>
+
+                </div>
+            </div>
+        </div>
 
 
 
+        
+    {% endif %}
+
+
+{% else %}
+
+
+    {% if user.is_authenticated %}
+
+        <p class="white-text bold">user page, curent user is auth</p>
+
+    {% else %}
+
+        <p class="white-text bold">user page, curent user is NOT auth</p>
+
+    {% endif %}
+
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+<style>
+
+.w640 {
+    max-width: 640px;
+    min-width: 300px;
+    margin-top:2rem;
+}
+
+@media (max-width: 639px){
+    .w640, #carouselContainer {
+        width: 100vw;
+    }
+}
+
+
+main {
+    display: block;
+    margin: 0 auto;
+}
+
+</style>
+
+
+
+
+<script src="{% static 'clipboard.min.js' %}"></script>
 
 
 <script>
@@ -36,5 +170,33 @@ el_ulnav.children[5].style.display = "none";
 el_ulnav.children[6].style.display = "none";
 
 
+//COPY TO CLIPBOARD
+
+var clipboard = new ClipboardJS('.btn');
+
+clipboard.on('success', () => {
+    M.toast({html: 'Copiat!'});
+});
+
+clipboard.on('error', (e) => {
+    M.toast({html: 'Copiere nereusita!'});
+});
+
+
+
+
+
+
+
 </script>
+
+
+
+
+
+
+
+
+
+
 {% endblock %}

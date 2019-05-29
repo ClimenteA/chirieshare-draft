@@ -53,16 +53,16 @@
             {% endif %}
         </span>
         <span>
-            {% if postat_de.sex %}
-                {{ postat_de.sex }} 
-            {% else %} 
-                ?
-            {% endif %}, 
-            
-            {% if postat_de.varsta %}
-                {{ postat_de.varsta }} ani 
-            {% else %} 
-                ? ani 
+            {% if utilizator_share.ocupatie %}
+                {{ utilizator_share.ocupatie }}, 
+            {% endif %}
+
+            {% if utilizator_share.sex %}
+                {{ utilizator_share.sex }},
+            {% endif %}
+
+            {% if utilizator_share.varsta %}
+                {{ utilizator_share.varsta }} ani 
             {% endif %}
         </span>
     
@@ -269,25 +269,24 @@ document.addEventListener("DOMContentLoaded", () => {
             
             if (!(response.current_user_added)) {
                 console.log("this user is not in sheriasi");
-                // <button id="colegi" class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
+                // <button class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
                 const Add = {
                     view: () => {
                         return m('button', {onclick: () => {
                             console.log('adauga ma la share!');
-                        }, 
-                                            "class":"btn-floating btn waves-effect waves-light green tooltipped",
-                                            "data-position": "top",
-                                            "data-tooltip":"click pe button daca ai vrea sa imparti chiria pentru acest imobil"
-                                            }, [
-                                                m("i", {"class": "material-icons"}, "add")
-                                            ])
+                        }, "class":"btn-floating btn waves-effect waves-light green tooltipped",
+                            "data-position": "top",
+                            "data-tooltip":"click pe button daca ai vrea sa imparti chiria pentru acest imobil"
+                            }, [
+                                m("i", {"class": "material-icons"}, "add")
+                            ])
                     }
                 };
 
                 m.mount(root, Add);
                 M.Tooltip.init(document.querySelectorAll('.tooltipped'));
                 let container_sheriasi = document.createElement('div');
-                container_sheriasi.setAttribute("id", "sheriasi") 
+                container_sheriasi.setAttribute("id", "sheriasi");
                 root.appendChild(container_sheriasi);
                 
                 root.getElementsByTagName("button")[0].classList.add("right");
@@ -295,10 +294,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
+
+            let urlroot = document.baseURI.replace(document.location.pathname, "/cont/utilizator/")  
+
             const Sherias = {
                     view: () => {
                         return m("div", 
-                            colegideshare.map((u) => { return m("a", {href: `cont/utilizator/${u.id}`}, [
+                            colegideshare.map((u) => { return m("a", {href: String(urlroot + u.id)}, [
                                     m("div", {class: "chip blue-grey darken-2 white-text"}, [
                                         m("img", {src: (u.imagine != "") ? u.imagine : "http://placeskull.com/100/100/4caf50"}),
                                         m("span", (u.first_name != "") ? u.first_name : u.email.split('@')[0])
