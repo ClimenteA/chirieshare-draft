@@ -132,8 +132,6 @@
             <div class="indeterminate"></div>
         </div>
 
-        <!-- <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> -->
-        
     </div>
 </div>
 
@@ -267,11 +265,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (response.status === 200) {
             colegideshare = response.colegideshare;
+            // console.log("colegideshare", colegideshare);
             
             if (!(response.current_user_added)) {
                 console.log("this user is not in sheriasi");
                 // <button id="colegi" class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
-                let Add = {
+                const Add = {
                     view: () => {
                         return m('button', {onclick: () => {
                             console.log('adauga ma la share!');
@@ -290,27 +289,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 let container_sheriasi = document.createElement('div');
                 container_sheriasi.setAttribute("id", "sheriasi") 
                 root.appendChild(container_sheriasi);
-            }
-
-
-            for(let i=0; i<colegideshare.length; i++) {
-                console.log(colegideshare[i]);
-                // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
                 
-                let root_sheriasi = document.getElementById("sheriasi");
-
-                let Coleg = {
-                        view: () => {
-                            return m("a", {href: "cont/"}, [
-                                    m("div", {class: "chip blue-grey darken-2 white-text"}, [
-                                        m("img", {src: document.getElementById("src").innerText}),
-                                        m("span", "Robert Bucur")
-                                        ])
-                                    ])
-                        }
-                    };
-
+                root.getElementsByTagName("button")[0].classList.add("right");
+                
             }
+
+            // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
+            const Sherias = {
+                    view: () => {
+                        return m("div", 
+                            colegideshare.map((u) => { return m("a", {href: `cont/utilizator/${u.id}`}, [
+                                    m("div", {class: "chip blue-grey darken-2 white-text"}, [
+                                        m("img", {src: (u.imagine != "") ? u.imagine : "http://placeskull.com/100/100/4caf50"}),
+                                        m("span", (u.first_name != "") ? u.first_name : u.email.split('@')[0])
+                                    ])
+                                ])
+
+                            })
+                        )
+                    }
+                };
+
+            m.mount(document.getElementById("sheriasi"), Sherias);
 
         }
         else if (response.status === 204) {
