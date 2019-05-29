@@ -9,12 +9,7 @@
 {% if utilizator_share %}
     
     {% if user.is_authenticated %}
-
         <p class="white-text bold">user page from anunt, curent user is auth</p>
-
-    {% else %}
-
-        <p class="white-text bold">user page from anunt, curent user is NOT auth</p>
 
         <div class="card blue-grey lighten-5 w640">
             <div class="card-content flex-center">
@@ -46,13 +41,13 @@
                     {% endif %}
                 </span>
             
-                <div class="line blue-grey darken-2" style="margin-top:0.5rem;width:100%;"></div>  
+                <div class="line blue-grey darken-2" style="margin-top:0.5rem;width:100%;margin-bottom:2rem;"></div>  
 
-                {% if anunt.descriere_anunt  %}
-                    <h6>{{ anunt.descriere_anunt }}</h6>
-                {% else %}
-                    <h6>Utilizatorul nu a pus nici o descriere.</h6>
-                {% endif %}
+                <div id="contact">  
+                        <label>Scrie mesaj</label>
+                        <input type="text" name="mesaj_client" id="mesaj_client"/>
+                        <button class="btn bold  waves-effect waves-light" id="trimite-mesaj" style="margin-top:1rem;">Trimite mesaj<i class="material-icons right">send</i></button>
+                </div>
 
             </div>
             <div class="card-action">
@@ -88,8 +83,14 @@
         </div>
 
 
-
-        
+    {% else %}
+        <!-- <p class="white-text bold">user page from anunt, curent user is NOT auth</p> -->
+        <div class="card blue-grey lighten-5 w640" style="margin-top:5rem;">
+            <div class="card-content flex-center">
+                <a href="{% url 'autentificare' %}" class="btn-large green waves-effect waves-light bold">Intra in cont</a>
+                <label style="margin-top:1rem;">Logheaza-te pentru a-i putea trimite un mesaj</label>
+            </div>
+        </div>
     {% endif %}
 
 
@@ -98,14 +99,85 @@
 
     {% if user.is_authenticated %}
 
-        <p class="white-text bold">user page, curent user is auth</p>
+        <!-- <p class="white-text bold">user page, curent user is auth</p> -->
+
+        <div class="card blue-grey lighten-5 w640">
+            <div class="card-content flex-center">
+
+                <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                <span class="card-title">
+                    {% if user.first_name  %} 
+                        {{ user.first_name }}
+                    {% else %}
+                        <span id="fname">{{ user.email }}</span>
+                        <script>
+                            let fname = document.getElementById("fname");
+                            let name = fname.innerText.split("@")[0];
+                            fname.innerText = name;
+                        </script>
+                    {% endif %}
+                </span>
+                <span>
+                    {% if user.ocupatie %}
+                        {{ user.ocupatie }},   
+                    {% endif %}
+
+                    {% if user.sex %}
+                        {{ user.sex }},
+                    {% endif %}
+
+                    {% if user.varsta %}
+                        {{ user.varsta }} ani 
+                    {% endif %}
+                </span>
+            
+            </div>
+            <div class="card-action">
+                <div class="row">
+                    {% if user.telefon %}
+                        <div class="col s12 m4">
+                            <div style="margin-top: 1rem;">
+                                <button style="width: 100%" data-clipboard-text="{{ user.telefon }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="click pentru copy"><i class="tiny material-icons">phone</i></button>
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="col s12 m4">
+                            <div style="margin-top: 1rem;">
+                                <button disabled style="width: 100%" data-clipboard-text="{{ user.telefon }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="{{ user.telefon }}"><i class="tiny material-icons">phone</i></button>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="col s12 m4">
+                        <div style="margin-top: 1rem;">
+                            <button style="width: 100%" data-clipboard-text="{{ user.email }}" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="{{ user.email }}"><i class="tiny material-icons">email</i></button>
+                        </div>                
+                    </div>
+
+                    <div class="col s12 m4">
+                        <div style="margin-top: 1rem;">
+                            <button style="width: 100%" class="btn waves-effect waves-light bold tooltipped" data-position="top" data-tooltip="actualizeaza cont"><i class="tiny material-icons">edit</i></button>
+                        </div>                
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
 
     {% else %}
 
-        <p class="white-text bold">user page, curent user is NOT auth</p>
+        <div class="card blue-grey lighten-5 w640" style="margin-top:5rem;">
+            <div class="card-content flex-center">
+                <a href="{% url 'autentificare' %}" class="btn-large green waves-effect waves-light bold">Intra in cont</a>
+                <label style="margin-top:1rem;">Logheaza-te pentru a-i putea trimite un mesaj</label>
+            </div>
+        </div>
 
     {% endif %}
-
 
 {% endif %}
 
@@ -183,6 +255,49 @@ clipboard.on('success', () => {
 clipboard.on('error', () => {
     M.toast({html: 'Copiere nereusita!'});
 });
+
+
+
+// Send message to poster
+
+document.getElementById("trimite-mesaj").addEventListener("click", () => {
+    
+    let mesaj = document.getElementById("mesaj_client");
+    let id_anunt = document.location.pathname.split("/")["2"];
+    let data = {"mesaj": mesaj.value, "id_anunt": id_anunt}
+    
+    if (data.mesaj != ""){
+
+        mesaj.value = "";
+
+        console.log("Sent: ", data);
+        
+        m.request({
+            method: "GET",
+            url: "/anunturi/chirias/",
+            data: data
+        }).then((response) => {
+            if (response.status === 200) {
+                M.toast({html: 'Mesajul a fost trimis!'});
+            }else {
+                M.toast({html: 'Mesajul nu a fost trimis!', classes:"red lighten-1"});
+            }
+        });
+
+    }else {
+        M.toast({html: 'Nu ai scris nimic!'});
+    }
+    
+}, false);
+
+
+
+
+
+
+
+
+
 
 
 
