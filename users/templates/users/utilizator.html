@@ -149,6 +149,8 @@ main {
 
 "use strict";
 
+document.addEventListener("DOMContentLoaded", () => {
+
 let el_body = document.getElementsByTagName("body")[0];
 el_body.className += " city grey lighten-4";
 
@@ -178,9 +180,16 @@ clipboard.on('success', () => {
     M.toast({html: 'Copiat!'});
 });
 
-clipboard.on('error', (e) => {
+clipboard.on('error', () => {
     M.toast({html: 'Copiere nereusita!'});
 });
+
+
+
+
+
+
+}, false);
 
 
 
