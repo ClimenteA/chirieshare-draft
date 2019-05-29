@@ -10,6 +10,8 @@ from django.shortcuts import redirect
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
+from users.models import User
+
 from .models import Anunturi
 from .forms import AnunturiForm
 
@@ -40,11 +42,11 @@ def adauga(request):
     return render(request, template_name='anunturi/adauga_anunt.html', context=context)
 
 
-def sheriasi(request, id_anunt):
-    postat_de = get_object_or_404(User, pk=anunt.user_id)
-     # Share.objects.filter() must filter user id by curent anunt not to get all users from share table
 
-    colegideshare_ids = list(set(itertools.chain(*Share.objects.values_list("user_id"))))
+def sheriasi(request, id_anunt):
+
+    colegideshare_ids = Share.objects.filter(anunt_id=id_anunt).values_list('user_id', flat=True)
+    current_user_added = True if request.user.id in colegideshare_ids else False
 
     colegideshare = []
     for cid in colegideshare_ids:
@@ -52,16 +54,17 @@ def sheriasi(request, id_anunt):
         u_data = {
             'first_name': u.first_name,
             'email': u.email,
-            'imagine': u.imagine,
+            'imagine': u.imagine if u.imagine else "",
             'ocupatie': u.ocupatie,
             'varsta': u.varsta,
-            'sex': u.sex,
-            'lashare': Share.objects.filter(user_id=request.user.id).exists(),
+            'sex': u.sex
         }
 
-    colegideshare.append(u_data)
+        colegideshare.append(u_data)
 
-    return JsonResponse({'colegideshare': colegideshare})
+    status = 200 if len(colegideshare) > 0 else 204
+
+    return JsonResponse({'status': status, 'colegideshare': colegideshare, 'current_user_added': current_user_added})
 
 
 
