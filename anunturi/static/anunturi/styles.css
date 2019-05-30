@@ -1,0 +1,46 @@
+main {
+    display: block;
+    margin: 0 auto;
+}
+
+.middle {
+    position: absolute;
+    top: 45%;
+}
+
+.material-icons {cursor: pointer;}
+.carousel-item {object-fit: contain;}
+
+#prev, #next {
+    font-size: 4.2rem;
+    user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+#carouselContainer {
+    max-height: 400px;
+    min-height: 180px;
+    min-width: 300px;
+    max-width: 640px;
+    margin-bottom: 5rem;
+    margin-top: 2rem;
+}
+
+.w640 {
+    max-width: 640px;
+    min-width: 300px;
+    margin-top:2rem;
+    min-height: 200px;
+}
+
+footer {
+    margin-top: 4rem; 
+}
+
+@media (max-width: 639px){
+    .w640, #carouselContainer {
+        width: 100vw;
+    }
+}
+
