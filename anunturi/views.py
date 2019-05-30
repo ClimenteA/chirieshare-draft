@@ -12,10 +12,8 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
 from users.models import User
 
-from .models import Anunturi
+from .models import Anunturi, Mesaje
 from .forms import AnunturiForm
-
-from .models import Proprietar, Chirias, Share
 
 
 @login_required

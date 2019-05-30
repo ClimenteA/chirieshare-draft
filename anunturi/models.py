@@ -3,6 +3,7 @@ from multiselectfield import MultiSelectField
 
 from django.conf import settings
 
+from users.models import User
 
 class Anunturi(models.Model):
     
@@ -64,35 +65,25 @@ class Anunturi(models.Model):
 
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
 
-    published_date = models.DateTimeField(auto_now_add=True)
+    data_publicarii = models.DateTimeField(auto_now_add=True)
 
 
-
-class Proprietar(models.Model):
+class Sheriasi(models.Model):
     """
-        Message from the proprietar to chirias for a specific listing
+        Table for storing user groups related to one listing
     """
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
-    mesaj = models.CharField(max_length=250, null=True, blank=True)
+    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+
+class Mesaje(models.Model):
+    """
+        Table for storing messages between users related to one listing
+    """
+    expeditor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='message_sender')
+    destinatar = models.ForeignKey(User, on_delete=models.CASCADE, related_name='message_receiver')
+    mesaj = models.CharField(max_length=250)
+    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE)
     data_trimiterii = models.DateTimeField(auto_now_add=True)
-    
-
-class Chirias(models.Model):
-    """
-        Message from the chirias to proprietar for a specific listing
-    """
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
-    mesaj = models.CharField(max_length=250, null=True, blank=True)
-    data_trimiterii = models.DateTimeField(auto_now_add=True)
-    
 
 
-class Share(models.Model):
-    """
-        Here will be stored people who want to share rent for a listing
-    """
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
-    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)
-    data_trimiterii = models.DateTimeField(auto_now_add=True)
