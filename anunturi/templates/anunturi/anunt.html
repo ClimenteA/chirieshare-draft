@@ -143,7 +143,7 @@
     <div class="card-reveal blue-grey lighten-5">
         <span class="card-title grey-text text-darken-4">Colegi de share?<i class="material-icons right">close</i></span>
         <p>Aici sunt afisati cei care ar vrea sa imparta chiria cu alti colegi. 
-            Click pe buttonul "+" un mesaj va fi trimis automat catre ceilalti(daca sunt).
+            Click pe butonul "+" un mesaj va fi trimis automat catre ceilalti(daca sunt).
         </p>
     </div>
 
@@ -267,6 +267,44 @@ clipboard.on('error', (e) => {
 
 // Create colegi de share chips
 
+
+function createAddMeBtn(response){
+    
+    let root = document.getElementById("colegideshare");
+
+    if (!(response.current_user_added)) {
+    console.log("this user is not in sheriasi");
+    // <button class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
+    const Add = {
+        view: () => {
+            return m('button', {onclick: () => {
+                console.log('adauga ma la share!');
+            }, "class":"btn-floating btn waves-effect waves-light green tooltipped",
+                "data-position": "top",
+                "data-tooltip":"vreau sa impart chiria pentru acest imobil cu alti colegi"
+                }, [
+                    m("i", {"class": "material-icons"}, "add")
+                ])
+        }
+    };
+
+    m.mount(root, Add);
+    M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+    let container_sheriasi = document.createElement('div');
+    container_sheriasi.setAttribute("id", "sheriasi");
+    root.appendChild(container_sheriasi);
+    
+    let addbtn = root.getElementsByTagName("button")[0];
+    addbtn.style.position = 'absolute';
+    addbtn.style.bottom = '2rem';
+    addbtn.style.right = '2rem';
+
+}
+
+}
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
     let root = document.getElementById("colegideshare");
     let id_anunt = document.location.pathname.split("/")["2"];
@@ -282,35 +320,8 @@ document.addEventListener("DOMContentLoaded", () => {
             colegideshare = response.colegideshare;
             // console.log("colegideshare", colegideshare);
             
-            if (!(response.current_user_added)) {
-                console.log("this user is not in sheriasi");
-                // <button class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
-                const Add = {
-                    view: () => {
-                        return m('button', {onclick: () => {
-                            console.log('adauga ma la share!');
-                        }, "class":"btn-floating btn waves-effect waves-light green tooltipped",
-                            "data-position": "top",
-                            "data-tooltip":"click pe button daca ai vrea sa imparti chiria pentru acest imobil"
-                            }, [
-                                m("i", {"class": "material-icons"}, "add")
-                            ])
-                    }
-                };
-
-                m.mount(root, Add);
-                M.Tooltip.init(document.querySelectorAll('.tooltipped'));
-                let container_sheriasi = document.createElement('div');
-                container_sheriasi.setAttribute("id", "sheriasi");
-                root.appendChild(container_sheriasi);
-                
-                let addbtn = root.getElementsByTagName("button")[0];
-                addbtn.style.position = 'absolute';
-                addbtn.style.bottom = '2rem';
-                addbtn.style.right = '2rem';
-
-            }
-
+            createAddMeBtn(response);
+            
             // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
 
             let urlroot = document.baseURI.replace(document.location.pathname, "/cont/utilizator/");
@@ -335,7 +346,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         }
         else if (response.status === 204) {
-            console.log("no sheriasi just add the add btn");
+            createAddMeBtn(response);
+            const Nouser = {
+                view: () => {
+                    return m("h6", "Fi primul la share! Apasa buttonul din dreapta jos!")
+                }
+            };
+
+            m.mount(document.getElementById("sheriasi"), Nouser);
+
         }
     });
 
