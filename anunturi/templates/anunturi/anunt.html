@@ -110,7 +110,7 @@
 
 <div class="card blue-grey lighten-5 w640">
     <div id="other-details" class="card-content">
-        <span class="card-title">Alte detalii</span>
+        <span class="card-title activator">Alte detalii<i class="material-icons right">more_vert</i></span>
         <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
         <div class="chip blue-grey darken-2 white-text">{{ anunt.get_tip_imobil_display }}</div>
         {% ifnotequal anunt.get_compartimentare_display "Altceva"  %}
@@ -120,12 +120,18 @@
         <div class="chip blue-grey darken-2 white-text">{{ anunt.camere_ocupate }} {% ifequal anunt.camere_ocupate "1"  %} camera ocupata {% else %} camere ocupate {% endifequal %}</div>
         <div class="chip blue-grey darken-2 white-text" id="facilitati">{{ anunt.facilitati }}</div>
     </div>
+
+    <div class="card-reveal blue-grey lighten-5">
+        <span class="card-title grey-text text-darken-4">Alte detalii<i class="material-icons right">close</i></span>
+        <p>Aici gasesti informatii cheie scoase din descrierea anuntului</p>
+    </div>
+
 </div>
 
 
 <div class="card blue-grey lighten-5 w640">
     <div class="card-content">
-        <span class="card-title">Colegi de share*</span>
+        <span class="card-title activator">Colegi de share<i class="material-icons right">more_vert</i></span>
         <div class="line blue-grey darken-2" style="margin-bottom:1rem;"></div>
               
         <div id="colegideshare" class="progress">
@@ -133,6 +139,14 @@
         </div>
 
     </div>
+
+    <div class="card-reveal blue-grey lighten-5">
+        <span class="card-title grey-text text-darken-4">Colegi de share<i class="material-icons right">close</i></span>
+        <p>Aici sunt afisati cei care ar vrea sa imparta chiria pentru acest imobil cu alti colegi. Click pe buttonul "+"
+            daca ai vrea si tu sa imparti chiria cu altii pentru acest imobil. Un mesaj va fi trimis automat catre cei care au optat(daca sunt).
+        </p>
+    </div>
+
 </div>
 
 
@@ -295,12 +309,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
 
-            let urlroot = document.baseURI.replace(document.location.pathname, "/cont/utilizator/")  
+            let urlroot = document.baseURI.replace(document.location.pathname, "/cont/utilizator/");
+            let id_anunt = document.location.pathname.split("/")["2"];
 
             const Sherias = {
                     view: () => {
                         return m("div", 
-                            colegideshare.map((u) => { return m("a", {href: String(urlroot + u.id)}, [
+                            colegideshare.map((u) => { return m("a", {href: String(urlroot + u.id + "/" + id_anunt)}, [
                                     m("div", {class: "chip blue-grey darken-2 white-text"}, [
                                         m("img", {src: (u.imagine != "") ? u.imagine : "http://placeskull.com/100/100/4caf50"}),
                                         m("span", (u.first_name != "") ? u.first_name : u.email.split('@')[0])

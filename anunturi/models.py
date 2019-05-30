@@ -70,7 +70,7 @@ class Anunturi(models.Model):
 
 class Proprietar(models.Model):
     """
-        Message from the chirias to proprietar for a specific listing
+        Message from the proprietar to chirias for a specific listing
     """
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True)
     anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE, null=True, blank=True)

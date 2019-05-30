@@ -83,14 +83,14 @@ def resetare(request):
 
 
 
-def utilizator(request, id_user=None):
+def utilizator(request, id_user=None, id_anunt=None):
 
     if id_user:
         utilizator = get_object_or_404(User, pk=id_user)
     else:
         utilizator = None
 
-    context = {"title": "Utilizator", "utilizator_share": utilizator}
+    context = {"title": "Utilizator", "utilizator_share": utilizator, "id_anunt": id_anunt}
     
     return render(request, template_name="users/utilizator.html", context=context) 
     
