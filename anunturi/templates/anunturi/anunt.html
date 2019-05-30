@@ -123,7 +123,7 @@
 
     <div class="card-reveal blue-grey lighten-5">
         <span class="card-title grey-text text-darken-4">Alte detalii?<i class="material-icons right">close</i></span>
-        <p>Aici gasesti informatii cheie scoase din descrierea anuntului</p>
+        <p>Aici gasesti informatii cheie scoase din descrierea anuntului.</p>
     </div>
 
 </div>
@@ -187,6 +187,7 @@ main {
     max-width: 640px;
     min-width: 300px;
     margin-top:2rem;
+    min-height: 200px;
 }
 
 footer {
@@ -303,8 +304,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 container_sheriasi.setAttribute("id", "sheriasi");
                 root.appendChild(container_sheriasi);
                 
-                root.getElementsByTagName("button")[0].classList.add("right");
-                
+                let addbtn = root.getElementsByTagName("button")[0];
+                addbtn.style.position = 'absolute';
+                addbtn.style.bottom = '2rem';
+                addbtn.style.right = '2rem';
+
             }
 
             // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
