@@ -18,7 +18,9 @@ from .forms import AnunturiForm
 
 @login_required
 def adauga(request):
-
+    """
+        Reda pagina anunt sau salveaza datele trimise
+    """
     if request.method == "POST":
         form = AnunturiForm(request.POST, request.FILES)
         if form.is_valid():
@@ -42,6 +44,9 @@ def adauga(request):
 
 
 def sheriasi(request, id_anunt):
+    """
+        Populate 'Colegi de share' section with people who joined the current listing
+    """
 
     colegideshare_ids = Sheriasi.objects.filter(anunt_id=id_anunt).values_list('user_id', flat=True)
     current_user_added = True if request.user.id in colegideshare_ids else False
@@ -63,10 +68,28 @@ def sheriasi(request, id_anunt):
 
     status = 200 if len(colegideshare) > 0 else 204
 
-    # import time
-    # time.sleep(5)
+    
+    data = {'status': status, 'colegideshare': colegideshare, 'current_user_added': current_user_added}
+    
+    return JsonResponse(data)
 
-    return JsonResponse({'status': status, 'colegideshare': colegideshare, 'current_user_added': current_user_added})
+
+
+@login_required
+def join_sheriasi(request, id_anunt):
+    """
+        Add current user to Sheriasi table
+        Send message to all (if any) users joined to this listing 
+    """
+    
+    Sheriasi.objects.create(anunt_id= id_anunt, user_id = request.user.id).save()
+
+
+
+    return redirect('sheriasi', id_anunt=id_anunt)
+
+    
+
 
 
 

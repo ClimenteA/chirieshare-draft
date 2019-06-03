@@ -3,7 +3,7 @@
 //Carousel functions
 document.addEventListener('DOMContentLoaded', () => {
     let carouselElems = document.querySelector('.carousel.carousel-slider');
-    let carouselInstance = M.Carousel.init(carouselElems, {
+    M.Carousel.init(carouselElems, {
             fullWidth: true,
             indicators: false
         });
@@ -55,23 +55,37 @@ clipboard.on('error', (e) => {
 });
 
 
-// Create colegi de share chips
+// Adauga-ma la share
+
+function joinLaShare() {
+    
+    let id_anunt = document.location.pathname.split("/")["2"];
+    
+    m.request({
+        method: "GET",
+        url: `/anunturi/join-sheriasi/${id_anunt}`,
+    }).then((response) => {
+        console.log(response);
+        Sheriasi();
+        document.getElementById("colegideshare").getElementsByTagName("button")[0].remove();
+    });
+};
+
 
 
 function createAddMeBtn(response){
+    // Creaaza colegi de share chips
     
     let root = document.getElementById("colegideshare");
 
     if (!(response.current_user_added)) {
-    console.log("this user is not in sheriasi");
     // <button class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
     const Add = {
         view: () => {
             return m('button', {onclick: () => {
-                console.log('adauga ma la share!');
-            }, "class":"btn-floating btn waves-effect waves-light green tooltipped",
-                "data-position": "top",
-                "data-tooltip":"vreau sa impart chiria pentru acest imobil cu alti colegi"
+                joinLaShare();
+            }, "class":"btn-floating btn waves-effect waves-light green",
+                "title":"vreau sa impart chiria pentru acest imobil cu alti colegi"
                 }, [
                     m("i", {"class": "material-icons"}, "add")
                 ])
@@ -79,11 +93,9 @@ function createAddMeBtn(response){
     };
 
     m.mount(root, Add);
-    M.Tooltip.init(document.querySelectorAll('.tooltipped'));
-    let container_sheriasi = document.createElement('div');
-    container_sheriasi.setAttribute("id", "sheriasi");
-    root.appendChild(container_sheriasi);
     
+    M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+
     let addbtn = root.getElementsByTagName("button")[0];
     addbtn.style.position = 'absolute';
     addbtn.style.bottom = '2rem';
@@ -91,12 +103,18 @@ function createAddMeBtn(response){
 
 }
 
-}
+};
 
 
+function makeSheriasidiv(){
+    let container_sheriasi = document.createElement('div');
+    container_sheriasi.setAttribute("id", "sheriasi");
+    document.getElementById("colegideshare").appendChild(container_sheriasi);
+};
 
-document.addEventListener("DOMContentLoaded", () => {
-    let root = document.getElementById("colegideshare");
+
+function Sheriasi(){
+
     let id_anunt = document.location.pathname.split("/")["2"];
 
     m.request({
@@ -104,50 +122,66 @@ document.addEventListener("DOMContentLoaded", () => {
         url: `/anunturi/sheriasi/${id_anunt}`,
     }).then((response) => {
         
-        root.classList = [];
+        console.log(response);
 
-        if (response.status === 200) {
-            colegideshare = response.colegideshare;
-            // console.log("colegideshare", colegideshare);
-            
+        document.getElementById("colegideshare").classList = [];
+
+        // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
+        let urlroot = document.baseURI.replace(document.location.pathname, "/cont/utilizator/");
+        let id_anunt = document.location.pathname.split("/")["2"];
+        let colegideshare = response.colegideshare;
+
+        const Sherias = {
+            view: () => {
+                return m("div", 
+                    colegideshare.map((u) => { return m("a", {href: String(urlroot + u.id + "/" + id_anunt)}, [
+                            m("div", {class: "chip blue-grey darken-2 white-text"}, [
+                                m("img", {src: (u.imagine != "") ? u.imagine : "http://placeskull.com/100/100/4caf50"}),
+                                m("span", (u.first_name != "") ? u.first_name : u.email.split('@')[0])
+                            ])
+                        ])
+
+                    })
+                )
+            }
+        };
+
+        const Nouser = {
+            view: () => {
+                return m("h6", "Fi primul la share! Apasa buttonul din dreapta jos!")
+            }
+        };
+
+
+        if (response.status === 200 & response.current_user_added == false) {
+            // are sheriasi, userul curent nu este adaugat
             createAddMeBtn(response);
-            
-            // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
-
-            let urlroot = document.baseURI.replace(document.location.pathname, "/cont/utilizator/");
-            let id_anunt = document.location.pathname.split("/")["2"];
-
-            const Sherias = {
-                    view: () => {
-                        return m("div", 
-                            colegideshare.map((u) => { return m("a", {href: String(urlroot + u.id + "/" + id_anunt)}, [
-                                    m("div", {class: "chip blue-grey darken-2 white-text"}, [
-                                        m("img", {src: (u.imagine != "") ? u.imagine : "http://placeskull.com/100/100/4caf50"}),
-                                        m("span", (u.first_name != "") ? u.first_name : u.email.split('@')[0])
-                                    ])
-                                ])
-
-                            })
-                        )
-                    }
-                };
-
+            makeSheriasidiv();
             m.mount(document.getElementById("sheriasi"), Sherias);
-
         }
-        else if (response.status === 204) {
+
+        else if (response.status === 204 & response.current_user_added == false) {
+            // nu are sheriasi, userul curent nu este adaugat
             createAddMeBtn(response);
-            const Nouser = {
-                view: () => {
-                    return m("h6", "Fi primul la share! Apasa buttonul din dreapta jos!")
-                }
-            };
-
+            makeSheriasidiv();
             m.mount(document.getElementById("sheriasi"), Nouser);
-
         }
+
+        else if (response.status == 200 & response.current_user_added) {
+            // are sheriasi, userul curent este adaugat
+            makeSheriasidiv();
+            m.mount(document.getElementById("sheriasi"), Sherias);
+        }
+
+        else {
+            console.log("eroare colegi de share");
+        }
+
     });
 
-}, false);
+};
+
+
+document.addEventListener("DOMContentLoaded", Sheriasi, false);
 
 
