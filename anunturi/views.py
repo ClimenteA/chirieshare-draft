@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
 from users.models import User
 
-from .models import Anunturi, Mesaje
+from .models import Anunturi, Mesaje, Sheriasi
 from .forms import AnunturiForm
 
 
@@ -43,7 +43,7 @@ def adauga(request):
 
 def sheriasi(request, id_anunt):
 
-    colegideshare_ids = Share.objects.filter(anunt_id=id_anunt).values_list('user_id', flat=True)
+    colegideshare_ids = Sheriasi.objects.filter(anunt_id=id_anunt).values_list('user_id', flat=True)
     current_user_added = True if request.user.id in colegideshare_ids else False
 
     colegideshare = []
