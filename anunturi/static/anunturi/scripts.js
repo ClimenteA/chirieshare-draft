@@ -101,7 +101,7 @@ function createAddMeBtn(response){
         view: () => {
             return m('button', {onclick: () => {
                 joinLaShare();
-            }, "class":"btn-floating btn waves-effect waves-light green",
+            }, "class":"btn-floating btn waves-effect waves-light green add-rem-btn",
                 "title":"vreau sa impart chiria pentru acest imobil cu alti colegi"
                 }, [
                     m("i", {"class": "material-icons"}, "add")
@@ -110,11 +110,6 @@ function createAddMeBtn(response){
     };
 
     m.mount(root, Add);
-    // M.Tooltip.init(document.querySelectorAll('.tooltipped'));
-    let btn = root.getElementsByTagName("button")[0];
-    btn.style.position = 'absolute';
-    btn.style.bottom = '2rem';
-    btn.style.right = '2rem';
 
 }
 
@@ -131,7 +126,7 @@ function createRemoveMeBtn(response){
         view: () => {
             return m('button', {onclick: () => {
                 removeLaShare();
-            }, "class":"btn-floating btn waves-effect waves-light red lighten-1",
+            }, "class":"btn-floating btn waves-effect waves-light red lighten-1 add-rem-btn",
                 "title":"scoate-ma de la share!"
                 }, [
                     m("i", {"class": "material-icons"}, "remove")
@@ -140,11 +135,6 @@ function createRemoveMeBtn(response){
     };
 
     m.mount(root, Remove);    
-    // M.Tooltip.init(document.querySelectorAll('.tooltipped'));
-    let btn = root.getElementsByTagName("button")[0];
-    btn.style.position = 'absolute';
-    btn.style.bottom = '2rem';
-    btn.style.right = '2rem';
 
 }
 
