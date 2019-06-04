@@ -226,4 +226,3 @@ function Sheriasi(){
 
 document.addEventListener("DOMContentLoaded", Sheriasi, false);
 
-

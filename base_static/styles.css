@@ -379,6 +379,19 @@ width: inherit;
     border-radius: 0.3rem;
 }
 
+.fav-right {
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    font-size: 2rem;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+    z-index: 1;
+    border-radius: 0.3rem;
+}
+
 
 
 

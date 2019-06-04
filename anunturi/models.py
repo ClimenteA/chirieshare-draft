@@ -6,7 +6,10 @@ from django.conf import settings
 from users.models import User
 
 class Anunturi(models.Model):
-    
+    """
+        Model for add listing page
+    """
+
     inchiriere = (
         ("camere", "inchiriez pe camere"),
         ("imobil", "inchiriez un imobil")
@@ -87,3 +90,10 @@ class Mesaje(models.Model):
     data_trimiterii = models.DateTimeField(auto_now_add=True)
 
 
+class Favourite(models.Model):
+    """
+        Here will be stored all saved listings by user
+    """
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    anunt = models.ForeignKey(Anunturi, on_delete=models.CASCADE)
+    data_salvarii = models.DateTimeField(auto_now_add=True)

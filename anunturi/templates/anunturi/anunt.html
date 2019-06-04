@@ -8,13 +8,16 @@
 <div id="carouselContainer">
 
     <h6 class="blue-grey-text text-darken-2 flow-text bold">
+
         {{anunt.tip_imobil}} 
         {% if anunt.camere_libere == '1' %}
             {{ anunt.camere_libere }} camera. 
         {% else %}{{ anunt.camere_libere }} camere.  
         {% endif %}
         {{ anunt.localitate }}, {{ anunt.zona }} 
+        
         <span class="euro green-text">/{{ anunt.pret }} </span>
+
     </h6>
 
     <div class="carousel carousel-slider center">
@@ -38,7 +41,9 @@
 
 <div class="card blue-grey lighten-5 w640">
     <div class="card-content flex-center">
-
+        
+        <i class="material-icons medium waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+        
         <img class="circle" src="/media/{{ postat_de.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
         <span class="card-title">
             {% if postat_de.first_name  %} 
