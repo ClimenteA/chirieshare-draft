@@ -28,7 +28,7 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('cont/', include('users.urls')),
     path('anunturi/', include('anunturi.urls')),
-    path('detalii-anunt/', include('base_app.urls')),
+    path('detalii-anunt/<int:id_anunt>/', include('base_app.urls')),
     path('admin/', admin.site.urls),
 ] 
 
