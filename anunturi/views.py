@@ -12,7 +12,7 @@ from django.views.decorators.csrf import csrf_protect, csrf_exempt
 
 from users.models import User
 
-from .models import Anunturi, Mesaje, Sheriasi
+from .models import Anunturi, Mesaje, Sheriasi, Favourite
 from .forms import AnunturiForm
 
 
@@ -126,6 +126,29 @@ def remove_sheriasi(request, id_anunt):
     # print("remove", users)
 
     return redirect('sheriasi', id_anunt=id_anunt)
+
+
+
+@login_required
+def add_favourite(request, id_anunt):
+    
+    Favourite.objects.create(
+        anunt_id=id_anunt,
+        user_id=request.user.id
+    ).save()
+    
+    return JsonResponse({'status': 200})
+
+
+@login_required
+def remove_favourite(request, id_anunt):
+    
+    Favourite.objects.filter(
+        anunt_id=id_anunt,
+        user_id=request.user.id
+    ).delete()
+
+    return JsonResponse({'status': 200})
 
 
 
