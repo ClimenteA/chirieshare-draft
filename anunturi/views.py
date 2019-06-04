@@ -82,13 +82,28 @@ def join_sheriasi(request, id_anunt):
         Send message to all (if any) users joined to this listing 
     """
     
-    Sheriasi.objects.create(anunt_id= id_anunt, user_id = request.user.id).save()
+    Sheriasi.objects.create(anunt_id=id_anunt, user_id=request.user.id).save()
+    #Send messages to all sheriasi 
+
+    return redirect('sheriasi', id_anunt=id_anunt)
+
+    
+
+
+@login_required
+def remove_sheriasi(request, id_anunt):
+    """
+        Remove current user from Sheriasi table
+        Send message to all (if any) users joined to this listing 
+    """
+    
+    Sheriasi.objects.filter(anunt_id=id_anunt, user_id=request.user.id).delete()
+    #Send messages to all sheriasi 
 
 
 
     return redirect('sheriasi', id_anunt=id_anunt)
 
-    
 
 
 

@@ -55,15 +55,32 @@ clipboard.on('error', (e) => {
 });
 
 
-// Adauga-ma la share
 
 function joinLaShare() {
-    
+    // Adauga-ma la share
+
     let id_anunt = document.location.pathname.split("/")["2"];
     
     m.request({
         method: "GET",
         url: `/anunturi/join-sheriasi/${id_anunt}`,
+    }).then((response) => {
+        console.log(response);
+        Sheriasi();
+        document.getElementById("colegideshare").getElementsByTagName("button")[0].remove();
+        createRemoveMeBtn(response);
+    });
+};
+
+
+function removeLaShare() {
+    // Scoate-ma de la share
+        
+    let id_anunt = document.location.pathname.split("/")["2"];
+    
+    m.request({
+        method: "GET",
+        url: `/anunturi/remove-sheriasi/${id_anunt}`,
     }).then((response) => {
         console.log(response);
         Sheriasi();
@@ -93,13 +110,41 @@ function createAddMeBtn(response){
     };
 
     m.mount(root, Add);
-    
-    M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+    // M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+    let btn = root.getElementsByTagName("button")[0];
+    btn.style.position = 'absolute';
+    btn.style.bottom = '2rem';
+    btn.style.right = '2rem';
 
-    let addbtn = root.getElementsByTagName("button")[0];
-    addbtn.style.position = 'absolute';
-    addbtn.style.bottom = '2rem';
-    addbtn.style.right = '2rem';
+}
+
+};
+
+
+function createRemoveMeBtn(response){
+    
+    let root = document.getElementById("colegideshare");
+
+    if (response.current_user_added) {
+    // <button class="btn-floating btn waves-effect waves-light green tooltipped" data-position="top" data-tooltip="click pe button daca ai vrea sa imparti chiria pentru acest imobil"><i class="material-icons">add</i></button>
+    const Remove = {
+        view: () => {
+            return m('button', {onclick: () => {
+                removeLaShare();
+            }, "class":"btn-floating btn waves-effect waves-light red lighten-1",
+                "title":"scoate-ma de la share!"
+                }, [
+                    m("i", {"class": "material-icons"}, "remove")
+                ])
+        }
+    };
+
+    m.mount(root, Remove);    
+    // M.Tooltip.init(document.querySelectorAll('.tooltipped'));
+    let btn = root.getElementsByTagName("button")[0];
+    btn.style.position = 'absolute';
+    btn.style.bottom = '2rem';
+    btn.style.right = '2rem';
 
 }
 
@@ -107,9 +152,15 @@ function createAddMeBtn(response){
 
 
 function makeSheriasidiv(){
-    let container_sheriasi = document.createElement('div');
-    container_sheriasi.setAttribute("id", "sheriasi");
-    document.getElementById("colegideshare").appendChild(container_sheriasi);
+    
+    let sheriasi_exists = document.body.contains(document.getElementById("sheriasi"));
+
+    if (!(sheriasi_exists)){
+        let container_sheriasi = document.createElement('div');
+        container_sheriasi.setAttribute("id", "sheriasi");
+        document.querySelector("div.card:nth-child(4) > div:nth-child(1)").appendChild(container_sheriasi);
+    }
+
 };
 
 
@@ -171,6 +222,7 @@ function Sheriasi(){
             // are sheriasi, userul curent este adaugat
             makeSheriasidiv();
             m.mount(document.getElementById("sheriasi"), Sherias);
+            createRemoveMeBtn(response);
         }
 
         else {
