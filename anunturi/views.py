@@ -84,6 +84,18 @@ def join_sheriasi(request, id_anunt):
     
     Sheriasi.objects.create(anunt_id=id_anunt, user_id=request.user.id).save()
     #Send messages to all sheriasi 
+    users = Sheriasi.objects.filter(anunt_id=1).values_list('user_id', flat=True)
+    users = [u for u in users if not u == request.user.id]
+    
+    for destinatar in users:
+        Mesaje.objects.create(
+            mesaj="Sunt interesat sa impart chiria pentru acest imobil!",
+            anunt_id=id_anunt,
+            destinatar_id=destinatar,
+            expeditor_id=request.user.id
+        ).save()
+
+    # print("join", users)
 
     return redirect('sheriasi', id_anunt=id_anunt)
 
@@ -99,8 +111,18 @@ def remove_sheriasi(request, id_anunt):
     
     Sheriasi.objects.filter(anunt_id=id_anunt, user_id=request.user.id).delete()
     #Send messages to all sheriasi 
+    users = Sheriasi.objects.filter(anunt_id=1).values_list('user_id', flat=True)
+    users = [u for u in users if not u == request.user.id]
 
+    for destinatar in users:
+        Mesaje.objects.create(
+            mesaj="Nu mai sunt interesat sa impart chiria pentru acest imobil!",
+            anunt_id=id_anunt,
+            destinatar_id=destinatar,
+            expeditor_id=request.user.id
+        ).save()
 
+    # print("remove", users)
 
     return redirect('sheriasi', id_anunt=id_anunt)
 
