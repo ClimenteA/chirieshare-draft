@@ -170,6 +170,68 @@ el_ulnav.children[4].style.display = "none";
 el_ulnav.children[5].style.display = "none";
 el_ulnav.children[6].style.display = "none";
 
+
+// Disable 'Camere ocupate' daca este selectat 'inchiriez un imobil' si invers
+
+document.getElementById("id_tip_inchiriere_0").addEventListener('click', () => {
+    let ocupate = document.querySelector("div.row:nth-child(5) > div:nth-child(3) > div:nth-child(1) > input:nth-child(1)");
+    ocupate.disabled = false;
+}, false);
+
+document.getElementById("id_tip_inchiriere_1").addEventListener('click', () => {
+    let ocupate = document.querySelector("div.row:nth-child(5) > div:nth-child(3) > div:nth-child(1) > input:nth-child(1)");
+    ocupate.disabled = true;
+}, false);
+
+
+
+
+
+// Verifica datele inainte de a trimite datele spre server
+
+document.querySelector("button.btn-large").addEventListener("click", (event) => {
+
+    let cam_libere = document.querySelector("div.row:nth-child(5) > div:nth-child(2) > div:nth-child(1) > input:nth-child(1)");
+    let cam_ocupate = document.querySelector("div.row:nth-child(5) > div:nth-child(3) > div:nth-child(1) > input:nth-child(1)");
+
+    if (document.getElementById("id_tip_inchiriere_0").checked){
+
+        if (cam_libere.value === "0 camere"){
+            M.toast({html: 'Trebuie sa ai cel putin o camera libera!', classes:"red lighten-1 bold"});
+            cam_libere.focus();
+            event.preventDefault();
+        }else {
+            if (cam_ocupate.value === "0 camere"){
+                M.toast({html: 'Daca inchiriezi pe camere trebuie sa ai cel putin 1 camera ocupata!', classes:"red lighten-1 bold"});
+                cam_ocupate.focus();
+                event.preventDefault();
+            }
+        }
+    }
+
+
+    if (document.getElementById("id_tip_inchiriere_1").checked) {
+        if (cam_libere.value === "0 camere"){
+            M.toast({html: 'Mentionaza numarul de camere!', classes:"red lighten-1 bold"});
+            cam_libere.focus();
+            event.preventDefault();
+        }
+    }
+
+
+}, false);
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
