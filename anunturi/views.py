@@ -110,6 +110,7 @@ def remove_sheriasi(request, id_anunt):
     """
     
     Sheriasi.objects.filter(anunt_id=id_anunt, user_id=request.user.id).delete()
+    
     #Send messages to all sheriasi 
     users = Sheriasi.objects.filter(anunt_id=1).values_list('user_id', flat=True)
     users = [u for u in users if not u == request.user.id]
