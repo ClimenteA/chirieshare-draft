@@ -18,7 +18,7 @@ function handleFavorite(action, fav){
             method: "GET",
             url: `/anunturi/adauga-favorit/${id_anunt}`,
         }).then((response) => {
-            console.log(response);
+            // console.log(response);
             M.toast({html: 'Adaugat la favorite!'});
         });
 
@@ -29,14 +29,12 @@ function handleFavorite(action, fav){
             method: "GET",
             url: `/anunturi/scoate-favorit/${id_anunt}`,
         }).then((response) => {
-            console.log(response);
+            // console.log(response);
             M.toast({html: 'Scos de la favorite!'});
         });
     }
 
 };
-
-
 
 
 //Toggle favourite send the request to server

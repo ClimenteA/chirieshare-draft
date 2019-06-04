@@ -65,7 +65,7 @@ function joinLaShare() {
         method: "GET",
         url: `/anunturi/join-sheriasi/${id_anunt}`,
     }).then((response) => {
-        console.log(response);
+        // console.log(response);
         Sheriasi();
         document.getElementById("colegideshare").getElementsByTagName("button")[0].remove();
         createRemoveMeBtn(response);
@@ -82,7 +82,7 @@ function removeLaShare() {
         method: "GET",
         url: `/anunturi/remove-sheriasi/${id_anunt}`,
     }).then((response) => {
-        console.log(response);
+        // console.log(response);
         Sheriasi();
         document.getElementById("colegideshare").getElementsByTagName("button")[0].remove();
     });
@@ -163,7 +163,7 @@ function Sheriasi(){
         url: `/anunturi/sheriasi/${id_anunt}`,
     }).then((response) => {
         
-        console.log(response);
+        // console.log(response);
 
         document.getElementById("colegideshare").classList = [];
 
@@ -213,10 +213,6 @@ function Sheriasi(){
             makeSheriasidiv();
             m.mount(document.getElementById("sheriasi"), Sherias);
             createRemoveMeBtn(response);
-        }
-
-        else {
-            console.log("eroare colegi de share");
         }
 
     });
