@@ -6,10 +6,41 @@
 
 
 
+<h2>Mesaje</h2>
 
 
 
+<ul class="collection">
+<li class="collection-item avatar">
+    <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+    <span class="title">Climente Alin</span>
+    <p>Inginer, M, 23 ani</p>
+    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+</li>
 
+<li class="collection-item avatar">
+    <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+    <span class="title">Octavian Melu</span>
+    <p>Inginer, M, 23 ani</p>
+    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+</li>
+
+<li class="collection-item avatar">
+    <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+    <span class="title">Ciupligan Daniel</span>
+    <p>Inginer, M, 23 ani</p>
+    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+</li>
+
+<li class="collection-item avatar">
+    <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+    <span class="title">Dragos Valeriu</span>
+    <p>Inginer, M, 23 ani</p>
+
+    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+</li>
+
+</ul>
 
 
 
@@ -28,6 +59,14 @@
 <script src="{% static 'clipboard.min.js' %}"></script>
 <link rel="stylesheet" href="{% static 'users/styles.css' %}">
 <script src="{% static 'users/scripts.js' %}"></script>
+
+<style>
+
+    ul {
+        min-width: 300px;
+    }
+
+</style>
 
 
 {% endblock %}
