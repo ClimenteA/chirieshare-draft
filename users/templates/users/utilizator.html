@@ -32,9 +32,9 @@
                         {{ utilizator_share.ocupatie }},   
                     {% endif %}
 
-                    {% if utilizator_share.sex %}
+                    {% ifnotequal utilizator_share.sex "N" %}
                         {{ utilizator_share.sex }},
-                    {% endif %}
+                    {% endifnotequal %}
 
                     {% if utilizator_share.varsta %}
                         {{ utilizator_share.varsta }} ani 
@@ -113,9 +113,9 @@
                         {{ user.ocupatie }},   
                     {% endif %}
 
-                    {% if user.sex %}
+                    {% ifnotequal user.sex "N" %}
                         {{ user.sex }},
-                    {% endif %}
+                    {% endifnotequal %}
 
                     {% if user.varsta %}
                         {{ user.varsta }} ani 

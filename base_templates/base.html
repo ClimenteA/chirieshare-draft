@@ -64,9 +64,9 @@
                 {{ user.ocupatie }},   
             {% endif %}
 
-            {% if user.sex %}
+            {% ifnotequal user.sex "N" %}
                 {{ user.sex }},
-            {% endif %}
+            {% endifnotequal %}
 
             {% if user.varsta %}
                 {{ user.varsta }} ani 
