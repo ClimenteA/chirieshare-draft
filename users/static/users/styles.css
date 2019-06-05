@@ -1,1 +1,19 @@
 /* Some scoped css */
+
+.w640 {
+    max-width: 540px;
+    min-width: 300px;
+    margin-top:2rem;
+}
+
+@media (max-width: 420px){
+    .w640, #carouselContainer {
+        width: 100vw;
+    }
+}
+
+
+main {
+    display: block;
+    margin: 0 auto;
+}

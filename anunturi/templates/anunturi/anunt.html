@@ -42,11 +42,7 @@
 <div class="card blue-grey lighten-5 w640">
     <div class="card-content flex-center">
         
-        {% if user.is_authenticated %}
-            <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
-        {% else %}
-            <a href="{% url 'autentificare' %}"><i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i></a>
-        {% endif %}
+        <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
         
         <img class="circle" src="/media/{{ postat_de.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
         <span class="card-title">
