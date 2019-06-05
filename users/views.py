@@ -97,6 +97,17 @@ def utilizator(request, id_user=None, id_anunt=None):
 
 
 @login_required
+def message(request, id_user, id_anunt):
+    
+    context = {}
+    
+    return render(request, template_name="users/messaging.html", context=context) 
+
+
+
+
+
+@login_required
 def actualizare(request):
     
     if request.method == "POST":

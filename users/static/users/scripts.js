@@ -55,7 +55,7 @@ document.getElementById("mesaj_client").addEventListener("keyup", (event) => {
 
             mesaj.value = "";
 
-            console.log("Sent: ", data);
+            // console.log("Sent: ", data);
             
             m.request({
                 method: "GET",
@@ -76,6 +76,32 @@ document.getElementById("mesaj_client").addEventListener("keyup", (event) => {
     }
 
 }, false);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -169,7 +169,7 @@ function Sheriasi(){
         document.getElementById("colegideshare").classList = [];
 
         // <a href="#contact-info"><div class="chip blue-grey darken-2 white-text"><img src="http://placeskull.com/100/100/4caf50">Cosmin Tana</div></a> 
-        let urlroot = document.baseURI.replace(document.location.pathname, "/cont/utilizator/");
+        let urlroot = document.baseURI.replace(document.location.pathname, "/cont/message/");
         let id_anunt = document.location.pathname.split("/")["2"];
         let colegideshare = response.colegideshare;
 

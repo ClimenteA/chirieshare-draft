@@ -11,6 +11,6 @@ urlpatterns = [
     path('delogare/', views.delogare, name="delogare"),
     path('resetare/', views.resetare, name="resetare"),
     path('utilizator/', views.utilizator, name="utilizator"),
-    path('utilizator/<int:id_user>/<int:id_anunt>', views.utilizator, name="utilizator"),
+    path('message/<int:id_user>/<int:id_anunt>', views.message, name="message"),
     path('actualizare/', views.actualizare, name="actualizare")
 ]
