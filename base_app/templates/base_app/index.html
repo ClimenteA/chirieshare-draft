@@ -174,7 +174,11 @@
             <a href="/detalii-anunt/{{ anunt.id }}"><img src="/media/{{ anunt.img1 }}"> 
             <h6 class="listing-title blue-grey lighten-5 bold blue-grey-text text-darken-1">{{anunt.tip_imobil}} {% if anunt.camere_libere == '1' %}{{ anunt.camere_libere }} camera. {% else %}{{ anunt.camere_libere }} camere.  {% endif %}{{ anunt.localitate }}, {{ anunt.zona }}</h6>
             </a>
-            <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+            {% if user.is_authenticated %}
+                <i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i>
+            {% else %}
+                <a href="{% url 'autentificare' %}"><i class="material-icons small waves-effect waves-light fav blue-grey-text text-lighten-2">favorite_border</i></a>
+            {% endif %}
             <span class="price green lighten-1 white-text bold">{{ anunt.pret }} </span>      
         </div>
         {% endfor %}
