@@ -114,7 +114,7 @@
                     {% endif %}
 
                     {% ifnotequal user.sex "N" %}
-                        {{ user.sex }},
+                        {{ user.sex }}
                     {% endifnotequal %}
 
                     {% if user.varsta %}
@@ -156,15 +156,113 @@
         </div>
 
 
-        <div id="mesaje">
+        <div id="mesaje" class="blue-grey lighten-5">
+            
+            <h5 class="blue-grey lighten-5 blue-grey-text text-darken-3 bold center">Mesaje</h5>
+
+            <ul class="collection none">
+
+                <li class="collection-item avatar">
+                    <a href="#!">
+                        <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                    </a>
+                    <span class="title">Climente Alin</span>
+                    <p>Inginer, M, 23 ani</p>
+                    <a href="#!" class="secondary-content"><span class="new badge green">4</span></a>
+                </li>
+                
+                <li class="collection-item avatar">
+                    <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                    <span class="title">Octavian Melu</span>
+                    <p>Inginer, M, 23 ani</p>
+                    <a href="#!" class="secondary-content"><span class="new badge green">4</span></a>
+                </li>
+                
+                <li class="collection-item avatar">
+                    <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                    <span class="title">Ciupligan Daniel</span>
+                    <p>Inginer, M, 23 ani</p>
+                    <a href="#!" class="secondary-content"><span class="new badge green">4</span></a>
+                </li>
+                
+                <li class="collection-item avatar">
+                    <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                    <span class="title">Dragos Valeriu</span>
+                    <p>Inginer, M, 23 ani</p>
+                
+                    <a href="#!" class="secondary-content"><span class="new badge green">4</span></a>
+                </li>
+
+                                
+                <li class="collection-item avatar">
+                        <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                        <span class="title">Dragos Valeriu</span>
+                        <p>Inginer, M, 23 ani</p>
+                    
+                        <a href="#!" class="secondary-content"><span class="new badge green">4</span></a>
+                    </li>
+
+                                    
+                <li class="collection-item avatar">
+                        <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                        <span class="title">Dragos Valeriu</span>
+                        <p>Inginer, M, 23 ani</p>
+                    
+                        <a href="#!" class="secondary-content"><span class="new badge green">4</span></a>
+                    </li>
+
+                                    
+                <li class="collection-item avatar">
+                        <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                        <span class="title">Dragos Valeriu</span>
+                        <p>Inginer, M, 23 ani</p>
+                    
+                        <a href="#!" class="secondary-content"><span class="new badge green">4</span></a>
+                    </li>
+
+                                    
+                <li class="collection-item avatar">
+                        <img class="circle" src="/media/{{ user.imagine }}" onerror="this.src='http://placeskull.com/100/100/4caf50'">
+                        <span class="title">Dragos Valeriu</span>
+                        <p>Inginer, M, 23 ani</p>
+                    
+                        <a href="#!" class="secondary-content"><span class="new badge green">4</span></a>
+                    </li>
+                    
+            </ul>
+
+            <div id="chat-window">
+                <section>
+
+                </section>
+                <div class="row">
+                    <div class="col s10">
+                        <div class="input-field">
+                            <input id="first_name" type="text" class="validate" placeholder="Trimite mesaj..">
+                        </div>
+                    </div>
+                    <div class="col s2">
+                        <button class="btn-small"><i class="material-icons">send</i></button>
+                    </div>
+                </div>
+
+            </div>
 
         </div>
+
+
 
         <div id="anunturi-postate">
 
         </div>
 
+
         <div id="anunturi-favorite">
+            
+        </div>
+
+
+        <div id="anunturi-joined-lashare">
             
         </div>
 

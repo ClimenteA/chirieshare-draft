@@ -17,3 +17,22 @@ main {
     display: block;
     margin: 0 auto;
 }
+
+
+span.badge.new, 
+span.badge
+{
+    position: relative;
+    top: unset;
+    left: unset;
+    color: white;
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+
+#mesaje, #chat-window {
+    display: block;
+    height: 300px;
+    overflow: auto;
+}

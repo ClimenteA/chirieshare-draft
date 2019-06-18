@@ -30,10 +30,10 @@ def logare(request):
                 return redirect("/")
             else:
                 messages.error(request, 'Emailul introdus nu este in baza de date!')
-                return redirect("/")
+                return redirect("logare")
         else:
             messages.error(request, 'Datele trimise nu sunt valide!')
-            return redirect("/")
+            return redirect("logare")
     else:
         form = UserForm() #send an empty form
         
@@ -55,13 +55,13 @@ def inregistrare(request):
                     password=form.cleaned_data['password']
                 )
                 messages.success(request, 'Acum poti sa te loghezi in contul tau!')
-                return redirect("/")
+                return redirect("logare")
             else:
                 messages.error(request, 'Emailul exista in baza de date!')
-                return redirect("/")
+                return redirect("logare")
         else:
             messages.error(request, 'Datele trimise nu sunt valide!')
-            return redirect("/") 
+            return redirect("logare") 
     else:
         form = UserForm() #send an empty form
 
